@@ -1,0 +1,37 @@
+<template name="priceList">
+    <view class="priceList">
+        <block wx:for="{{priceList}}" wx:for-item="priceItem" wx:key="index">
+            <image class="style5" mode="widthFix" src="{{priceItem.icon}}" wx:if="{{priceItem.style==5}}"></image>
+            <block wx:else>
+                <view class="'style{{priceItem.style}}'" style="background-color:{{color.getFormatColor(priceItem.bg_color)}}; color:{{color.getFormatColor(priceItem.text_color)}}; font-size:{{priceItem.font_size}}px; margin-right:{{priceItem.rightMargin}}px; {{color.getBorder(priceItem.border_color)}}" wx:if="{{priceItem}}">
+                    <view bindtap="goodsTap" class="style3_extra" data-buymemcard="true" data-skuid="{{goodsitem.sku_id}}" wx:if="{{priceItem.style==3}}">
+                        <image class="bubble_image" mode="widthFix" src="/images/black_bubble.png"></image>
+                        <text class="bubble_txt">{{priceItem.extraDesc}}</text>
+                    </view>
+                    <text>{{priceItem.text}}</text>
+                </view>
+            </block>
+        </block>
+    </view>
+</template>
+<wxs module="color">
+var getFormatColor = (function(originColor) {
+    if (originColor) {
+        var formatColor = originColor.replace('0x', '#');
+        return (formatColor)
+    } else {
+        return (originColor)
+    }
+});
+var getBorder = (function(borderColor) {
+    if (borderColor) {
+        var border = borderColor.replace('0x', '#');
+        border = "border:1rpx solid " + border + ";";
+        return (border)
+    } else {
+        return ("")
+    }
+});
+module.exports.getFormatColor = getFormatColor;
+module.exports.getBorder = getBorder;
+</wxs>

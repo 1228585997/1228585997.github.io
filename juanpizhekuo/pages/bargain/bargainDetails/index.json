@@ -1,0 +1,16 @@
+{
+    "navigationBarTitleText": "砍价免费领",
+    "usingComponents": {
+        "congratulation": "./components/Congratulation/index",
+        "countdown": "./components/Countdown/index",
+        "express": "./components/Express/index",
+        "friends": "./components/Friends/index",
+        "marquee": "../components/Marquee/index",
+        "my-button": "./components/Button/index",
+        "product": "./components/Product/index",
+        "qrcode": "./components/QRCode/index",
+        "rules": "./components/Rules/index",
+        "network-failed": "/components/NetworkFailed/index",
+        "goods-item": "../components/GoodsItem/index"
+    }
+}

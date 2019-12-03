@@ -1,0 +1,25 @@
+<scroll-view enableBackToTop bindscrolltolower="scrollGetList" class="view-list" scrollY="true">
+    <view class="contaniner {{countList.length>0?'':'contaniner_empty'}}" data-a="{{countList.length}}">
+        <view class="listContent" wx:if="{{countList.length}}">
+            <view bindtap="withdrawClick" class="listOne" data-id="{{item.cash_id}}" wx:for="{{countList}}" wx:key="{{index}}">
+                <view class="listOneLeft">
+                    <view class="getWay">{{item.trade_msg}} <text wx:if="{{item.valid}}">（{{item.valid}}过期）</text>
+                    </view>
+                    <view class="getBalanceNum">余额：{{item.balance}}</view>
+                </view>
+                <view class="listOneRight">
+                    <view class="{{item.fontclass}}">
+                {{item.direction}}{{item.amout}}
+              </view>
+                    <view class="getTime">{{item.add_time}}</view>
+                </view>
+                <text class="angle" wx:if="{{item.cash_id>0}}"></text>
+            </view>
+        </view>
+        <view class="empty" wx:else>
+            <image class="emptyImg" src="https://jp.juancdn.com/wxMapp/vip/emptyImg.png"></image>
+            <view class="emptytips">暂无收支明细</view>
+        </view>
+    </view>
+</scroll-view>
+<include src="/components/toast/toast.wxml"></include>

@@ -1,0 +1,10 @@
+<view class="modal" wx:if="{{showloading==1}}">
+    <view class="normal_loading">
+        <view class="box other">
+            <view class="loading2">
+                <image src="/images/loading_bag.png"></image>
+                <image class="circle-rotating" src="/images/loading_circle.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

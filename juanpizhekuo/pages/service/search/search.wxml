@@ -1,0 +1,29 @@
+<view class="container">
+    <view class="search_page" wx:if="{{ContentShow}}">
+        <view class="search_box">
+            <image class="search_icon" src="../../../images/search_icon.png"></image>
+            <input autoFocus bindinput="searchInput" class="search_input" placeholder="常见问题搜索" placeholderClass="placeholder-text"></input>
+            <view bindtap="searchQuestion" class="search_button" data-activity="click_category_search">搜索</view>
+        </view>
+        <view class="question_list" hidden="{{hasContent}}">
+            <view class="all_search" hidden="{{show_all}}">
+                <text class="all_text">大家都在问：</text>
+            </view>
+            <navigator class="question_link" hoverClass="none" url="{{question_item.jmp_url}}" wx:for="{{question_list}}" wx:for-index="question_index" wx:for-item="question_item" wx:key="question">
+                <view class="rich">
+                    <rich-text class="question_string" nodes="{{question_item.content}}"></rich-text>
+                </view>
+                <view class="icon_right angle"></view>
+            </navigator>
+        </view>
+        <view class="no_content" hidden="{{!hasContent}}">
+            <image class="no_img" src="/images/goods_empty.png"></image>
+            <text class="no_q">暂无相关问题</text>
+            <text class="change_key">您也可以换个词再试试</text>
+        </view>
+    </view>
+    <view class="upgrade_tip" wx:if="{{!ContentShow}}">
+        <icon class="icon_info" size="19" type="info"></icon>
+        <text>当前版本过低，请升级微信</text>
+    </view>
+</view>

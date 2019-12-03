@@ -1,0 +1,395 @@
+@import "../../../components/share/share.wxss";
+
+@import "../../../components/goods-list/index.wxss";
+
+page {
+    border-top: none;
+    background-color: #E6361C;
+}
+
+button::after {
+    border: none;
+}
+
+.invite-result-content {
+    padding: 0 24rpx;
+    margin-top: -150rpx;
+}
+
+.invite-bg {
+    width: 750rpx;
+    height: 244rpx;
+}
+
+.gotoIndex {
+    position: fixed;
+    right: 0;
+    top: 36rpx;
+    background: url('https://jp.juancdn.com/wxMapp/vip/gotoIndex.png');
+    width: 192rpx;
+    height: 56rpx;
+    background-size: 100% 100%;
+    z-index: 10;
+}
+
+.invite-result-content .invite-part {
+    background: #fff;
+    border-radius: 12rpx;
+    margin-bottom: 40rpx;
+    overflow: hidden;
+}
+
+.invite-result-content .share-person {
+    text-align: center;
+    padding: 52rpx 0 20rpx;
+}
+
+.icons-share-txt {
+    display: inline-block;
+    width: 432rpx;
+    height: 72rpx;
+}
+
+.invite-result-content .invite-goods {
+    color: #333;
+    font-size: 28rpx;
+}
+
+.invite-goods .goods-list {
+    clear: both;
+    zoom: 1;
+    overflow: hidden;
+    margin-top: 32rpx;
+    margin-left: 24rpx;
+}
+
+.invite-goods .pic {
+    float: left;
+    width: 180rpx;
+    height: 180rpx;
+    margin-right: 20rpx;
+}
+
+.goods-list .goods-pic {
+    width: 180rpx;
+    height: 180rpx;
+}
+
+.goods-list .texts {
+    border-bottom: 1px solid #e7e7e7;
+    width: 454rpx;
+    word-break: break-all;
+    text-align: left;
+    float: left;
+    padding-bottom: 26rpx;
+}
+
+.goods-list:last-child .texts {
+    border-bottom: none;
+}
+
+.goods-list .goods-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 36rpx;
+    margin-bottom: 16rpx;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.goods-list .goods-price {
+    margin-bottom: 10rpx;
+}
+
+.goods-list .new-price {
+    color: #151515;
+    font-size: 32rpx;
+    line-height: 32rpx;
+    margin-right: 8rpx;
+}
+
+.goods-list .old-price {
+    color: #ff464e;
+    font-size: 32rpx;
+    line-height: 32rpx;
+}
+
+.goods-list .goods-buy-hanle {
+    float: right;
+}
+
+.goods-list .buy-info {
+    color: #E6361C;
+    font-weight: 600;
+    float: left;
+    margin-top: 10rpx;
+}
+
+.buy-info .txts-a {
+    font-size: 20rpx;
+    margin-right: 4rpx;
+}
+
+.buy-info .txts-b {
+    font-size: 32rpx;
+}
+
+.hanle-info {
+    float: right;
+}
+
+.hanle-info .hanle-btn {
+    background: #E6361C;
+    border-radius: 6rpx;
+    color: #fff;
+    width: 168rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    text-align: center;
+    font-size: 24rpx;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.bind-invite-result {
+    background: #FFF9F0;
+    color: #333;
+    font-size: 24rpx;
+    text-align: center;
+    padding: 48rpx 0;
+}
+
+.bind-pic {
+    display: inline-block;
+    margin-right: 24rpx;
+    vertical-align: -5rpx;
+}
+
+.bind-pic .icons-sub-mark {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.bind-desc {
+    display: inline-block;
+}
+
+.bind-result-txt {
+    font-size: 32rpx;
+    line-height: 40rpx;
+    margin-bottom: 8rpx;
+    text-align: left;
+    font-weight: bold;
+}
+
+.bind-result-peo {
+    font-size: 24rpx;
+    color: #333;
+    min-height: 32rpx;
+    line-height: 32rpx;
+}
+
+.t-red {
+    color: #FF644D;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.bind-invite-result.bind-success .bind-result-txt {
+    color: #29CC6D;
+}
+
+.bind-invite-result.bind-failed .bind-result-txt {
+    color: #FF644D;
+}
+
+.invite-result-content .invite-kinds {
+    padding-top: 60rpx;
+    text-align: center;
+}
+
+.invite-result-content .icons-invite-kinds {
+    display: inline-block;
+    width: 624rpx;
+    height: 304rpx;
+    margin-bottom: 52rpx;
+}
+
+.invite-result-content .invite-button {
+    text-align: center;
+}
+
+.invite-result-content .invite-button .invite-now {
+    background: #E6361C;
+    border-radius: 48rpx;
+    box-shadow: 0 12rpx 12rpx 0 rgba(247,68,53,0.16);
+    color: #fff;
+    display: inline-block;
+    width: 580rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 36rpx;
+    margin-bottom: 24rpx;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.person-jl {
+    font-size: 28rpx;
+    color: #E6361C;
+    text-align: center;
+    margin-bottom: 70rpx;
+}
+
+.goods-list .goods-price {
+    margin-top: 14rpx;
+    float: left;
+}
+
+.goods-list .coupons-price {
+    color: #ff464e;
+    font-size: 24rpx;
+    font-weight: bold;
+    line-height: 24rpx;
+    vertical-align: middle;
+    margin-right: 2rpx;
+}
+
+.goods-list .back-mark {
+    color: #151515;
+    font-size: 32rpx;
+    line-height: 32rpx;
+    margin-right: 2rpx;
+    vertical-align: -2rpx;
+}
+
+.goods-list .goods-buy-hanle {
+    float: right;
+}
+
+.goods-list .vip-sign {
+    margin-bottom: 28rpx;
+}
+
+.goods-list .vip-zx {
+    border-radius: 2rpx;
+    background: #FFF0DB;
+    color: #CC793D;
+    display: inline-block;
+    height: 28rpx;
+    line-height: 28rpx;
+    font-size: 20rpx;
+    padding: 0 4rpx;
+}
+
+.goods-list .new-zx {
+    border-radius: 2rpx;
+    background: #FFEBEC;
+    color: #ff464e;
+    display: inline-block;
+    height: 28rpx;
+    line-height: 28rpx;
+    font-size: 20rpx;
+    padding: 0 4rpx;
+}
+
+.goods-bottom {
+    overflow: hidden;
+    clear: both;
+    zoom: 1;
+}
+
+.invite-vip07 {
+    margin-top: 48rpx;
+    margin-bottom: 48rpx;
+    width: 100%;
+    position: relative;
+}
+
+.invite-vip07-pic {
+    display: block;
+    margin: 0 auto;
+    width: 630rpx;
+    height: 398rpx;
+}
+
+.invite-vip07-button {
+    position: absolute;
+    width: 120rpx;
+    height: 120rpx;
+    top: 164rpx;
+    left: 564rpx;
+}
+
+.invite-vip09 {
+    margin-bottom: 60rpx;
+    width: 100%;
+}
+
+.invite-vip09-pic {
+    display: block;
+    margin: 0 auto;
+    width: 604rpx;
+    height: 112rpx;
+}
+
+.make-money-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+
+.make-money-modal .ceng {
+    background: rgba(0,0,0,.45);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.make-money-modal .modal-content {
+    position: absolute;
+    top: 100rpx;
+    left: 50%;
+    margin-left: -315rpx;
+    width: 630rpx;
+    z-index: 101;
+}
+
+.invite-vip05 {
+    width: 100%;
+    margin-bottom: 30rpx;
+}
+
+.invite-vip05-pic {
+    display: block;
+    width: 630rpx;
+    height: 704rpx;
+}
+
+.invite-vip06 {
+    text-align: center;
+}
+
+.invite-vip06-pic {
+    display: block;
+    margin: 0 auto;
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.invite-result-goods .goods-list .vip-sign {
+    margin-bottom: 8rpx;
+}
+
+.more {
+    color: #FF644D;
+    display: inline;
+}

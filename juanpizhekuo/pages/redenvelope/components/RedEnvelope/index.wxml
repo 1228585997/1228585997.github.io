@@ -1,0 +1,59 @@
+<view class="redenv__root" wx:if="{{type>=0}}">
+    <view class="redenv__box redenv__box_{{bodyStyleType}}" style="{{boxStyle}}" wx:if="{{bodyStyleType!==2}}">
+        <image alt="close" bindtap="onTapClose" class="redenv__close" src="{{closeImage}}"></image>
+        <view class="redenv__money-box">
+            <text class="redenv__rmb">¥</text>
+            <text class="redenv__money">{{moneyShown}}</text>
+        </view>
+        <view class="redenv__body redenv__body_{{bodyStyleType}}" wx:if="{{bodyStyleType===0}}">
+            <view class="redenv__body-content">
+                <block wx:if="{{type===0}}">
+                    <text>恭喜帮开成功</text>
+                    <text>获得{{moneyShown}}元红包奖励</text>
+                </block>
+                <block wx:elif="{{type===1}}">
+                    <text>您当前累计获得</text>
+                    <text>红包奖励为{{moneyShown}}元</text>
+                </block>
+            </view>
+            <button class="redenv_btn redenv__btn_share" openType="share" style="{{m.buttonStyle(type,imageRefs)}}"></button>
+        </view>
+        <view class="redenv__body redenv__body_{{bodyStyleType}}" wx:elif="{{bodyStyleType===1}}">
+            <block wx:if="{{type===4}}">
+                <view class="redenv__body-content">
+                    <text>领取成功</text>
+                </view>
+                <view bindtap="onTapBtn" class="redenv_btn redenv__btn_using" style="{{m.buttonStyle(type,imageRefs)}}"></view>
+            </block>
+            <view bindtap="onTapBtn" class="redenv_btn redenv__btn_pure" style="{{m.buttonStyle(type,imageRefs)}}" wx:else></view>
+        </view>
+    </view>
+    <view class="redenv__box redenv__box_{{bodyStyleType}}" style="{{boxStyle}}" wx:else>
+        <image alt="close" bindtap="onTapClose" class="redenv__close" src="{{closeImage}}"></image>
+        <view class="redenv__body redenv__body_{{bodyStyleType}}">
+            <view bindtap="onTapBtn" class="redenv_btn redenv__btn_pure" style="{{m.buttonStyle(type,imageRefs)}}"></view>
+        </view>
+    </view>
+</view>
+<wxs module="m">
+function buttonStyle(type, imageRefs) {
+    var image;
+    if (type === 0 || type === 1) {
+        image = imageRefs.share_to_group
+    } else if (type === 2) {
+        image = imageRefs.claim
+    } else if (type === 3) {
+        image = imageRefs.join_second
+    } else if (type === 4) {
+        image = imageRefs.using_now
+    } else if (type === 5) {
+        image = imageRefs.open_treasure_box
+    };
+    if (image) {
+        return ("background-image:url(" + image + ");")
+    }
+};
+module.exports = ({
+    buttonStyle: buttonStyle,
+});
+</wxs>

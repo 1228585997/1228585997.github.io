@@ -1,0 +1,210 @@
+page {
+    background: #fff;
+}
+
+.container_in {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-bottom: 75px;
+}
+
+.split__line {
+    margin: 0 36rpx;
+    border-bottom: 1px solid rgba(5,5,5,.1);
+}
+
+.package {
+    background-color: #fff;
+}
+
+.package__title {
+    padding: 24rpx 36rpx;
+    color: #4a4a4a;
+    font-size: 14px;
+}
+
+.package__images__wrapper {
+    padding: 0 36rpx;
+    position: relative;
+}
+
+.package__images {
+    display: flex;
+    width: 280px;
+    height: 156rpx;
+    white-space: nowrap;
+    padding-bottom: 28rpx;
+}
+
+.imageContainer {
+    display: inline-block;
+    position: relative;
+}
+
+.package__goods--number {
+    position: absolute;
+    width: 120rpx;
+    left: 0;
+    bottom: 0px;
+    background: rgba(0,0,0,.4);
+    color: #fff;
+    text-align: center;
+    line-height: 12px;
+    height: 12px;
+}
+
+.package__image {
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 20rpx;
+}
+
+.package__total {
+    position: absolute;
+    right: 14px;
+    font-size: 14px;
+    color: #9B9B9B;
+    line-height: 16px;
+    top: 38%;
+}
+
+.package__infos {
+    padding: 18rpx 36rpx 28rpx;
+}
+
+.package__info {
+    display: flex;
+    margin-top: 10rpx;
+    position: relative;
+}
+
+.package__info__left {
+    color: #bbb;
+}
+
+.package__info--phone {
+    color: #027aff;
+}
+
+.operate__copy {
+    position: absolute;
+    background: #FFFFFF;
+    border: 1px solid #4A4A4A;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #4A4A4A;
+    padding: 4px 9px;
+    right: 2px;
+}
+
+.follow {
+    border-top: 1px solid rgba(5,5,5,.1);
+    background-color: #fff;
+    margin: 0 36rpx;
+    margin-bottom: 20rpx;
+}
+
+.follow__title {
+    padding: 28rpx 0;
+}
+
+.follow__nodes {
+    padding-bottom: 28rpx;
+}
+
+.follow__node {
+    padding-left: 56rpx;
+    padding-top: 48rpx;
+    position: relative;
+}
+
+.follow__node--active {
+    color: #ff464e;
+    padding-top: 0;
+    margin-top: 16rpx;
+}
+
+.follow__node__date {
+    color: #9b9b9b;
+    font-size: 12px;
+    margin-top: 16rpx;
+}
+
+.follow__line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    left: 6px;
+    top: 0;
+    background-color: #bbb;
+}
+
+.follow__node--active .follow__circle {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    left: 0;
+    top: 0;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ff464e;
+    border-radius: 7px;
+}
+
+.follow__circle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    left: 4px;
+    top: 28px;
+    background-color: #bbb;
+    border-radius: 2.5px;
+}
+
+.follow__node--active .follow__circle view {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 2px;
+    left: 2px;
+    background-color: #ff464e;
+    border-radius: 4px;
+}
+
+.text--gray {
+    color: #c7c7c7;
+}
+
+.bottom {
+    width: 100%;
+    height: 75px;
+    box-sizing: border-box;
+    padding-left: 5%;
+    border-top: 1px solid #EBEBEB;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 999;
+}
+
+.bottom .tip {
+    height: 17px;
+    line-height: 17px;
+    color: #666;
+    font-size: 12px;
+    margin: 10px 0 6px 0;
+}
+
+.Logistics_urge {
+    width: 74px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    color: #333333;
+    border-radius: 2px;
+    text-align: center;
+}

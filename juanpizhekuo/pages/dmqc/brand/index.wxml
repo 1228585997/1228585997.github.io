@@ -1,0 +1,66 @@
+<template name="withoutBrand">
+    <view class="win_container">
+        <image class="win_image" src="/images/search_no_brand.png"></image>
+        <text class="win_title">十分抱歉</text>
+        <text class="win_description">品牌库内暂无此品牌</text>
+        <input bindinput="favoriteInput" class="favoriteInput" placeholder="请在此写下你的心水大牌" type="text" value="{{brandInfo}}"></input>
+        <view class="bottom_bar">
+            <view bindtap="closeMask" class="bottom_btn" data-direction="none" data-target="noBrandPop">
+                <text style="color:#666">暂不</text>
+            </view>
+            <view class="gap"></view>
+            <view bindtap="tabUpload" class="bottom_btn">
+                <text style="color:#ff464e">提交</text>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="OfflinePopWin">
+    <view class="win_container">
+        <image class="win_image" src="/images/alarm.png"></image>
+        <text class="win_title">抱歉 该品牌未上线</text>
+        <view bindtap="closeMask" class="bottom_bar" data-direction="none" data-target="showPopWin">
+            <view class="bottom_btn">
+                <text style="color:#666">知道了</text>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="brandsection">
+    <view class="brand-section-gap"></view>
+    <view class="section-title" id="section_{{index}}">— {{subList.title}} —</view>
+    <view class="brand-section">
+        <view bindtap="brandcelltap" class="brand-cell" data-activity="{{item.activityname||'click_cube_brand'}}" data-activityparam="{{item.server_jsonstr}}" data-jump_url="{{item.jump_url}}" data-status="{{item.status}}" wx:for="{{subList.list}}" wx:key="index">
+            <image class="brand-image" src="{{item.pic}}"></image>
+            <text class="brand-title">{{item.brand_name}}</text>
+        </view>
+    </view>
+</template>
+<template name="tabs">
+    <scroll-view scrollLeft="{{tabLocation}}" scrollX="true">
+        <view bindtap="bindNavTap" class="tabs-btn {{curTab===index?'tabs-btn__active':''}}" data-cid="{{item.item}}" data-index="{{index}}" data-title="{{item.title}}" data-zhuge-activity="商品流tab栏" wx:for="{{tabList}}" wx:key="{{item.item}}">{{item.title}}</view>
+    </scroll-view>
+</template>
+<view class="search-header">
+    <view class="search-input-wrap">
+        <image class="search-icon" mode="scaleToFill" src="/images/search_icon.png"></image>
+        <input bindconfirm="onSearchConfirm" bindfocus="onSearchFocus" bindinput="onSearchInput" class="input" confirmType="搜索" data-activity="click_category_search" placeholder="你的心水大牌都在这里" type="text"></input>
+    </view>
+</view>
+<view class="fixed-tabs" id="tabs" wx:if="{{showTab}}">
+    <template is="tabs" data="{{tabList:tabList,tabLocation:tabLocation,curTab:curTab}}"></template>
+</view>
+<scroll-view scrollY bindscroll="dealScroll" bindscrolltolower="getMoreGoods" class="container" hidden="{{!ready}}" scrollTop="{{scrollTop}}">
+    <view class="brand-container">
+        <template is="brandsection" data="{{subList:item,index:index}}" wx:for="{{brandList}}" wx:key="index"></template>
+    </view>
+</scroll-view>
+<view bindtap="closeMask" class="mask" data-direction="none" data-target="showPopWin" wx:if="{{showPopWin}}"></view>
+<view animation="{{maskAnimation}}" class="mask-pane-center" wx:if="{{showPopWin}}">
+    <template is="OfflinePopWin" data></template>
+</view>
+<view bindtap="closeMask" class="mask" data-direction="none" data-target="noBrandPop" wx:if="{{noBrandPop}}"></view>
+<view animation="{{maskAnimation}}" class="mask-pane-center" wx:if="{{noBrandPop}}">
+    <template is="withoutBrand" data></template>
+</view>
+<include src="/components/toast/toast.wxml"></include>

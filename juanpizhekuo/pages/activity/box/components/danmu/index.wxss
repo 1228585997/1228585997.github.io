@@ -1,0 +1,45 @@
+.root {
+    height: 50%;
+    width: 100%;
+    position: absolute;
+}
+
+.linear {
+    position: absolute;
+    animation-timing-function: linear;
+    animation-fill-mode: none;
+    background-color: rgba(0,0,0,0.5);
+    height: 36rpx;
+    border-radius: 30rpx;
+    padding: 0rpx 24rpx;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.text {
+    white-space: nowrap;
+    color: #fff;
+    text-align: center;
+    font-size: 20rpx;
+}
+
+@-webkit-keyframes first {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes first {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: -100%;
+    }
+}

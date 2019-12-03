@@ -1,0 +1,2 @@
+<view class="load-more" hidden="{{noMore}}">正在努力加载中...</view>
+<view class="load-more" hidden="{{!noMore}}">亲，没有更多的数据了</view>

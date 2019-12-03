@@ -1,0 +1,10 @@
+<import src="../../components/goods/goods.wxml"></import>
+<import src="../../components/searchbar/index.wxml"></import>
+<import src="../../components/blockAds/index.wxml"></import>
+<view class="container">
+    <scroll-view enableBackToTop bindscroll="dealScroll" bindscrolltolower="scrollGetGoods" class="goods-wrap" scrollTop="{{scrollTop}}" scrollY="true">
+        <template is="goodsTpl" data="{{list:lists[curTab],ifIndexPage:1}}"></template>
+        <include src="../../components/loadmore/loadmore.wxml"></include>
+    </scroll-view>
+</view>
+<include src="../../components/backtop/backtop.wxml"></include>

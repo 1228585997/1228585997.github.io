@@ -1,0 +1,29 @@
+<view class="container" hidden="{{!ready}}">
+    <scroll-view enableBackToTop bindscrolltolower="getList" class="view-list" scrollTop="{{scrollTop}}" scrollY="true" style="height: {{lh}}px">
+        <view class="income-section">
+            <view class="income-title">{{title}}</view>
+            <view class="income-sum">{{totalMoney||0}}</view>
+        </view>
+        <view class="record-list {{orderList&&orderList.length?'':'empty'}}">
+            <block wx:if="{{orderList&&orderList.length}}">
+                <block wx:for="{{orderList}}" wx:key="index">
+                    <view class="record-date" wx:if="{{item.hasDate}}">{{item.dates}}</view>
+                    <view class="income-item" wx:else>
+                        <view class="item-content">
+                            <view class="order-desc">
+                                <view class="sale-icon" wx:if="{{item.ui_type-10>0}}">销售奖励</view>
+                                <text>{{item.tips}}</text>
+                            </view>
+                        </view>
+                        <view class="item-num">¥{{item.ui_money}}</view>
+                    </view>
+                </block>
+            </block>
+            <view class="no-list" wx:else>
+                <image class="no-list-img" src="https://jp.juancdn.com/wxMapp/vip/emptyImg.png"></image>
+                <view class="no-list-desc">{{noList}}</view>
+            </view>
+        </view>
+    </scroll-view>
+    <include src="/components/backtop/backtop.wxml"></include>
+</view>

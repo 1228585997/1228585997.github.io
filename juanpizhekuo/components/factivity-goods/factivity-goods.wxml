@@ -1,0 +1,44 @@
+<template name="factivity-goods">
+    <navigator bindtap="statisticsTap" data-activity="click_cube_goods" data-activityparam="{{server_jsonstr}}" openType="navigate" url="/pages/shop/shop?id={{goods_id}}">
+        <view class="goods-item">
+            <view class="img-box">
+                <image src="{{pic_url}}"></image>
+                <view class="over" wx:if="{{status=='3'}}">抢光了</view>
+            </view>
+            <view class="item-info">
+                <view class="title">{{title}}</view>
+                <view class="price">
+                    <text class="cprice">¥{{cprice}}</text>
+                    <view class="vip-mark" style="border-color:{{vip_mark.border_color}}; background-color: {{vip_mark.bg_color}}; color: {{vip_mark.text_color}};" wx:if="{{vip_mark}}">{{vip_mark.text}}
+            </view>
+                    <text class="oprice" wx:else>¥{{oprice}}</text>
+                </view>
+                <view catchtap="joinCartTap" class="act {{status=='3'?'disabled':''}}" data-goodsid="{{goods_id}}" data-over="{{status=='3'?'1':'0'}}" data-pop="1" data-reprice="{{cprice}}" data-way="0">加入购物车</view>
+            </view>
+        </view>
+    </navigator>
+</template>
+<template name="postage-factivity-goods">
+    <navigator bindtap="statisticsTap" data-activity="{{activityname}}" data-activityparam="{{server_jsonstr}}" openType="navigate" url="/pages/shop/shop?id={{goods_id}}">
+        <view class="goods-item">
+            <view class="img-box">
+                <image src="{{pic_url}}"></image>
+                <view class="will-over" wx:if="{{stock_status==6}}">库存紧张</view>
+                <view class="will-over" wx:if="{{stock_status==7}}">有机会</view>
+                <view class="will-over" wx:if="{{stock_status==8}}">部分抢光</view>
+                <view class="will-over" wx:if="{{stock_status==9}}">库存紧张</view>
+                <view class="over" wx:if="{{stock_status==3||status==10}}">抢光了</view>
+            </view>
+            <view class="item-info">
+                <view class="title">{{title}}</view>
+                <view class="price">
+                    <text class="cprice">¥{{cprice}}</text>
+                    <view class="vip-mark" style="border-color:{{vip_mark.border_color}}; background-color: {{vip_mark.bg_color}}; color: {{vip_mark.text_color}};" wx:if="{{vip_mark}}">{{vip_mark.text}}
+          </view>
+                    <text class="oprice" wx:else>¥{{oprice}}</text>
+                </view>
+                <view catchtap="joinCartTap" class="act {{stock_status==3||status==10?'disabled':''}}" data-cprice="{{cprice}}" data-goodsid="{{goods_id}}" data-over="{{stock_status==3||status==10?'1':'0'}}" data-pop="1" data-way="0">加入购物车</view>
+            </view>
+        </view>
+    </navigator>
+</template>

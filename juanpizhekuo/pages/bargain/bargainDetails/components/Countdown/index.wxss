@@ -1,0 +1,24 @@
+.root {
+    width: 100%;
+    text-align: center;
+    padding: 28rpx 0 16rpx;
+}
+
+.over {
+    width: 100%;
+    text-align: center;
+    font-size: 32rpx;
+    color: #333333;
+    vertical-align: middle;
+}
+
+.over.no {
+    font-size: 28rpx;
+}
+
+.block {
+    background: #333333;
+    color: #ffffff;
+    font-size: 28rpx;
+    padding: 0 4rpx;
+}

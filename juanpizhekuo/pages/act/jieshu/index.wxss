@@ -1,0 +1,37 @@
+page,.container {
+    height: 100%;
+    background-color: #f6f6f6;
+}
+
+.container {
+    box-sizing: border-box;
+}
+
+.act-over-img {
+    display: block;
+    width: 69%;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.act-over-btn {
+    display: block;
+    width: 50%;
+    height: 50px;
+    line-height: 50px;
+    margin: 40px auto 0;
+    text-align: center;
+    background-color: #ff464e;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Microsoft Yahei';
+    border-radius: 5px;
+}
+
+.act-over-why {
+    display: block;
+    width: 89.5%;
+    margin: 40px auto 0;
+    padding-bottom: 20px;
+}

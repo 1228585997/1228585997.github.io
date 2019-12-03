@@ -1,0 +1,277 @@
+@import "components/progress.wxss";
+
+@import "../../../components/sku/sku.wxss";
+
+@import "components/after-sales-form.wxss";
+
+.container {
+    height: 100%;
+    position: relative;
+    padding-bottom: 48px;
+}
+
+.m-t {
+    margin-top: 10px;
+}
+
+.type-box {
+    padding: 14px 18px;
+    background: #fff;
+}
+
+.type-item {
+    font-size: 14px;
+    color: #333;
+    padding: 2px 0;
+}
+
+.goods-box {
+    padding: 0 18px;
+    background: #fff;
+}
+
+.goods-box .title {
+    font-size: 14px;
+    color: #333;
+    padding: 12px 0 6px 0;
+}
+
+.goods-box .desc {
+    font-size: 12px;
+    color: #666;
+}
+
+.goods-box .sku {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    font-size: 15px;
+    color: #333;
+    border-top: 1px solid #ebebeb;
+}
+
+.goods-box .sku .angle {
+    color: #999;
+}
+
+.money-box {
+    padding: 18px;
+    background: #fff;
+}
+
+.refund-money {
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+
+.refund-money text {
+    color: #ff464e;
+}
+
+.refund-rule {
+    font-size: #999;
+    color: #999;
+    text-align: center;
+}
+
+.refund-rule image {
+    width: 14px;
+    height: 14px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+.refund-detail .title {
+    font-size: 12px;
+    color: #333;
+    padding: 14px 8px;
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: 14px;
+}
+
+.refund-detail .refund-item {
+    padding: 4px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.refund-detail .refund-item text {
+    color: #666;
+}
+
+.subsidy-box {
+    padding: 0 18px;
+    background: #fff;
+}
+
+.subsidy-box .subsidy-item {
+    padding: 12px 0;
+}
+
+.subsidy-box .subsidy-item .title-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subsidy-box .subsidy-item .title-box .title {
+    font-size: 14px;
+    color: #333;
+}
+
+.subsidy-box .subsidy-item .title-box .tip {
+    border-radius: 2px;
+    border: 1px solid #ff464e;
+    color: #ff464e;
+    padding: 0 5px;
+    font-size: 12px;
+}
+
+.subsidy-box .subsidy-item .desc {
+    font-size: 12px;
+    color: #999;
+}
+
+.btn {
+    height: 48px;
+    line-height: 48px;
+    background: #ff464e;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0;
+}
+
+.rule-title {
+    height: 96rpx;
+    line-height: 96rpx;
+    border-bottom: 1px solid #ebebeb;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+
+.rule__container {
+    max-height: 340px;
+}
+
+.rule__item {
+    padding: 28rpx 36rpx;
+}
+
+.rule__item .title {
+    font-size: 14px;
+    color: #ff464e;
+    margin-bottom: 8px;
+}
+
+.rule__item .desc {
+    font-size: 12px;
+    color: #999;
+}
+
+.goods {
+    background: #fff;
+}
+
+.goods .goods-item {
+    padding: 28rpx;
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+}
+
+.goods-item .goods-image {
+    width: 150rpx;
+    height: 150rpx;
+    margin-right: 15rpx;
+}
+
+.goods-item .goods-image image {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.goods-item .info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.goods-item .info .info1 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.goods-item .info .info1 .title {
+    font-size: 13px;
+    color: #333;
+}
+
+.goods-item .info .info1 .price {
+    font-size: 13px;
+    color: #333;
+}
+
+.goods-item .info .info2 {
+    font-size: 13px;
+    color: #666;
+    flex: 1;
+    margin-top: 2px;
+}
+
+.goods-item .info .info3 {
+    text-align: right;
+    color: #666;
+    font-size: 14px;
+}
+
+.goods .limit {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 15rpx 36rpx;
+}
+
+.good__count .inc {
+    display: inline-block;
+    background: #f7f7f7;
+    width: 48rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    vertical-align: middle;
+}
+
+.good__count .num {
+    display: inline-block;
+    width: 58rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    vertical-align: middle;
+}
+
+.good__count .dec {
+    display: inline-block;
+    background: #f7f7f7;
+    width: 48rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    text-align: center;
+    color: #333;
+    vertical-align: middle;
+}
+
+.good__count .dec.disabled,.good__count .inc.inc.disabled {
+    color: #dbdbdb;
+}

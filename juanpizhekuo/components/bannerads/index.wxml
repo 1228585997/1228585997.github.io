@@ -1,0 +1,8 @@
+<swiper autoplay="true" circular="true" class="banner-swiper" indicatorActiveColor="#ffffff" indicatorColor="rgba(0, 0, 0, .2)" indicatorDots="{{slide_ads.length>1}}" interval="2000">
+    <swiper-item wx:for="{{slide_ads}}" wx:for-item="banner" wx:key="bannerads">
+        <navigator bindtap="statisticsTap" data-activity="click_cube_banner" data-activityparam="{{banner.server_jsonstr}}" hoverClass="none" url="{{banner.jump_url}}" wx:if="{{banner.jump_url}}">
+            <image mode="widthFix" src="{{banner.pic}}"></image>
+        </navigator>
+        <image bindtap="statisticsTap" data-activity="click_cube_banner" data-activityparam="{{banner.server_jsonstr}}" mode="widthFix" src="{{banner.pic}}" wx:else></image>
+    </swiper-item>
+</swiper>

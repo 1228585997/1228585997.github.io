@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "我的卷皮",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+        "add-favorite-guide": "./components/AddFavoriteGuide/index"
+    }
+}

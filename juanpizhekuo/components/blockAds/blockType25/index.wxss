@@ -1,0 +1,53 @@
+.block25.type1 {
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+}
+
+.block25.type1 .back-img-url image {
+    display: block;
+    width: 100%;
+}
+
+.block25.type1 .goods-box {
+    position: absolute;
+    left: 0;
+    bottom: 20rpx;
+    font-size: 0;
+    width: 100%;
+}
+
+.block25.type1 .goods-box .type1-goods {
+    display: inline-block;
+    margin-left: 20rpx;
+    width: 224rpx;
+    background: #fff;
+}
+
+.block25.type1 .goods-box .type1-goods .img-box {
+    width: 100%;
+    position: relative;
+}
+
+.block25.type1 .goods-box .type1-goods image {
+    width: 100%;
+    vertical-align: top;
+}
+
+.block25.type1 .goods-box .type1-goods .price-info {
+    line-height: 68rpx;
+    height: 68rpx;
+    text-align: center;
+}
+
+.block25.type1 .goods-box .type1-goods .price-info .price {
+    font-size: 14px;
+    color: #ff464e;
+}
+
+.block25.type1 .goods-box .type1-goods .price-info .oprice {
+    font-size: 10px;
+    color: #bbb;
+    text-decoration: line-through;
+    margin-left: 5rpx;
+}

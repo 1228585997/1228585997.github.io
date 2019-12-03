@@ -1,0 +1,1 @@
+<view class="error-msg" wx:if="{{errorMsg}}">{{errorMsg}}</view>

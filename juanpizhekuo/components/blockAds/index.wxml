@@ -1,0 +1,32 @@
+<template name="blockAdsTpl">
+    <block wx:for="{{blocks}}" wx:for-index="pindex" wx:key="index">
+        <include src="cookieBlock/index.wxml" wx:if="{{item.block_type==9||item.block_type==6||item.block_type==14||item.block_type==10||item.block_type==15||item.block_type==3||item.block_type==5}}"></include>
+        <include src="nBlock/index.wxml" wx:elif="{{item.block_type==1||item.block_type==2||item.block_type==4||item.block_type==11||item.block_type==13}}"></include>
+        <include src="banner/index.wxml" wx:elif="{{item.block_type==18||item.block_type==20}}"></include>
+        <include src="timeBar/index.wxml" wx:elif="{{item.block_type==21}}"></include>
+        <include src="scrollAd/index.wxml" wx:elif="{{item.block_type==22}}"></include>
+        <include src="blockType23/index.wxml" wx:elif="{{item.block_type==23}}"></include>
+        <include src="blockType25/index.wxml" wx:elif="{{item.block_type==25}}"></include>
+        <include src="blockType26/index.wxml" wx:elif="{{item.block_type==26}}"></include>
+    </block>
+</template>
+<wxs module="tab">
+var tabpages = ['/pages/index/index', '/pages/vip/index/index', '/pages/search/classify/classify', '/pages/cart/cart', '/pages/user/index/index'];
+var isPageInTab = (function(page) {
+    for (var i = 0; i < tabpages.length; i++) {
+        var tabpage = tabpages[((nt_0 = (i), null == nt_0 ? undefined : 'number' === typeof nt_0 ? nt_0 : "" + nt_0))];
+        if (page.indexOf(tabpage) != -1) {
+            return (true)
+        }
+    };
+    return (false)
+});
+var isGotoXcx = (function(page) {
+    return ('xcx://appId\x3d1\x26path\x3d/page/index/1?\x3d2')
+});
+module.exports = ({
+    isPageInTab: isPageInTab,
+    tabpages: tabpages,
+    isGotoXcx: isGotoXcx,
+});
+</wxs>

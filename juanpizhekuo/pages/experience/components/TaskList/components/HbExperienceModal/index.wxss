@@ -1,0 +1,61 @@
+.expr-modal__root {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.expr-modal__box {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 750rpx;
+    height: 1008rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+}
+
+.expr-modal__title {
+    display: flex;
+    flex-direction: column;
+    font-size: 28rpx;
+    color: #fff;
+    margin-bottom: 32rpx;
+    line-height: 40rpx;
+    text-align: center;
+}
+
+.expr-modal__btn {
+    width: 400rpx;
+    height: 108rpx;
+    margin-bottom: 232rpx;
+}
+
+.expr-modal__confirm-btn {
+    background: url(//jp.juancdn.com/xcx_images/dasabi/ok.gif) no-repeat;
+    background-size: cover;
+}
+
+.expr-modal__receive {
+    background: url(//jp.juancdn.com/xcx_images/dasabi/get.gif) no-repeat;
+    background-size: cover;
+}
+
+.expr-modal__close-btn {
+    position: absolute;
+    top: 116rpx;
+    right: 66rpx;
+    background: url(//jp.juancdn.com/xcx_images/dasabi/close.png) no-repeat;
+    background-size: cover;
+    width: 50rpx;
+    height: 50rpx;
+}

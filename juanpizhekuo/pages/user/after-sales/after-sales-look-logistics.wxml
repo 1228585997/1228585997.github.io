@@ -1,0 +1,23 @@
+<view class="container">
+    <view class="info">
+        <view class="info1">物流公司：{{companyName}}</view>
+        <view class="info1">运单编号：{{express_no}}</view>
+    </view>
+    <view class="follow">
+        <block wx:if="{{express}}">
+            <view class="follow__title">物流跟踪</view>
+            <view class="follow__nodes">
+                <view class="follow__node {{index===0?'follow__node--active':''}}" wx:for="{{express.data}}" wx:for-item="node" wx:key="{{index}}">
+                    <view class="follow__line"></view>
+                    <view class="follow__circle">
+                        <view wx:if="{{index===0}}"></view>
+                    </view>
+                    <view class="follow__node__text">{{node.context}}</view>
+                    <view class="follow__node__date">{{node.time}}</view>
+                </view>
+            </view>
+        </block>
+        <view class="nofollow">非常抱谦，暂未跟踪到相关物流信息，您可以到官网查询物流详情</view>
+    </view>
+    <include src="/components/toast/toast.wxml"></include>
+</view>

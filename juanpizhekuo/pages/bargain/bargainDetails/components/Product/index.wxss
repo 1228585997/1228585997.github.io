@@ -1,0 +1,133 @@
+.product-box {
+    overflow: hidden;
+    background: #fff;
+    border-radius: 36rpx;
+    font-size: 28rpx;
+    margin: 20rpx 32rpx;
+}
+
+.avatar-info {
+    padding: 20rpx 32rpx;
+    overflow: hidden;
+}
+
+.avatar-info .avatar-pic {
+    border: 2rpx solid #ff464e;
+    border-radius: 32rpx;
+    float: left;
+    width: 64rpx;
+    height: 64rpx;
+    margin-right: 24rpx;
+}
+
+.avatar__image {
+    display: block;
+    border-radius: 30rpx;
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.avatar-info .nickname {
+    float: left;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-top: 12rpx;
+}
+
+.avatar-info .act-rule {
+    color: #999;
+    float: right;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-top: 12rpx;
+}
+
+.product-item {
+    background: #f4f4f8;
+    overflow: hidden;
+    padding: 20rpx 32rpx;
+    margin-bottom: 32rpx;
+}
+
+.product-pic {
+    float: left;
+    margin-right: 20rpx;
+    width: 216rpx;
+    height: 216rpx;
+}
+
+.product__image {
+    display: block;
+    width: 216rpx;
+    height: 216rpx;
+}
+
+.product-body {
+    float: left;
+    width: 380rpx;
+    height: 216rpx;
+    position: relative;
+}
+
+.product-title {
+    font-size: 24rpx;
+    font-weight: bold;
+    margin-bottom: 88rpx;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.product-price {
+    color: #ff464e;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.cprice-num {
+    font-size: 40rpx;
+}
+
+.progress-box {
+    width: 620rpx;
+    margin: 0 auto 22rpx;
+}
+
+.progress-info {
+    background: #ffb1b4;
+    border-radius: 20rpx;
+    width: 620rpx;
+    height: 20rpx;
+    margin-bottom: 20rpx;
+    position: relative;
+    z-index: 1;
+}
+
+.progress-scale {
+    background: linear-gradient(-90deg,#ff464e,#ff7932);
+    border-radius: 20rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20rpx;
+    z-index: 2;
+}
+
+.progress-txt {
+    color: #ff464e;
+    font-size: 24rpx;
+    overflow: hidden;
+}
+
+.decrement-num {
+    float: left;
+}
+
+.remaining-num {
+    float: right;
+}

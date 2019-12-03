@@ -1,0 +1,26 @@
+.jp-clock {
+    text-align: center;
+    background-size: 100% 100%;
+}
+
+.clock-label {
+    font-size: 24rpx;
+    letter-spacing: 0;
+    line-height: 36rpx;
+}
+
+.jp-clock.white .countdown__digit {
+    background-color: #fff;
+    color: #000;
+}
+
+.jp-clock.black .countdown__digit {
+    background-color: #000;
+    color: #fff;
+}
+
+.jp-clock .jp-clock-inner {
+    position: relative;
+    top: 50%;
+    transform: translate(0,-50%);
+}

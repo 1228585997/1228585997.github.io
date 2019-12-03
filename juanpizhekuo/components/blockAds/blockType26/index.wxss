@@ -1,0 +1,133 @@
+.block26 {
+    background-color: #fff;
+    width: 100%;
+    height: 656rpx;
+}
+
+.block26 .back-img-url {
+    height: 270rpx;
+    width: 710rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    position: relative;
+}
+
+.block26 .countdown-box {
+    z-index: 3;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 40rpx;
+    padding-left: 6px;
+    padding-right: 8px;
+    background: black;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-top-left-radius: 8px;
+}
+
+.block26 .goods-box {
+    width: 100%;
+}
+
+.block26 .goods-box .type1-goods {
+    display: inline-block;
+    margin-left: 20rpx;
+    width: 224rpx;
+    background: #fff;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+}
+
+.block26 .goods-box .type1-goods .img-box {
+    width: 100%;
+    position: relative;
+}
+
+.block26 .goods-box .type1-goods image {
+    width: 100%;
+    vertical-align: top;
+}
+
+.block26 .goods-box .type1-goods .price-info {
+    height: 68rpx;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.block26 .goods-box .type1-goods .price-info .price {
+    font-size: 14px;
+    color: #ff464e;
+}
+
+.block26 .goods-box .type1-goods .price-info .discount {
+    margin-left: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+    line-height: 12px;
+    height: 12px;
+    font-size: 10px;
+    color: white;
+    background-color: #ff464e;
+}
+
+.block26 .goods-box .type1-goods .title {
+    line-height: 16px;
+    height: 16px;
+    font-size: 12px;
+    color: black;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.prefix {
+    font-size: 12px;
+    color: white;
+    margin: auto 0;
+}
+
+.block26 .time__hours,.block26 .time__minutes,.block26 .time__seconds {
+    font-family: '.SFNSDisplay';
+    font-size: 12px;
+    color: white;
+    background-color: transparent;
+    line-height: 18px;
+    border-radius: 2px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.block26 .time__whole__text {
+    color: #fff;
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.block26 .time__hours__text,.block26 .time__minutes__text {
+    color: white;
+    margin: 0 2px;
+}
+
+.block26 .look__more {
+    position: absolute;
+    width: 72px;
+    height: 24px;
+    color: #333;
+    background-color: #fff;
+    border-radius: 100px;
+    top: 102rpx;
+    right: 24rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

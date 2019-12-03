@@ -1,0 +1,21 @@
+<import src="/pages/cart/common/index.wxml"></import>
+<import src="/components/goods-list/index.wxml"></import>
+<view class="container" hidden="{{!ready}}">
+    <include src="../../components/error-msg/error-msg.wxml"></include>
+    <scroll-view enableBackToTop scrollY class="cart-box" scrollIntoView="{{limitGoodId}}" scrollTop="{{scrollTopCart}}" style="{{!isEmpty&&'padding-bottom: 55px'}}">
+        <view class="fan-tip" wx:if="{{showFanTip}}">
+            <image src="/images/explain.png"></image>
+            <text>返利商品不支持任何促销活动哦！</text>
+        </view>
+        <template is="cartBox" data="{{isEmpty:isEmpty,hasLogin:hasLogin,cart_group:cart_group,history_goods:history_goods,isPopWin:false,isVip:isVip}}"></template>
+        <view class="" wx:if="{{likeGoodsList.length>0}}">
+            <view style="text-align:center;margin:10px auto;color:#666;font-size:12px;">- 猜你喜欢 -</view>
+            <view class="goods-container">
+                <template is="goods" data="{{list:likeGoodsList,isVip:isVip}}"></template>
+            </view>
+            <include src="/components/share/share.wxml"></include>
+        </view>
+    </scroll-view>
+    <template is="cart-action" data="{{isEmpty:isEmpty,isAllSel:isAllSel,total_real_price:total_real_price,total_goods_price:total_goods_price,total_reduce_money:total_reduce_money,selectSku:selectSku,limitArr:limitArr,limitShow:limitShow,limitGoodId:limitGoodId,limitRemainingGood:limitRemainingGood,limitTitle:limitTitle,isVipUser:isVipUser,total_fan_money:total_fan_money}}"></template>
+    <include src="../../components/get-coupon/index.wxml"></include>
+</view>

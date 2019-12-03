@@ -1,0 +1,175 @@
+page,.container {
+    background-color: #efeff4;
+}
+
+.view-list {
+    position: relative;
+}
+
+.fans-title {
+    position: relative;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 28rpx;
+    color: #333;
+    padding: 0 42rpx;
+    background: #fff;
+    border-bottom: 1rpx solid #EBEBEB;
+}
+
+.rule {
+    position: absolute;
+    top: 50%;
+    right: 28rpx;
+    transform: translateY(-50%);
+    font-size: 28rpx;
+    color: #333;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+}
+
+.icon_right.angle {
+    width: 14rpx;
+    height: 14rpx;
+    color: #333;
+    margin-left: 1px;
+    border-width: 1px 1px 0 0;
+    vertical-align: middle;
+}
+
+.list-wrapper {
+    background: #fff;
+}
+
+.fans-num:before {
+    position: absolute;
+    content: "";
+    left: -12rpx;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ff464e;
+    width: 6rpx;
+    height: 28rpx;
+}
+
+.fan-item {
+    display: flex;
+    padding-bottom: 24rpx;
+    padding-top: 0;
+    margin: 0 28rpx;
+    position: relative;
+    border-bottom: 1rpx solid #EBEBEB;
+}
+
+.background-white {
+    background-color: #fff;
+}
+
+.background-yellow {
+    background-color: #FDF5E6;
+}
+
+.fan-item:last-of-type {
+    border-bottom: 0;
+}
+
+.avatar-wrapper {
+    margin-top: 20rpx;
+}
+
+.avatar {
+    width: 92rpx;
+    height: 92rpx;
+    border-radius: 50%;
+}
+
+.fan-content {
+    margin-left: 24rpx;
+    margin-top: 22rpx;
+}
+
+.fan-name {
+    font-size: 28rpx;
+    color: #333;
+}
+
+.fan-tags {
+    margin-top: 12rpx;
+}
+
+.tag {
+    display: inline-block;
+    border: 1rpx solid #FF8282;
+    color: #FF464E;
+    font-size: 20rpx;
+    padding: 0 10rpx;
+    margin-right: 16rpx;
+    vertical-align: top;
+    height: 28rpx;
+    line-height: 28rpx;
+}
+
+.tag-text {
+    vertical-align: middle;
+}
+
+.fan-desc {
+    margin-top: 8rpx;
+    color: #999;
+    font-size: 24rpx;
+}
+
+.fan-record {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    color: #ff464e;
+    font-size: 28rpx;
+}
+
+.no-list {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    background: #fff;
+}
+
+.no-list-img {
+    width: 280rpx;
+    height: 280rpx;
+    margin: 144rpx auto 24rpx auto;
+}
+
+.no-list-desc {
+    font-size: 32rpx;
+    color: #333;
+}
+
+.goto-invite {
+    background: #fff;
+    font-size: 28rpx;
+    height: 70rpx;
+    margin-bottom: 5rpx;
+    border-top: 15rpx;
+    text-align: center;
+}
+
+.goto-invite-nav {
+    display: inline-block;
+    color: #FF464E;
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 30rpx;
+}
+
+.icons-invited-pic {
+    display: inline-block;
+    width: 36rpx;
+    height: 36rpx;
+    vertical-align: -3rpx;
+    margin-right: 10rpx;
+}

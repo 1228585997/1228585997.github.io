@@ -1,0 +1,39 @@
+<view class="my-order">
+    <block wx:if="{{ordergoods.length>0}}">
+        <view bindtap="jumperUrl" data-boid="{{item.boid}}" data-sgid="{{item.sgid}}" wx:for="{{ordergoods}}">
+            <view class="order-state">
+                <text class="time">申请时间：{{item.applyTime}}</text>
+                <text class="state">{{item.refundStatus}}</text>
+            </view>
+            <view class="bag-list">
+                <view>
+                    <view class="customList-box">
+                        <view class="pic fl">
+                            <image src="{{item.images}}"></image>
+                        </view>
+                        <view class="ob-info">
+                            <view class="obi-first">
+                                <view class="title fl">
+                {{item.title}} </view>
+                                <view class="current fr">￥{{item.cprice}}</view>
+                            </view>
+                            <view class="obi-second">
+                                <view class="type fl">{{item.av_zvalue}}{{item.av_fvalue}}</view>
+                                <view class="fr">×{{item.num}}</view>
+                            </view>
+                            <view class="obi-third"></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="pay-detail order-total-box">
+                <text class="pay-all fl">退款金额：<text>￥{{item.real_price}}</text>
+                </text>
+            </view>
+        </view>
+    </block>
+    <view class="item-empty" wx:if="{{ordergoods.length==0}}">
+        <image src="../../../images/empty-order.png"></image>
+        <view class="b-title">暂无售后订单</view>
+    </view>
+</view>

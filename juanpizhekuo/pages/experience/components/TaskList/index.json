@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "step-experience-modal": "./components/StepExperienceModal/index",
+        "hb-experience-modal": "./components/HbExperienceModal/index",
+        "hongbao-modal": "./components/HongbaoModal/index"
+    }
+}

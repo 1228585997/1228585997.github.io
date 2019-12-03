@@ -1,0 +1,203 @@
+@import "../../../components/goods/goods.wxss";
+
+@import "../../../components/goods/sort-tabs/sort-tabs.wxss";
+
+.up_icon {
+    width: 13px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+.cate-tab-box {
+    width: 100%;
+    line-height: 40px;
+    height: 40px;
+    background: #fff;
+}
+
+.cate-tab {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0;
+    color: #353535;
+    border-bottom: 1px solid #ebebeb;
+    background: #fff;
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    z-index: 100;
+}
+
+.cate-tab-fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.cate-tab-item {
+    flex: 1;
+    text-align: center;
+}
+
+.cate-tab-btn {
+    display: inline-block;
+    margin-left: 12px;
+    margin-right: 12px;
+    height: 40px;
+    font-size: 14px;
+    padding-left: 2.5px;
+    padding-right: 2.5px;
+    vertical-align: middle;
+}
+
+.cate-tab-btn__active {
+    color: #ff464e;
+    border-bottom: 2px solid #ff464e;
+}
+
+.sub-cate-box {
+    padding: 10px 15px;
+    border-top: 1px solid #ebebeb;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    box-sizing: border-box;
+    background-color: #f4f4f8;
+    z-index: 100;
+    width: 100%;
+}
+
+.sub-cate-box_fixed {
+    position: fixed;
+    left: 0;
+    top: 40px;
+}
+
+.sub-cate-item {
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #4a4a4a;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    margin-right: 15px;
+    white-space: nowrap;
+    border-radius: 2px;
+}
+
+.sub-cate-item.active {
+    border: 1px solid #ff464e;
+    color: #ff464e;
+}
+
+.goods .goods-title_dmqc {
+    line-height: 20px;
+    font-size: 14px;
+    color: #333333;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+}
+
+.goods .overlay {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 144rpx;
+    height: 144rpx;
+}
+
+.goods .goods-text-dmqc {
+    height: 80px;
+    padding: 6px 10px 12px 10px;
+    line-height: 1;
+    font-size: 12px;
+    color: #3b3b3b;
+    overflow: hidden;
+}
+
+.goods .goods-text__price_dmqc {
+    line-height: 22px;
+    color: #ff464e;
+    font-size: 16px;
+}
+
+.goods .goods-text__price_dmqc text::before {
+    margin-right: 2px;
+}
+
+.goods .goods-text__price_dmqc .goods-text__del::before {
+    font-size: inherit;
+}
+
+.goods .goods-text__price_dmqc .cart-btn {
+    width: 28px;
+    height: 28px;
+    float: right;
+    margin-right: 2px;
+    padding: 2px;
+    background-color: #DFB278;
+    border-radius: 4rpx;
+}
+
+.goods-text__price_dmqc .goods-text_discount {
+    margin-left: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+    height: 12px;
+    font-size: 10px;
+    color: white;
+    background-color: #ff464e;
+}
+
+.vprice-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.vprice-text {
+    font-size: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+.vip_label {
+    width: 72rpx;
+    height: 24rpx;
+    margin-left: 1px;
+}
+
+.goods-img .goods-stocks {
+    position: absolute;
+    bottom: 12px;
+    z-index: 2;
+    left: 50%;
+    transform: translate(-50%,0);
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 10px;
+    line-height: 14px;
+    color: white;
+    background-color: black;
+    opacity: 60%;
+    border-radius: 8px;
+}
+
+.goods-fix-odd {
+    box-sizing: content-box;
+    padding-bottom: 60px;
+    background-color: #fff;
+}
+
+.goods-fix-odd image {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+}

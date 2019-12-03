@@ -1,0 +1,219 @@
+page {
+    background-color: #efeff4;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 1px;
+    height: 1px;
+}
+
+.contaniner {
+    width: 100%;
+    height: 100%;
+}
+
+.view-list {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.contaniner_empty {
+    overflow-y: hidden;
+}
+
+.head {
+    width: 100%;
+    height: 234rpx;
+    background: #FF464E;
+    position: relative;
+    color: #fff;
+    box-sizing: border-box;
+    padding-top: 48rpx;
+    margin-bottom: 22rpx;
+}
+
+.haedTitle {
+    width: 100%;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #FFFFFF;
+}
+
+.countMoney {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    font-size: 64rpx;
+    color: #FFFFFF;
+    margin-top: 8rpx;
+    font-weight: bold;
+}
+
+.ruleButton {
+    position: absolute;
+    top: 24rpx;
+    right: 0rpx;
+    width: 60rpx;
+    height: 60rpx;
+    z-index: 1;
+}
+
+.ruleButtonImg {
+    width: 100%;
+    height: 100%;
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.listContent {
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.listOne {
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+    min-height: 152rpx;
+    box-sizing: border-box;
+    padding: 28rpx;
+    font-size: 28rpx;
+    color: #333333;
+    border-bottom: 1rpx solid #EBEBEB;
+}
+
+.listOne:last-child {
+    border-bottom: none;
+}
+
+.listOneLeft {
+    width: 532rpx;
+    height: 100%;
+    line-height: 48rpx;
+    float: left;
+}
+
+.getTips {
+    font-size: 20rpx;
+    color: #FFFFFF;
+    line-height: 28rpx;
+    height: 28rpx;
+    background: #FF464E;
+    border-radius: 2rpx;
+    display: inline-block;
+    padding: 2rpx 4rpx;
+    vertical-align: middle;
+}
+
+.listOneRight {
+    width: 160rpx;
+    height: 100%;
+    box-sizing: border-box;
+    float: left;
+}
+
+.moneyOneTime {
+    font-size: 32rpx;
+    color: #333333;
+    width: 100%;
+    text-align: right;
+    font-weight: bold;
+}
+
+.getTime {
+    font-size: 26rpx;
+    color: #999999;
+    width: 100%;
+    text-align: right;
+    margin-top: 10rpx;
+}
+
+.empty {
+    top: 256rpx;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    padding-top: 144rpx;
+}
+
+.emptyImg {
+    width: 280rpx;
+    height: 280rpx;
+    display: block;
+    margin: 0px auto;
+}
+
+.emptytips {
+    width: 100%;
+    height: 44rpx;
+    line-height: 44rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #333333;
+    margin: 24rpx auto;
+}
+
+.ruleContent {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 999;
+}
+
+.rule_window {
+    width: 678rpx;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    border-radius: 8rpx;
+    box-sizing: border-box;
+    padding: 48rpx 40rpx;
+}
+
+.ruleHead {
+    width: 100%;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    font-size: 36rpx;
+    color: #333333;
+    font-weight: bold;
+}
+
+.ruleDetail {
+    width: 100%;
+    height: auto;
+    font-size: 32rpx;
+    color: #666666;
+    text-align: left;
+    margin: 24rpx auto;
+}
+
+.knowButton {
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    color: #fff;
+    background: #FF464E;
+    border-radius: 40rpx;
+    font-weight: bold;
+    font-size: 32rpx;
+    margin: 40rpx auto 0;
+}

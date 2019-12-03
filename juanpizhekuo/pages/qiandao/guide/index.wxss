@@ -1,0 +1,38 @@
+page,.container {
+    height: 100%;
+}
+
+.article {
+    padding: 30px 15px;
+    font-size: 0;
+}
+
+.item {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #4a4a4a;
+}
+
+.snum {
+    margin-right: 4px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    line-height: 16px;
+    font-size: 12px;
+    text-align: center;
+    color: #ff464e;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.article image {
+    display: block;
+    margin: 0 auto 35px;
+    width: 350rpx;
+    height: 622.8rpx;
+}

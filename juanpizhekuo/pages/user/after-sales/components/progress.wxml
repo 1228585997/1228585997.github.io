@@ -1,0 +1,15 @@
+<template name="progress">
+    <view class="progress-box m-t">
+        <view class="progress-bar">
+            <view class="progress-item {{item.step_status==4||item.step_status==1||item.step_status==3?'pass':item.step_status==2?'nopass':''}}" style="width:{{stepWidth}}%;" wx:for="{{flowview}}" wx:key="index">
+                <view class="icon">
+                    <image src="/images/after-sales-{{item.step_status==4||item.step_status==1||item.step_status==3?'pass':'nopass'}}.png" wx:if="{{curStep==index&&item.step_status!=0}}"></image>
+                </view>
+                <view class="v-line"></view>
+                <view class="title">{{item.step_name}}</view>
+            </view>
+            <view class="h-line" style="left:{{stepWidth/2}}%;width:{{100-stepWidth}}%;"></view>
+            <view class="h-line-active" style="left:{{stepWidth/2}}%;width:{{curStepWidth}}%;"></view>
+        </view>
+    </view>
+</template>

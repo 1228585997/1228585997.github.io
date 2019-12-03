@@ -1,0 +1,30 @@
+<import src="../../components/factivity-goods/factivity-goods.wxml"></import>
+<view class="container">
+    <include src="../../components/error-msg/error-msg.wxml"></include>
+    <view class="filter-box">
+        <view bindtap="filterTap" class="filter-item {{filter_id==1?'active':''}}" data-activity="click_factivity_item" data-activityparam="1" data-filterid="1">5元以下</view>
+        <view bindtap="filterTap" class="filter-item {{filter_id==2?'active':''}}" data-activity="click_factivity_item" data-activityparam="2" data-filterid="2">5元~15元</view>
+        <view bindtap="filterTap" class="filter-item {{filter_id==3?'active':''}}" data-activity="click_factivity_item" data-activityparam="3" data-filterid="3">15元以上</view>
+        <view bindtap="filterTap" class="filter-item {{filter_id==4?'active':''}}" data-activity="click_factivity_item" data-activityparam="4" data-filterid="4">常用物品</view>
+    </view>
+    <scroll-view enableBackToTop bindscrolltolower="getGood" class="goods-box" scrollY="true" style="height:{{wh}}px">
+        <template is="postage-factivity-goods" data="{{...item}}" wx:for="{{goods}}" wx:key="index"></template>
+        <view class="load-more">
+            <view hidden="{{more==0}}">
+                <image class="loading_icon" src="/images/loading.png"></image>正在努力加载中
+        </view>
+            <view hidden="{{more==1}}">
+            亲，没有更多的数据了
+        </view>
+        </view>
+    </scroll-view>
+    <view class="bottom-box">
+        <view class="factivy-info">满29元包邮</view>
+        <view class="factivy-info" style="display:none" wx:if="{{balance>0}}">满29元包邮，还差<text style="color:#ff464e">{{balance}}</text>元</view>
+        <view class="factivy-info" style="display:none" wx:if="{{balance==0}}">满29元包邮，已包邮</view>
+        <navigator bindtap="statisticsTap" data-activity="click_factivity_backbag" data-activityparam="" openType="switchTab" url="/pages/cart/cart">
+            <view class="btn">返回购物车</view>
+        </navigator>
+    </view>
+    <include src="/components/sku/sku.wxml"></include>
+</view>

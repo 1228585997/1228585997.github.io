@@ -1,0 +1,54 @@
+<view class="container">
+    <include src="/components/error-msg/error-msg.wxml"></include>
+    <view class="{{ifShowUrge?'container_in':''}}" wx:for="{{packages}}" wx:for-item="package" wx:key="{{index}}">
+        <view class="package">
+            <view class="package__title">快递包裹{{index+1}}</view>
+            <view class="package__images__wrapper">
+                <scroll-view class="package__images" scrollX="true">
+                    <view class="imageContainer" wx:for="{{package.goodsList.curOrder}}" wx:for-item="order" wx:key="{{index}}">
+                        <image alt="商品图片" class="package__image" src="{{order.image}}"></image>
+                        <view class="package__goods--number">x{{order.num}}</view>
+                    </view>
+                </scroll-view>
+                <view class="package__total">共{{package.goodsList.curOrderGoodsCount}}件</view>
+            </view>
+            <view class="split__line"></view>
+            <view class="package__infos">
+                <view class="package__info">
+                    <view class="package__info__left">物流进度：</view>
+                    <view class="package__info__right">{{package.status.status_value}}</view>
+                </view>
+                <view class="package__info">
+                    <view class="package__info__left">物流公司：</view>
+                    <view class="package__info__right">{{package.info.company}}</view>
+                </view>
+                <view class="package__info">
+                    <view class="package__info__left">运单编号：</view>
+                    <text class="package__info__right">{{package.info.logistics}}</text>
+                    <view bindtap="copyNo" class="operate__copy" data-no="{{package.info.logistics}}">复制</view>
+                </view>
+                <view class="package__info">
+                    <view class="package__info__left">查询电话：</view>
+                    <view bindtap="callPhone" class="package__info__right package__info--phone" data-phone="{{package.info.tel}}">{{package.info.tel}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="follow">
+            <view class="follow__title">物流跟踪</view>
+            <view class="follow__nodes">
+                <view class="follow__node {{index===0?'follow__node--active':''}}" wx:for="{{package.list}}" wx:for-item="node" wx:key="{{index}}">
+                    <view class="follow__line"></view>
+                    <view class="follow__circle">
+                        <view wx:if="{{index===0}}"></view>
+                    </view>
+                    <view class="follow__node__text">{{node.context}}</view>
+                    <view class="follow__node__date">{{node.time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom" wx:if="{{ifShowUrge}}">
+        <view class="tip">物流异常，未收到货及其他问题，尝试以下方式解决</view>
+        <view bindtap="urgingLogistics" class="Logistics_urge" data-activity="click_temai_logisticsdetails_urged">催促物流</view>
+    </view>
+</view>

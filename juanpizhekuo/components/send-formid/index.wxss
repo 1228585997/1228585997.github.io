@@ -1,0 +1,35 @@
+.form-id {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+}
+
+.form-id button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+}
+
+.page-form,.page-form__btn {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-size: 14px;
+    color: inherit;
+    line-height: inherit;
+    background-color: inherit;
+}
+
+.page-form__btn {
+    border-radius: 0;
+    border: none;
+}
+
+.page-form__btn::after {
+    display: none;
+}

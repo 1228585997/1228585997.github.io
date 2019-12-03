@@ -1,0 +1,38 @@
+<view class="contaniner {{list.length?'':'contaniner_empty'}}">
+    <scroll-view enableBackToTop bindscrolltolower="scrollGetList" class="view-list" scrollY="true">
+        <view class="head">
+            <view class="haedTitle">待入账收益(元)</view>
+            <view class="countMoney">{{totalMoney}}</view>
+            <view bindtap="showRule" class="ruleButton" data-activity="click_instructions" data-activityparam="">
+                <image class="ruleButtonImg" src="https://jp.juancdn.com/wxMapp/vip/ruleIcon.png"></image>
+            </view>
+        </view>
+        <view class="listContent" wx:if="{{list.length>0}}">
+            <view class="listOne" wx:for="{{list}}" wx:key="{{index}}">
+                <view class="listOneLeft">
+                    <text class="getTips" wx:if="{{item.ui_type>10}}">销售奖励</text>
+            {{item.tips}}
+          </view>
+                <view class="listOneRight">
+                    <view class="moneyOneTime">¥{{item.ui_money}}</view>
+                    <view class="getTime">{{item.remark}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="empty" wx:else>
+            <image class="emptyImg" src="https://jp.juancdn.com/wxMapp/vip/emptyImg.png"></image>
+            <view class="emptytips">暂无待入账收益</view>
+        </view>
+        <view class="ruleContent" wx:if="{{ifShowRule}}">
+            <view class="rule_window">
+                <view class="ruleHead">待入账时间说明</view>
+                <view class="ruleDetail">
+                    <view>1、确认收货最晚7天内到账，请尽快完成确认收货，缩短收益到账时间。</view>
+                    <view>2、当您购买的商品产生售后问题，将根据售后情况判断收益是否发放。如确认收货7天仍在售后周期内，收益将不予以发放。</view>
+                    <view>3、当您的订单内全部商品完成退货，该订单无收益。</view>
+                </view>
+                <view bindtap="closeRule" class="knowButton">知道了</view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

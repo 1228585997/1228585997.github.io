@@ -1,0 +1,7 @@
+<view bindtap="closeDeskTip" class="todesk-tip" wx:if="{{ifShowDeskTip}}">
+    <view class="todesk-tip__content">
+        <image src="https://jp.juancdn.com/xcx_images/todesk_tip.png"></image>
+        <view class="todest-tip__big">添加桌面快捷方式</view>
+        <view>{{deskTip}}</view>
+    </view>
+</view>

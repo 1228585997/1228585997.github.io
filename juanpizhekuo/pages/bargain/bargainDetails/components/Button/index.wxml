@@ -1,0 +1,23 @@
+<view class="button">
+    <button bindtap="onTapButton" class="button__image_share" data-state="1" openType="share" wx:if="{{m.pageState(data,activityState)===1}}"></button>
+    <image bindtap="onTapButton" class="button__image" data-state="{{m.pageState(data,activityState)}}" src="{{m.useImage(data,activityState,DETAILS_IMAGES)}}" wx:else></image>
+</view>
+<wxs module="m">
+function pageState(data, activityState) {
+    var initiator = data.initiator;
+    var subscribe = data.subscribe;
+    if (initiator == 1) {
+        return (activityState ? 1 : 3)
+    } else {
+        return (activityState && subscribe == 1 ? 4 : 2)
+    }
+};
+
+function useImage(data, activityState, images) {
+    return (images[((nt_0 = ('button' + pageState(data, activityState)), null == nt_0 ? undefined : 'number' === typeof nt_0 ? nt_0 : "" + nt_0))])
+};
+module.exports = ({
+    pageState: pageState,
+    useImage: useImage,
+});
+</wxs>

@@ -1,0 +1,19 @@
+page,.container {
+    height: 100%;
+}
+
+.article {
+    padding: 18px 15px 30px;
+    font-size: 0;
+}
+
+.article text {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+.quest+.answer {
+    margin-top: 0;
+}

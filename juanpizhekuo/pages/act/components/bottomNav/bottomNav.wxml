@@ -1,0 +1,34 @@
+<template name="navPopup">
+    <view class="mask" data-index="{{index}}" hidden="{{!popStatus.active}}"></view>
+    <view animation="{{popStatus.animation}}" class="mask-pane" hidden="{{!popStatus.active}}" style="width:{{bgPop.width}}rpx;height:{{bgPop.height}}rpx;background-image:url({{bgPop.src}});z-index:{{popStatus.zIndex}};">
+        <view class="bottomnav__close" data-index="{{index}}"></view>
+        <block wx:for="{{bgPop.anchors}}" wx:key="index">
+            <navigator redirect hoverClass="none" style="display:inline-block;position:absolute;width:{{item.width}}rpx;height:{{item.height}}rpx;top:{{item.top}}rpx;left:{{item.left}}rpx;" url="{{item.href}}" wx:if="{{item.type>0}}"></navigator>
+            <view bindtap="ruleTap" data-id="{{item.id}}" style="display:inline-block;position:absolute;width:{{item.width}}rpx;height:{{item.height}}rpx;top:{{item.top}}rpx;left:{{item.left}}rpx;" wx:else></view>
+        </block>
+    </view>
+</template>
+<template name="navBg">
+    <image src="{{bg.src}}" style="width:{{bg.width}}rpx;height:{{bg.height}}rpx;"></image>
+</template>
+<template name="bottomNav">
+    <view class="bottomnav" wx:if="{{navs.length>0}}">
+        <block wx:for="{{navs}}" wx:key="index">
+            <navigator bindtap="statisticsTap" class="bottomnav__item" data-activity="normal_activity" data-activityparam="{{actName}}_900{{index+1}}.0" data-index="{{index}}" openType="redirect" url="{{item.xcxUrl}}" wx:if="{{item.type==0}}">
+                <template is="navBg" data="{{bg:item.bg}}"></template>
+            </navigator>
+            <view bindtap="dealBottomNavPop" class="bottomnav__item" data-index="{{index}}" wx:elif="{{item.type==1}}">
+                <view bindtap="statisticsTap" data-activity="normal_activity" data-activityparam="{{actName}}_900{{index+1}}.0" hidden="{{!bottomPop[index].active}}">
+                    <template is="navBg" data="{{bg:item.bgActive}}"></template>
+                </view>
+                <view bindtap="statisticsTap" data-activity="normal_activity" data-activityparam="{{actName}}_900{{index+1}}.0" hidden="{{bottomPop[index].active}}">
+                    <template is="navBg" data="{{bg:item.bg}}"></template>
+                </view>
+                <template is="navPopup" data="{{bgPop:item.bgPop,popStatus:bottomPop[index],index:index}}"></template>
+            </view>
+            <navigator bindtap="statisticsTap" class="bottomnav__item" data-activity="normal_activity" data-activityparam="{{actName}}_900{{index+1}}.0" data-index="{{index}}" openType="switchTab" url="/pages/cart/cart" wx:elif="{{item.type==2}}">
+                <template is="navBg" data="{{bg:miniCartNum&&miniCartNum>0?item.bgActive:item.bg}}"></template>
+            </navigator>
+        </block>
+    </view>
+</template>

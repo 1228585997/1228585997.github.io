@@ -1,0 +1,23 @@
+<import src="../../../components/countdown/countdown.wxml"></import>
+<view class="block__container  block{{item.block_type}} split__line--{{item.split_line}} " style="margin-top:{{item.margin_enabled}}px;border-color:{{item.split_color?item.split_color:'#ebebeb'}}" wx:if="{{item.block_type==9||item.block_type==14||item.block_type==10}}">
+    <view class="block__n--col {{idx==0?'border-none':''}}" style="border-color:{{item.split_color?item.split_color:'#ebebeb'}}" wx:for="{{item.data[0].child}}" wx:for-index="idx" wx:for-item="child" wx:key="cookie">
+        <view class="block__n--row ">
+            <navigator bindtap="statisticsTap" data-activity="click_cube_block" data-activityparam="{{child.server_jsonstr}}" data-url="{{child.url}}" data-zhuge-activity="{{child.zg_event}}" data-zhuge-activityparam="{{child.zg_json}}" hoverClass="none" openType="{{tab.isPageInTab(child.url)?'switchTab':'navigate'}}" url="{{child.url}}">
+                <image alt="" mode="widthFix" src="{{child.pic}}"></image>
+                <text wx:if="{{child.words!=''}}">{{child.words}}</text>
+            </navigator>
+        </view>
+    </view>
+</view>
+<view class="block__container  block{{item.block_type}} split__line--{{item.split_line}} " style="margin-top:{{item.margin_enabled}}px;border-color:{{item.split_color?item.split_color:'#ebebeb'}}" wx:if="{{item.block_type==3||item.block_type==6||item.block_type==5||item.block_type==15}}">
+    <view class="block__n--col {{idx==0?'border-none':''}}" style="border-color:{{item.split_color?item.split_color:'#ebebeb'}}" wx:for="{{item.data}}" wx:for-index="idx" wx:for-item="child" wx:key="cookie">
+        <view class="block__n--row ">
+            <navigator bindtap="statisticsTap" data-activity="click_cube_block" data-activityparam="{{child.child[0].server_jsonstr}}" data-url="{{child.child[0].url}}" data-zhuge-activity="{{child.child[0].zg_event}}" data-zhuge-activityparam="{{child.child[0].zg_json}}" hoverClass="none" openType="{{tab.isPageInTab(child.child[0].url)?'switchTab':'navigate'}}" url="{{child.child[0].url}}">
+                <image alt="" mode="widthFix" src="{{child.child[0].pic}}"></image>
+                <view class="blick_3_countdown" wx:if="{{child.child[0].countdown&&child.child[0].countdown.enable_time!=0&&child.child[0].countdown.enable_time!=''}}">
+                    <template is="countdownWithoutText" data="{{ time:blockTimes[child.child[0].bd_id] }}"></template>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>

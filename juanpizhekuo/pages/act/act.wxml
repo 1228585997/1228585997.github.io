@@ -1,0 +1,42 @@
+<import src="components/tab/tab.wxml"></import>
+<import src="components/image/image.wxml"></import>
+<import src="components/rule/rule.wxml"></import>
+<import src="components/goods/goods.wxml"></import>
+<import src="components/pageConfig/pageConfig.wxml"></import>
+<import src="components/clock/clock.wxml"></import>
+<import src="components/coupon/coupon.wxml"></import>
+<import src="components/bottomNav/bottomNav.wxml"></import>
+<import src="components/secKill/secKill.wxml"></import>
+<import src="components/leaderBoard/leaderBoard.wxml"></import>
+<import src="components/goodsComment/goodsComment.wxml"></import>
+<import src="components/shopTimeLimit/shopTimeLimit.wxml"></import>
+<import src="components/specialCoupons/specialCoupons.wxml"></import>
+<import src="components/slideImage/slideImage.wxml"></import>
+<import src="components/cycleNotice/cycleNotice.wxml"></import>
+<import src="components/subscribe/index.wxml"></import>
+<view class="act-container" hidden="{{!ready}}" id="act-container" style="{{pageStyle}}">
+    <view class="component" wx:for="{{components}}" wx:key="{{id}}">
+        <template is="image" data="{{...item,imageIndex:imageIndex}}" wx:if="{{item.ctype==='Image'}}"></template>
+        <template is="rule" data="{{...item,ruleIsOpen:ruleIsOpen}}" wx:elif="{{item.ctype==='Rule'}}"></template>
+        <template is="tab" data="{{...item,curTab:curTab,ifFixedTabs:ifFixedTabs,ifExpandTabs:ifExpandTabs,actName:actName}}" wx:elif="{{item.ctype==='TabNew'}}"></template>
+        <template is="goods" data="{{...item,gFloors:gFloors,curTab:curTab,tabJumpType:tabJumpType}}" wx:elif="{{item.ctype==='Goods'}}"></template>
+        <template is="pageConfig" data="{{...item}}" wx:elif="{{item.ctype==='PageConfig'}}"></template>
+        <template is="clock" data="{{...item,clock:clock}}" wx:elif="{{item.ctype==='Clock'}}"></template>
+        <template is="coupon" data="{{...item,coupon:coupon,clock:clock}}" wx:elif="{{item.ctype==='Coupons'}}"></template>
+        <template is="bottomNav" data="{{...item,miniCartNum:miniCartNum,bottomPop:bottomPop,actName:actName}}" wx:elif="{{item.ctype==='BottomNav'}}"></template>
+        <template is="secKill" data="{{...item,secKill:secKill,clock:clock,actName:actName}}" wx:elif="{{item.ctype==='Seckill'}}"></template>
+        <template is="leaderBoard" data="{{...item,leaderBoardList:leaderBoardList,actName:actName}}" wx:elif="{{item.ctype==='LeaderBoard'}}"></template>
+        <template is="goodsComment" data="{{data:item.list[curGcRound],goodsComments:goodsComments,gcAnimation:gcAnimation,actName:actName}}" wx:elif="{{item.ctype==='GoodsComment'}}"></template>
+        <template is="shopTimeLimit" data="{{...item,gFloorsLimit:gFloorsLimit,clock:clock,actName:actName,shopTimeLimitHidden:shopTimeLimitHidden}}" wx:elif="{{item.ctype==='ShopTimeLimit'}}"></template>
+        <template is="specialCoupons" data="{{...item,spcGroups:spcGroups,actName:actName}}" wx:elif="{{item.ctype==='SpecialCoupons'}}"></template>
+        <template is="slideImage" data="{{...item,cardPadding:cardPadding,actName:actName,index:index}}" wx:elif="{{item.ctype==='SlideImage'}}"></template>
+        <template is="cycleNotice" data="{{...item,cycleNotice:cycleNotice}}" wx:elif="{{item.ctype==='CycleNotice'}}"></template>
+        <template is="subscribe" data="{{...item,subscribe:subscribe,index:index}}" wx:elif="{{item.ctype==='Subscribe'}}"></template>
+    </view>
+    <view class="hasBottomNav" wx:if="{{hasBottomNav}}"></view>
+</view>
+<include src="/components/toast/toast.wxml"></include>
+<view bindtap="bindTopTap" class="back-top {{'backtop-'+isTopHidden}}" data-activity="click_rightcorner" data-activityparam="">
+    <image src="/images/back_top.png?2"></image>
+</view>
+<import src="/components/countdown/countdown.wxml"></import>

@@ -1,0 +1,27 @@
+<view bindtap="closeAlert" class="modal-mask"></view>
+<view class="modal-dialog">
+    <view class="modal-title">绑定手机号，送您专属优惠券</view>
+    <view class="modal-content">
+        <view class="modal-coupon">
+            <image class="MyCouponImg" src="https://jp.juancdn.com/xcx_images/MyCoupon.png"></image>
+            <view class="modal-coupon-text">
+                <text class="modal-coupon-price">¥{{couponNum}}</text>
+                <text>优惠券</text>
+            </view>
+        </view>
+        <form bindsubmit="formSubmit">
+            <view class="modal-input">
+                <input bindinput="getPhone" class="input" name="phone" placeholder="输入手机号码" type="number"></input>
+            </view>
+            <view class="modal-input-Verification">
+                <input bindinput="checkLength" class="input-Verification" maxlength="6" name="code" placeholder="输入验证码" type="number"></input>
+                <view bindtap="getAuthCode" class="getVerification {{authCodeDisabled?'getVerificationAfter':'getVerificationBefore'}}">
+          {{authCodeText}}
+        </view>
+            </view>
+            <view class="modal-footer">
+                <button class="Receive {{loginDisabled?'ReceiveAfter':'ReceiveBefore'}}" disabled="{{loginDisabled}}" formType="submit">立即领取</button>
+            </view>
+        </form>
+    </view>
+</view>

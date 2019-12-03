@@ -1,0 +1,98 @@
+@keyframes expanding {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 24rpx;
+    }
+}
+
+@-webkit-keyframes expanding {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 24rpx;
+    }
+}
+
+@keyframes rotate360 {
+    from {
+        transform: rotateZ(0);
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@-webkit-keyframes rotate360 {
+    from {
+        transform: rotateZ(0);
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+.load-more {
+    line-height: 1;
+    padding: 32rpx 0;
+    color: #9b9b9b;
+    text-align: center;
+    font-size: 14px;
+    display: block;
+    clear: both;
+}
+
+.load-more-white {
+    line-height: 1;
+    padding: 32rpx 0;
+    color: #666666;
+    text-align: center;
+    font-size: 16px;
+    display: block;
+    clear: both;
+    background-color: white;
+    border-top: 1px solid #f4f4f8;
+}
+
+.load-more .loading_icon {
+    animation: 1.5s rotate360 infinite;
+}
+
+.load-circle {
+    display: inline-block;
+    width: 12rpx;
+    font-size: 0;
+    text-align: left;
+    vertical-align: baseline;
+}
+
+.load-circle .load-circle__wrap {
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    animation: 1.5s expanding infinite;
+    white-space: nowrap;
+}
+
+.load-circle .load-circle__circle {
+    display: inline-block;
+    width: 5rpx;
+    height: 5rpx;
+    background-color: #9b9b9b;
+    margin-left: 3rpx;
+    border-radius: 50%;
+}
+
+.loading_icon {
+    width: 25px;
+    height: 26px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+}

@@ -1,0 +1,48 @@
+<template name="FilterWin">
+    <text class="filter_title">尺码</text>
+    <view class="size_box_str">
+        <view bindtap="sizeItemTap" class="size_item{{item.selected?'_active':''}}" data-activity="" data-activityparam="" data-item="{{item}}" data-sizetype="str" wx:for="{{size_info.str_size}}" wx:key="index">{{item.title}}</view>
+        <block wx:if="{{size_info.str_size.length%3!=0}}">
+            <view class="size_item_hidden" wx:for="{{plusCount.getPlusArray(size_info.str_size,3)}}" wx:key="index"></view>
+        </block>
+    </view>
+    <view class="line" wx:if="{{size_info.str_size.length>0&&size_info.num_size.length>0}}"></view>
+    <view class="size_box_num">
+        <view bindtap="sizeItemTap" class="size_item{{item.selected?'_active':''}}" data-activity="" data-activityparam="" data-item="{{item}}" data-sizetype="num" wx:for="{{size_info.num_size}}" wx:key="index">{{item.title}}</view>
+        <block wx:if="{{size_info.num_size.length%3!=0}}">
+            <view class="size_item_hidden" wx:for="{{plusCount.getPlusArray(size_info.num_size,3)}}" wx:key="index"></view>
+        </block>
+    </view>
+</template>
+<template name="filter">
+    <view bindtap="closeMask" class="mask-filter" data-direction="right" data-target="showFilterWin" wx:if="{{showFilterWin}}"></view>
+    <view animation="{{maskAnimation}}" class="mask-pane-filter" wx:if="{{showFilterWin}}">
+        <view class="filter_win">
+            <scroll-view scrollY class="filter__scroll">
+                <template is="FilterWin" data="{{size_info:size_info}}"></template>
+            </scroll-view>
+            <view class="action_btn_box">
+                <view bindtap="resetBtnTap" class="reset_btn">重置</view>
+                <view bindtap="confirmBtnTap" class="confirm_btn">确定</view>
+            </view>
+        </view>
+    </view>
+</template>
+<wxs module="plusCount">
+var getPlusArray = (function(array, mode) {
+    var rest = array.length % mode;
+    var sample = array[(0)];
+    var plusCount;
+    if (rest > 0 && rest < mode) {
+        plusCount = mode - rest
+    } else {
+        plusCount = 0
+    };
+    var retArray = [];
+    for (var i = 0; i < plusCount; i++) {
+        retArray[((nt_1 = (i), null == nt_1 ? undefined : 'number' === typeof nt_1 ? nt_1 : "" + nt_1))] = sample
+    };
+    return (retArray)
+});
+module.exports.getPlusArray = getPlusArray;
+</wxs>

@@ -1,0 +1,224 @@
+@import "../../components/goods/goods.wxss";
+
+@import "../../components/backtop/backtop.wxss";
+
+@import "../../components/get-coupon/index.wxss";
+
+@import "../../__wuBaseWxss__/41.wxss";
+
+@import "../../components/brand-act-coupon/index.wxss";
+
+@import "../../components/todesk-tip/index.wxss";
+
+@import "../../components/minicart/minicart.wxss";
+
+@import "../search/filter/filter.wxss";
+
+page,.lastingContent,.container {
+    height: 100%;
+    background-color: #efeff4;
+}
+
+.brand {
+    margin: 10px;
+    background-color: #fff;
+    padding: 14px;
+}
+
+.brand-info {
+    display: flex;
+    align-items: center;
+}
+
+.brand-info__logo {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    padding-top: 12px;
+    border: .5px solid #e7e7e7;
+}
+
+.brand-info__logo image {
+    width: 100%;
+    height: 20px;
+}
+
+.brand-info__info {
+    padding-left: 10px;
+    flex: 1;
+    max-width: 90%;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #333;
+}
+
+.brand-info__info__sec {
+    margin-top: 6px;
+    font-size: 12px;
+    opacity: .5;
+}
+
+.floor-wrap {
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    color: #333;
+    text-align: center;
+    background-color: #fff;
+}
+
+.floor-wrap__bar {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    border-bottom: .5px solid #e7e7e7;
+}
+
+.floor-fixed .floor-wrap__bar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+
+.floor-wrap__bar scroll-view {
+    height: 40px;
+    white-space: nowrap;
+    font-size: 0;
+}
+
+.floor-wrap__bar scroll-view .text--overflow {
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.floor-wrap__holder {
+    display: inline-block;
+    width: 40px;
+    height: 100%;
+}
+
+.floor-wrap__bar__item {
+    flex: 1;
+    height: 100%;
+}
+
+.floor-wrap__bar .active {
+    color: #ff464e;
+}
+
+.floor-wrap__bar .active text {
+    display: inline-block;
+    padding-left: 4rpx;
+    padding-right: 4rpx;
+    height: 100%;
+    border-bottom: 2px solid #ff464e;
+}
+
+.floor-wrap__angle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    background-color: #fff;
+}
+
+.floor-wrap__angle .angle {
+    width: 10px;
+    height: 10px;
+    color: #9b9b9b;
+}
+
+.floor-wrap__all {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    z-index: 3;
+    width: 100%;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    color: #666;
+    background-color: #fafafa;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.floor-wrap__all view {
+    line-height: 48px;
+    width: 33.33%;
+}
+
+.floor-data__title {
+    line-height: 44px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.shadow {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+}
+
+.endContent {
+    width: 100%;
+    height: 100%;
+    background-color: #efeff4;
+}
+
+.empty_address_pic {
+    width: 100%;
+}
+
+.empty_address_pic .EApicture {
+    display: block;
+    width: 280rpx;
+    height: 280rpx;
+    margin: 80rpx auto 40rpx;
+}
+
+.empty_address_pic .empty_tips {
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+    color: #333333;
+    line-height: 26px;
+    text-align: center;
+    margin: 0px auto;
+}
+
+.endbutton {
+    display: block;
+    margin: 40rpx auto;
+    width: 272rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    color: #FF464E;
+    border: 1px solid #FF464E;
+}
+
+.sort-tabs .filter {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sort-tabs .filter image {
+    width: 10px;
+    height: 10px;
+    vertical-align: top;
+}

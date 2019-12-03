@@ -1,0 +1,76 @@
+<view class="wallet separator {{wallet.is_set_pwd==0||wallet.is_blacklist==1?'wallethide':''}}">
+    <view class="balance" wx:if="{{wallet.is_locked==1}}">余额可支付：余额被冻结24小时</view>
+    <view class="balance" wx:if="{{wallet.is_locked==0}}">余额可支付：¥{{wallet.canpay}}</view>
+    <switch wx:if="{{wallet.canpay==0}}"></switch>
+    <block wx:if="{{wallet.canpay>0}}">
+        <switch checked bindchange="walletChange" wx:if="{{wallet.wallet_amount>0}}"></switch>
+        <switch bindchange="walletChange" wx:if="{{wallet.wallet_amount==0}}"></switch>
+    </block>
+    <input name="wallet_amount" style="display:none" value="{{wallet.wallet_amount}}"></input>
+    <input name="wallet_pwd" style="display:none" value="{{wallet.wallet_pwd}}"></input>
+</view>
+<view class="section">
+    <view class="pay__header">
+    支付方式
+  </view>
+    <view class="pay__list">
+        <view bindtap="payItemTap" class="pay__item" data-issel="{{wallet.needpay>0?1:0}}">
+            <image class="pay__icon" src="https://jp.juancdn.com/jpwebapp/images/shopping/icon_wx.png"></image>
+            <text class="pay__name">微信支付</text>
+            <image class="pay__sel" src="/images/radio{{wallet.needpay>0?'_sel':''}}.png"></image>
+        </view>
+    </view>
+</view>
+<view bindtap="closekeyboard" class="mask" wx:if="{{showKeyboard}}"></view>
+<view animation="{{maskAnimation}}" class="mask-pane" wx:if="{{showKeyboard}}">
+    <view bindtap="closeKeyboard" class="mask-pane__close">
+        <image src="/images/del.png"></image>
+    </view>
+    <view class="keyboard-win">
+        <view class="head">卷皮余额支付</view>
+        <view class="money">¥{{wallet.wallet_amount}}</view>
+        <view class="input-c">
+            <view class="input-grid">
+                <text class="dotted" wx:if="{{wallet.wallet_pwd.length>=1}}"></text>
+            </view>
+            <view class="input-grid">
+                <text class="dotted" wx:if="{{wallet.wallet_pwd.length>=2}}"></text>
+            </view>
+            <view class="input-grid">
+                <text class="dotted" wx:if="{{wallet.wallet_pwd.length>=3}}"></text>
+            </view>
+            <view class="input-grid">
+                <text class="dotted" wx:if="{{wallet.wallet_pwd.length>=4}}"></text>
+            </view>
+            <view class="input-grid">
+                <text class="dotted" wx:if="{{wallet.wallet_pwd.length>=5}}"></text>
+            </view>
+            <view class="input-grid">
+                <text class="dotted" wx:if="{{wallet.wallet_pwd.length>=6}}"></text>
+            </view>
+        </view>
+        <view class="tip">
+    请输入卷皮支付密码
+    </view>
+        <view class="title">
+            <image src="/images/safe.png"></image>
+            <text>卷皮安全键盘</text>
+        </view>
+        <view class="keyboard-c">
+            <view bindtap="keyboardItemTap" class="keyboard-item" data-value="1">1</view>
+            <view bindtap="keyboardItemTap" class="keyboard-item" data-value="2">2</view>
+            <view bindtap="keyboardItemTap" class="keyboard-item" data-value="3">3</view>
+            <view bindtap="keyboardItemTap" class="keyboard-item" data-value="4">4</view>
+            <view bindtap="keyboardItemTap" class="keyboard-item" data-value="5">5</view>
+            <view bindtap="keyboardItemTap" class="keyboard-item" data-value="6">6</view>
+            <view bindtap="keyboardItemTap" class="keyboard-item" data-value="7">7</view>
+            <view bindtap="keyboardItemTap" class="keyboard-item" data-value="8">8</view>
+            <view bindtap="keyboardItemTap" class="keyboard-item" data-value="9">9</view>
+            <view bindtap="keyboardItemTap" class="keyboard-item empty" data-value="empty"></view>
+            <view bindtap="keyboardItemTap" class="keyboard-item" data-value="0">0</view>
+            <view bindtap="keyboardItemTap" class="keyboard-item empty" data-value="del">
+                <image src="/images/keyboard-del.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

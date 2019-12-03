@@ -1,0 +1,26 @@
+<import src="../../../components/countdown/countdown.wxml"></import>
+<view class="block{{item.block_type}}">
+    <navigator hoverClass="none" openType="{{tab.isPageInTab(item.data.img_info.jump_url)?'switchTab':'navigate'}}" style="{width:100%}" url="{{item.data.img_info.jump_url}}">
+        <view class="back-img-url">
+            <image src="{{item.data.img_info.pic_url}}" style="width:710rpx;height:270rpx;"></image>
+            <view class="countdown-box" wx:if="{{item.data.img_info.end_time}}">
+                <template is="countdownWholeText" data="{{prefix:'距结束',time:time}}"></template>
+            </view>
+            <view class="look__more">查看更多</view>
+        </view>
+    </navigator>
+    <view class="goods-box">
+        <view class="type1-goods" wx:for="{{item.data.child}}" wx:for-item="childitem" wx:key="index">
+            <navigator bindtap="statisticsTap" data-activity="click_cube_block" data-activityparam="{{childitem.server_jsonstr}}" data-zhuge-activity="{{childitem.zg_event}}" data-zhuge-activityparam="{{childitem.zg_json}}" hoverClass="none" openType="{{tab.isPageInTab(childitem.jump_url)?'switchTab':'navigate'}}" url="{{childitem.jump_url}}">
+                <view class="img-box">
+                    <image mode="widthFix" src="{{childitem.pic_url}}"></image>
+                </view>
+                <view class="price-info">
+                    <text class="price">{{childitem.cprice}}</text>
+                    <text class="discount">{{childitem.discount_rate}}</text>
+                </view>
+                <view class="title">{{childitem.title}}</view>
+            </navigator>
+        </view>
+    </view>
+</view>

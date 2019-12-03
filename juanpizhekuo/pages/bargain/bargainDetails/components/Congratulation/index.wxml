@@ -1,0 +1,8 @@
+<view bindtap="onTap" class="cong">
+    <image class="cong__image" src="{{DETAILS_IMAGES.congratulation}}"></image>
+    <view class="cong__text">
+    成功砍价
+    <text class="cong__money">{{msg}}</text>
+    元
+  </view>
+</view>

@@ -1,0 +1,10 @@
+.board-top-right__root {
+    width: 200rpx;
+    height: 200rpx;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0rpx;
+    z-index: 999;
+}

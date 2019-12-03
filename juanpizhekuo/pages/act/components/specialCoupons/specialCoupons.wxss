@@ -1,0 +1,127 @@
+.special-coupons-wrapper {
+    padding-top: 15rpx;
+    font-size: 0;
+}
+
+.coupons-floor {
+    display: flex;
+    min-height: 322rpx;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-flow: wrap;
+    font-size: 0;
+    padding: 0 18rpx 0 6rpx;
+}
+
+.coupon-item {
+    display: block;
+    margin: 0 0 30rpx 15rpx;
+    position: relative;
+    width: 228rpx;
+    height: 322rpx;
+    font-size: 0;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.coupon-bg {
+    width: 228rpx;
+    height: 322rpx;
+}
+
+.coupon-info {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 12rpx;
+}
+
+.coupon-logo {
+    width: 202rpx;
+    height: 86rpx;
+    font-size: 0;
+    padding: 7rpx 10rpx;
+    background: #fff;
+    border-radius: 4rpx;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.coupon-title {
+    margin: 10rpx auto 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 20rpx;
+    line-height: 25rpx;
+    height: 50rpx;
+    color: #fff;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.coupon-btn {
+    display: block;
+    margin: 10rpx auto;
+    width: 114rpx;
+    height: 114rpx;
+    padding: 22rpx 0 0;
+    box-sizing: border-box;
+}
+
+.coupon-price {
+    font-size: 38rpx;
+    font-weight: 700;
+    color: #000;
+    line-height: 1;
+}
+
+.coupon-price__unit {
+    font-style: normal;
+    font-size: 20rpx;
+    font-weight: 400;
+}
+
+.coupon-status {
+    display: block;
+    font-size: 22rpx;
+    font-weight: 700;
+    color: #99701f;
+}
+
+.coupon-status.got {
+    color: #4e4c4a;
+}
+
+.coupon-status.over {
+    color: #7c7c7c;
+}
+
+.special-enter {
+    display: block;
+    font-size: 0;
+    line-height: 1;
+    text-align: center;
+}
+
+.special-enter text {
+    display: inline-block;
+    position: relative;
+    font-size: 20rpx;
+    font-weight: 700;
+    color: #ffe566;
+    vertical-align: top;
+}
+
+.special-enter image {
+    margin: 1rpx 0 0 8rpx;
+    display: inline-block;
+    width: 16rpx;
+    height: 16rpx;
+    vertical-align: top;
+}

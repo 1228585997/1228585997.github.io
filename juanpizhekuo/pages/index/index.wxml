@@ -1,0 +1,53 @@
+<template name="tabs">
+    <scroll-view scrollLeft="{{tabLocation}}" scrollX="true">
+        <view bindtap="bindNavTap" class="tabs-btn {{curTab===index?'tabs-btn__active':''}}" data-cid="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}" wx:for="{{tabList}}" wx:key="item.id">
+        {{item.name}}
+      </view>
+    </scroll-view>
+</template>
+<import src="/components/searchbar/index.wxml"></import>
+<import src="/components/blockAds/index.wxml"></import>
+<include src="/components/toast/toast.wxml"></include>
+<import src="/components/goods-list/index.wxml"></import>
+<form bindsubmit="sendPageFormId" class="page-form" data-type="1" reportSubmit="true">
+    <button class="page-form__btn" formType="submit" hoverClass="none" style="margin-top:-1px;">
+        <popup-chain></popup-chain>
+        <view class="container" hidden="{{!ready}}" style="{{searchBar.open!=0?'':'padding-top:0px;'}}">
+            <template is="searchbarTpl" data="{{searchBar:searchBar}}"></template>
+            <view class="tabs fixed-tabs" wx:if="{{tabList.length>0&&tabFix}}">
+                <template is="tabs" data="{{tabList:tabList,tabLocation:tabLocation,curTab:curTab}}"></template>
+            </view>
+            <view enableBackToTop bindscroll="dealScroll" bindscrolltolower="scrollGetGoods" class="goods-wrap" id="goods-wrap" scrollTop="{{scrollTop}}" scrollY="true">
+                <include src="/components/bannerads/index.wxml" wx:if="{{curTab==0&&slide_ads}}"></include>
+                <template is="blockAdsTpl" data="{{blocks:blockadsArr[0],blockTimes:blockTimes,countDownText:countDownText}}"></template>
+                <view class="tabs" id="tabs" wx:if="{{tabList.length>0}}">
+                    <template is="tabs" data="{{tabList:tabList,tabLocation:tabLocation,curTab:curTab}}"></template>
+                </view>
+                <template is="goods" data="{{list:lists[curTab],isVip:isVip}}"></template>
+                <include src="/components/loadmore/loadmore.wxml"></include>
+            </view>
+            <view bindtap="closePopup" class="shade-outer" wx:if="{{popupShow}}">
+                <view class="shade-box">
+                    <view bindtap="onPopupTap" data-url="{{popup.jump_url}}">
+                        <image bindtap="statisticsTap" data-activity="click_ad_popup" data-activityparam="{{popup.id}}" data-zhuge-activity="{{popup.zg_event}}" data-zhuge-activityparam="{{popup.zg_json}}" mode="widthFix" src="{{popup.pic}}"></image>
+                    </view>
+                    <view class="shade-box-close">
+                        <image mode="scaleToFill" src="/images/close_icon.png"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="sidebar {{'sidebarPos_'+sideAd.ads_info.sa_position}}" hidden="{{!sideAdShow}}" wx:if="{{sideAd.item}}">
+                <navigator bindtap="statisticsTap" data-activity="{{sideAd.ads_info.activity_name}}" data-activityparam="{{sideAd.ads_info.sa_id}}" data-zhuge-activity="{{sideAd.ads_info.zg_event}}" data-zhuge-activityparam="{{sideAd.ads_info.zg_json}}" hoverClass="none" url="{{sideAd.ads_info.jump_url}}">
+                    <image class="sidebar-img" src="{{sideAd.ads_info.sa_pic}}"></image>
+                </navigator>
+                <view catchtap="closeSidebar" class="sidebar-close" wx:if="{{sideAd.ads_info.sa_close_type!=0}}">
+                    <image class="sidebar-close-img" src="/images/close_icon.png"></image>
+                </view>
+            </view>
+            <include src="/components/alert/alert.wxml" wx:if="{{alertShow}}"></include>
+            <include src="/components/alertCoupon/alertCoupon.wxml" wx:if="{{alertCouponShow}}"></include>
+            <include src="/components/backtop-page/index.wxml"></include>
+        </view>
+        <include src="/components/share/share.wxml"></include>
+    </button>
+</form>

@@ -1,0 +1,283 @@
+@import "../../components/backtop/backtop.wxss";
+
+@import "../pinhaohuo/goods/index.wxss";
+
+@import "../../components/blockAds/index.wxss";
+
+page,.container {
+    height: 100%;
+    background-color: #efeff4;
+}
+
+.foru-view {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.item-title {
+    padding: 12px 0;
+    font-size: 0;
+    text-align: center;
+    color: #151515;
+    background-color: #fff;
+}
+
+.item-title-text {
+    display: inline-block;
+    position: relative;
+    padding: 0 8px;
+    line-height: 20px;
+    font-size: 13px;
+}
+
+.item-title-text::before,.item-title-text::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    height: 2px;
+    width: 8px;
+    background-color: #333;
+    transform: translate(0,-50%);
+}
+
+.item-title-text::before {
+    left: -8px;
+}
+
+.item-title-text::after {
+    right: -8px;
+}
+
+.foru-title {
+    display: block;
+    width: 100%;
+    height: 44px;
+}
+
+.foru-goods {
+    font-size: 0;
+    white-space: nowrap;
+    background: #fff;
+    overflow: hidden;
+}
+
+.foru-good {
+    display: inline-block;
+    margin-left: 10px;
+    padding-bottom: 12px;
+    width: 90px;
+    font-size: 0;
+    text-align: center;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.foru-good image {
+    display: block;
+    margin: 0 auto 5px;
+    width: 90px;
+    height: 90px;
+}
+
+.foru-good text {
+    font-size: 12px;
+    color: #333;
+}
+
+.fornew-goods {
+    margin-bottom: 10px;
+}
+
+.fornew-good {
+    padding: 10px;
+    background: #fff;
+    border-top: 1px solid #ebebeb;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.fornew-good-pic {
+    margin-right: 12px;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.fornew-good-pic .pic {
+    width: 120px;
+    height: 120px;
+}
+
+.fornew-good-pic .tag,.fornew-good-pic .over,.goods .over {
+    position: absolute;
+    z-index: 2;
+}
+
+.fornew-good-pic .tag {
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    padding: 4px 2px 0;
+    font-size: 0;
+    line-height: 1;
+    text-align: center;
+    overflow: hidden;
+}
+
+.fornew-good-pic .tag image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.fornew-good-pic .tag text {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 0;
+    width: 30px;
+    padding: 0 3px;
+    font-size: 10px;
+    color: #fff;
+    transform: translate(0,-56%);
+}
+
+.fornew-good-pic .jb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.fornew-good-pic .over,.goods .over {
+    top: 50%;
+    left: 50%;
+    width: 72px;
+    height: 72px;
+    line-height: 72px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 50%;
+    background-color: rgba(74,74,74,.7);
+    text-align: center;
+    overflow: hidden;
+    transform: translate(-50%,-50%);
+}
+
+.fornew-good .info {
+    flex: 1;
+    position: relative;
+    height: 120px;
+    font-size: 0;
+}
+
+.fornew-good .title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 13px;
+    color: #333;
+    overflow: hidden;
+}
+
+.fornew-good .info .tag {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #ff464e;
+}
+
+.fornew-good .bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.fornew-good .cprice {
+    font-size: 20px;
+    color: #ff464e;
+}
+
+.fornew-good .oprice {
+    margin-left: 4px;
+    font-size: 12px;
+    color: #bbb;
+    text-decoration: line-through;
+}
+
+.fornew-good .bottom-info {
+    position: relative;
+    padding-top: 24px;
+}
+
+.fornew-good .bottom-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 160px;
+    font-size: 12px;
+    color: #999;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: right;
+}
+
+.fornew-good .btn {
+    height: 24px;
+    padding: 0 12px;
+    font-size: 0;
+    border: 1px solid #ff464e;
+    border-radius: 12px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.fornew-good .btn-primary {
+    background: #ff464e;
+}
+
+.fornew-good .btn-text {
+    display: inline-block;
+    line-height: 22px;
+    font-size: 12px;
+    vertical-align: top;
+}
+
+.fornew-good .btn .arrow {
+    display: inline-block;
+    margin: 6px 0 0 2px;
+    width: 6px;
+    height: 10px;
+    vertical-align: top;
+}
+
+.fornew-good .btn .angle {
+    margin: 7px 0 0 2px;
+}
+
+.fornew-good .btn-primary .btn-text {
+    color: #fff;
+}
+
+.fornew-good .btn-primary .angle {
+    border-color: #fff;
+}
+
+.fornew-good .btn-ghost .btn-text {
+    color: #ff464e;
+}
+
+.fornew-good .btn-ghost .angle {
+    border-color: #ff464e;
+}

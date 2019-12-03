@@ -1,0 +1,122 @@
+.block23.type2 {
+    background: #fff;
+}
+
+.block23.type2 .type2-goods {
+    display: inline-block;
+    margin-left: 20rpx;
+    width: 224rpx;
+}
+
+.block23.type2 .type2-goods .img-box {
+    width: 224rpx;
+    height: 224rpx;
+    position: relative;
+}
+
+.block23.type2 .type2-goods .img-box .jiao {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.block23.type2 .type2-goods .img-box .jiao1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #17CC98;
+    font-size: 24rpx;
+    color: #fff;
+    text-align: center;
+    width: 104rpx;
+    height: 28rpx;
+    line-height: 28rpx;
+    border-bottom-right-radius: 8rpx;
+}
+
+.block23.type2 .type2-goods image {
+    width: 224rpx;
+    height: 224rpx;
+    vertical-align: top;
+}
+
+.block23.type2 .type2-goods .goods-title {
+    font-size: 12px;
+    color: #333;
+    padding-bottom: 10rpx;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.block23.type2 .type2-goods .price {
+    font-size: 12px;
+    color: #ff464e;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.block23.type2 .type2-goods .percent {
+    position: absolute;
+    bottom: 0;
+    height: 14px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    background: #F29DA0;
+    width: 100%;
+}
+
+.block23.type2 .type2-goods .percent .bar {
+    position: absolute;
+    background: #ff464e;
+    height: 14px;
+}
+
+.block23.type2 .type2-goods .percent .txt {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    height: 14px;
+    line-height: 14px;
+}
+
+.block23.type2 .type2-goods .percent .txt .fire-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 18rpx;
+    height: 20rpx;
+    margin-right: 5rpx;
+    margin-top: -1px;
+}
+
+.block23.type2 .type2-goods .stock {
+    position: absolute;
+    bottom: 0;
+    padding: 2px 0;
+    line-height: 1;
+    font-size: 10px;
+    color: #fff;
+    text-align: center;
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+}
+
+.block23.type2 .type2-goods .collect {
+    width: 200rpx;
+    border-radius: 2px;
+    margin: 0 auto 12rpx auto;
+    line-height: 48rpx;
+    color: #fff;
+    text-align: center;
+    background: #17cc63;
+    font-size: 12px;
+}
+
+.block23.type2 .type2-goods .collect.collected {
+    background: #bbb;
+}

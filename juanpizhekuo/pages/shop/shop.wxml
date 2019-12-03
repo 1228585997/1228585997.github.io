@@ -1,0 +1,425 @@
+<template name="shopIconBtns">
+    <view class="shop-buy__icon shop-cart">
+        <navigator openType="switchTab" url="/pages/index/index">
+            <image src="/images/shop_index_entry.png"></image>
+            <view>首页</view>
+        </navigator>
+    </view>
+    <view class="shop-buy__icon shop-cart" data-activity="click_temai_inpage_shoppingbag" data-activityparam="">
+        <navigator url="/pages/maincart/cart">
+            <image src="/images/cart_black.png"></image>
+            <view>购物车</view>
+            <text class="badge" wx:if="{{miniCartNum&&miniCartNum>0}}">{{miniCartNum}}</text>
+            <view class="shop-cart-toast" wx:if="{{isCartTip}}">
+                <text>已将商品加入购物车</text>
+                <text class="arr-icon">◆</text>
+            </view>
+        </navigator>
+    </view>
+</template>
+<import src="/components/countdown/countdown.wxml"></import>
+<import src="/components/get-coupon/coupon-mini.wxml"></import>
+<import src="/components/priceList/index.wxml"></import>
+<import src="/pages/cart/common/index.wxml"></import>
+<form bindsubmit="sendPageFormId" class="page-form" data-type="1" reportSubmit="true">
+    <button class="page-form__btn" formType="submit" hoverClass="none" style="margin-top:-1px;">
+        <view class="container" hidden="{{!ready}}">
+            <scroll-view enableBackToTop bindscroll="dealScroll" class="container-scroll" scrollTop="{{scrollTop}}" scrollY="true">
+                <view class="swiper-wrap">
+                    <swiper bindchange="bindSlideChange" duration="500">
+                        <swiper-item wx:for="{{slideImgs}}" wx:key="sm_type">
+                            <image class="slide-image" src="{{item}}"></image>
+                        </swiper-item>
+                    </swiper>
+                    <view class="swiper-index">{{curSlide}}/{{slideLength}}</view>
+                    <view bindtap="enshrineBtn" class="favor-btn" wx:if="{{is_vip_goods!='3'}}">
+                        <view wx:if="{{isEnshrine}}">
+                            <image class="favor-image" src="/images/icon_enshrine_y.png"></image>
+                        </view>
+                        <view wx:else>
+                            <image class="favor-image" src="/images/icon_enshrine_n.png"></image>
+                        </view>
+                    </view>
+                    <view class="bubble" wx:if="{{isShowCommentBubble&&comment.bubble}}">
+                        <navigator url="/pages/comment/comment?goods_id={{goods_id}}&index={{comment.bubble.index}}">
+                            <view class="bubble-item">
+                                <image src="{{comment.bubble.avatar}}"></image>
+                                <view class="bubble-item_group">{{comment.bubble.content}}</view>
+                                <view class="angle" style="color: #fff"></view>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+                <view class="xsqg-buying" wx:if="{{showXSQG==2}}">
+                    <view>
+                        <image src="https://goods2.juancdn.com/seller/180619/6/2/5b288255b6f8ea40fc2a9f1b_176x42.png"></image>
+                    </view>
+                    <view>
+                        <text>离本场结束仅剩：</text>
+                        <text class="times">{{XSQG_hour}}</text>
+                        <text>：</text>
+                        <text class="times">{{XSQG_min}}</text>
+                        <text>：</text>
+                        <text class="times">{{XSQG_second}}</text>
+                    </view>
+                </view>
+                <view class="xsqg-waiting" wx:if="{{showXSQG==1}}">
+                    <view>
+                        <image src="https://goods2.juancdn.com/seller/180619/6/2/5b288255b6f8ea40fc2a9f1b_176x42.png"></image>
+                    </view>
+                    <view>
+                        <text>{{XSQG_title}}开抢</text>
+                    </view>
+                </view>
+                <image bindtap="clickPicInfo" class="ad_pic" data-url="{{ad_info.jump_url}}" mode="widthFix" src="{{ad_info.pic_url}}" wx:if="{{ad_info&&ad_info.pic_url}}"></image>
+                <view class="goods-info margin-view" style="margin-bottom:{{coupon&&coupon.coupon_list||actInfo||vipInfo?0:0}}px;">
+                    <view class="goods-title-line">
+                        <view class="goods-title">{{title}}</view>
+                        <button bindtap="shareBtn" class="goods_share" openType="share" wx:if="{{!(ifShowFanPrice&&fan_price>0)}}">
+                            <image src="https://jp.juancdn.com/xcx_images/apps/zhe/pages/shop/images/share_btn_red.gif"></image>
+                            <text>分享</text>
+                        </button>
+                    </view>
+                    <view class="clock-wrap" wx:if="{{time}}">
+            距结束：
+            <template is="countdownWithText" data="{{time:time}}"></template>
+                    </view>
+                    <view class="goods-text__price">
+                        <view class="goods-text__price__left">
+                            <image class="shuang12_corner" mode="aspectFill" src="{{price_corner}}" wx:if="{{price_corner}}"></image>
+                            <block wx:if="{{act_mark}}">
+                                <text style="{{act_mark.title_class}}">{{act_mark.title}}</text>
+                                <text style="{{act_mark.sub_title_class}}">{{act_mark.sub_title}}</text>
+                            </block>
+                            <block wx:elif="{{isVip&&fan_price>0}}">
+                                <text style="font-size: 14px;color: #333;">¥</text>
+                                <text style="font-size: 18px;color: #333;margin-right: 20rpx;">{{cprice}}</text>
+                                <text class="base-tag" style="border-color:{{item.border_color}}; background-color: {{item.bg_color}}; color: {{item.text_color}}; font-size:{{item.font_size}}" wx:for="{{tag_list}}" wx:key="index">
+                  {{item.text}}
+                </text>
+                                <text class="fan_price_before">VIP返 ¥</text>
+                                <text class="fan_price">{{fan_price}}</text>
+                            </block>
+                            <block wx:elif="{{is_vip_goods=='0'}}">
+                                <text class="goods-text__red">{{fprice}}</text>
+                                <text class="goods-text__del" wx:if="{{showOprice==='0'&&oprice}}">
+                  {{oprice}}
+                </text>
+                                <text class="base-tag" style="border-color:{{item.border_color}}; background-color: {{item.bg_color}}; color: {{item.text_color}}; font-size:{{item.font_size}}" wx:for="{{tag_list}}" wx:key="index">
+                  {{item.text}}
+                </text>
+                            </block>
+                            <block wx:elif="{{is_vip_goods=='3'}}">
+                                <text class="vip-mark" style="border-color:{{vip_mark.border_color}}; background-color: {{vip_mark.bg_color}}; color: {{vip_mark.text_color}};" wx:if="{{showVipmark}}">
+                  {{vip_text}}
+                </text>
+                                <text class="goods-text__red has-vip">{{fprice}}</text>
+                            </block>
+                            <block wx:elif="{{is_vip_goods=='2'}}">
+                                <text class="vip-mark" style="border-color:{{vip_mark.border_color}}; background-color: {{vip_mark.bg_color}}; color: {{vip_mark.text_color}};" wx:if="{{showVipmark}}">
+                  {{vip_text}}
+                </text>
+                                <text class="goods-text__red has-vip">{{fprice}}</text>
+                            </block>
+                            <block wx:else>
+                                <block wx:if="{{is_vip=='0'}}">
+                                    <text class="goods-text__red">{{fprice}}</text>
+                                    <text class="goods-text__del" wx:if="{{showOprice==='0'}}">{{oprice}}</text>
+                                </block>
+                                <block wx:else>
+                                    <text class="vip-mark" style="border-color:{{vip_mark.border_color}}; background-color: {{vip_mark.bg_color}}; color: {{vip_mark.text_color}};" wx:if="{{showVipmark}}">
+                    {{vip_text}}
+                  </text>
+                                    <text class="goods-text__red" wx:if="{{!showVipmark}}">{{cprice}}</text>
+                                    <text class="goods-text__del">{{oprice}}</text>
+                                </block>
+                            </block>
+                        </view>
+                        <text class="goods-join-number">{{join_number}}</text>
+                    </view>
+                    <view class="ae-tags" wx:if="{{ae_tag&&ae_tag.length>0}}">
+                        <text wx:for="{{ae_tag}}" wx:key="index">{{item}}</text>
+                    </view>
+                </view>
+                <view class="margin-view">
+                    <include src="/components/actinfo/index.wxml"></include>
+                    <template is="couponMini" data="{{list:coupon.coupon_list,goods_id:goods_id}}" wx:if="{{coupon&&coupon.coupon_list}}"></template>
+                    <view class="rules" wx:if="{{ifLottery}}">
+                        <view class="rules__title">
+                            <text>{{rules.title}}</text>
+                            <navigator bindtap="statisticsTap" data-activity="click_pintuan_flow" data-activityparam="1" url="/pages/flow/flow?type=1">
+                抽奖流程
+                <view class="angle"></view>
+                            </navigator>
+                        </view>
+                        <view class="rules__guide">关注微信公众号“卷皮拼团”，即可查看抽奖结果哦～</view>
+                        <view>{{rules.content}}</view>
+                    </view>
+                    <navigator bindtap="statisticsTap" class="ldx-tip" data-activity="click_pintuan_flow" data-activityparam="1" url="{{tab_newer_mark.jump_url}}" wx:if="{{ifLaodaixin}}">
+                        <view>
+                            <text class="red-span">活动</text>
+                            <text>{{tab_newer_mark.text}}</text>
+                        </view>
+                        <view class="angle"></view>
+                    </navigator>
+                    <include src="/components/jp-promise/index.wxml"></include>
+                </view>
+                <include src="/components/near-group/index.wxml"></include>
+                <view bindtap="openMiddleSku" class="margin-view text--justify select-sku-tip" data-disabled="{{ifLottery}}" data-jump="{{middleJump}}" data-pop="{{is_pt_goods==1?0:1}}" data-way="{{middleWay}}" wx:if="{{selectedSkuTxt&&is_virtualNum!='3'}}">
+                    <text>{{selectedSkuTxt}}</text>
+                    <view class="angle" wx:if="{{ifLottery!=1}}"></view>
+                </view>
+                <view class="margin-view comment" wx:if="{{comment}}">
+                    <view class="comment-title-container">
+                        <view class="comment-title">{{comment.title}}</view>
+                        <navigator bindtap="statisticsTap" data-activity="click_evaluate_all" data-activityparam="{{goods_id}}" url="/pages/comment/comment?goods_id={{goods_id}}">
+                            <view wx:if="{{comment.rate}}">
+                                <text class="comment-rate">
+                  好评率
+                  <text style="color:#ff464e;">{{comment.rate}}</text>
+                                </text>
+                                <view class="angle"></view>
+                            </view>
+                        </navigator>
+                    </view>
+                    <block wx:if="{{comment.ifHasComment}}">
+                        <view class="comment-tags" wx:if="{{comment.tags&&comment.tags.length}}">
+                            <navigator url="/pages/comment/comment?goods_id={{goods_id}}&&tag={{item.tag_type}}" wx:for="{{comment.tags}}" wx:key="index">
+                {{item.tag_name}}
+              </navigator>
+                        </view>
+                        <block wx:for="{{comment.comment}}" wx:key="index">
+                            <view></view>
+                            <view class="comment-item__item" style="border-top:{{index!=0?'1px solid #ebebeb':''}}; padding-top:{{index!=0?14:0}}px">
+                                <view class="comment-item__user">
+                                    <image src="{{item.avatar}}"></image>
+                                    <view>{{item.username}}</view>
+                                    <image class="comment-item__user_vipicon" src="{{item.vip_pic}}"></image>
+                                </view>
+                                <view>
+                                    <image class=".comment-item__user__score" src="/images/{{i>item.score?'Star_gray':'Star_red'}}.png" wx:for="{{[1,2,3,4,5]}}" wx:for-item="i" wx:key="idx"></image>
+                                </view>
+                            </view>
+                            <view>{{item.content}}</view>
+                        </block>
+                        <navigator bindtap="statisticsTap" class="comment-btn" data-activity="click_evaluate_all" data-activityparam="{{goods_id}}" data-zhuge-activity="{{comment.zg_event}}" data-zhuge-activityparam="{{comment.zg_json}}" url="/pages/comment/comment?goods_id={{goods_id}}">
+              查看全部评价
+            </navigator>
+                    </block>
+                    <view class="comment-empty" wx:else>暂无评论～</view>
+                </view>
+                <view class="margin-view store-entry" wx:if="{{brand_info&&brand_info.jump_url}}">
+                    <navigator bindtap="statisticsTap" data-activity="{{brand_info.bi_activityname}}" data-activityparam="{{brand_info.bi_params}}" openType="redirect" url="/pages/brand/brand?brand_id={{brand_id}}&shop_id={{shop_id}}">
+                        <view class="store-entry-info">
+                            <view class="store-entry__logo">
+                                <image src="{{store.logo_url}}"></image>
+                            </view>
+                            <view class="store-entry__info">
+                                <view class="text--overflow">{{brand_info.title}}</view>
+                                <view class="store-entry__info__sec">{{store.store_info}}</view>
+                            </view>
+                            <view class="store-entry__btn">
+                                <text>{{brand_info.info_tips}}</text>
+                                <view class="angle"></view>
+                            </view>
+                        </view>
+                    </navigator>
+                    <view class="store-entry__goods">
+                        <navigator bindtap="statisticsTap" class="store-entry__goods-item" data-activity="{{item.bi_activityname}}" data-activityparam="{{item.bi_params}}" openType="redirect" url="/pages/shop/shop?id={{item.goods_id}}" wx:if="{{index!=brand_info.sub_goods.length-1}}" wx:for="{{brand_info.sub_goods}}" wx:key="index">
+                            <image src="{{item.pic}}"></image>
+                        </navigator>
+                    </view>
+                    <navigator class="brand-entry__btn" hoverClass="none" url="{{store.jump_button.jump_url}}">
+            查看店铺所有商品
+          </navigator>
+                </view>
+                <view class="margin-view store-entry" wx:elif="{{store&&store.jump_button}}">
+                    <navigator bindtap="statisticsTap" data-activity="{{store.bi_activityname}}" data-activityparam="{{store.bi_params}}" openType="redirect" url="{{store.jump_button.jump_url}}">
+                        <view class="store-entry-info">
+                            <view class="store-entry__logo">
+                                <image src="{{store.logo_url}}"></image>
+                            </view>
+                            <view class="store-entry__info">
+                                <view class="text--overflow">{{store.brand_title}}</view>
+                                <view class="store-entry__info__sec">{{store.store_info}}</view>
+                            </view>
+                            <view class="store-entry__btn">
+                                <text>{{store.jump_button.desc}}</text>
+                                <view class="angle"></view>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+                <view class="attrs" wx:if="{{goods_content}}">
+                    <view class="attrs-tabs">
+                        <view bindtap="attrsTap" class="{{curAttr==0?'active':''}}" data-activity="click_temai_imagetxtgoods" data-activityparam="" data-index="0">
+                图文详情
+              </view>
+                        <view bindtap="attrsTap" class="{{curAttr==1?'active':''}}" data-activity="click_temai_goods_logistics" data-activityparam="" data-index="1">
+                商品参数
+              </view>
+                        <view bindtap="attrsTap" class="no-right-border {{curAttr==2?'active':''}}" data-activity="click_temai_property" data-activityparam="" data-index="2">
+                咨询与售后
+              </view>
+                    </view>
+                    <view class="goods_content_ads" wx:if="{{promotion_info&&promotion_info.pic_url}}">
+                        <navigator bindtap="statisticsTap" data-activity="sxfenwei11" data-activityparam="sxfenwei11_1001.0" hoverClass="none" url="{{promotion_info.jump_url||'javascript:;'}}">
+                            <image src="{{promotion_info.pic_url}}"></image>
+                        </navigator>
+                    </view>
+                    <view class="desc-imgs" wx:if="{{curAttr==0}}">
+                        <image lazyLoad="true" mode="widthFix" src="{{item}}" wx:for="{{goods_content.gd_content}}" wx:key="index"></image>
+                    </view>
+                    <view class="attrs-content" wx:if="{{curAttr==1}}">
+                        <view class="attrs-params__item" wx:for="{{goods_content.attribute}}" wx:key="index">
+                            <text class="attrs-params__item__key">{{item.st_key}}</text>
+                            <text class="attrs-params__item__value">{{item.st_value}}</text>
+                        </view>
+                    </view>
+                    <view class="attrs-content" wx:if="{{curAttr==2}}">
+                        <view class="attrs-rules__item" wx:for="{{goods_content.rule_infos}}" wx:key="index">
+                            <view class="attrs-rules__item__key">{{item.ri_title}}</view>
+                            <view class="attrs-rules__item__value">{{item.ri_content}}</view>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+            <include src="/components/sku/sku.wxml"></include>
+            <view class="shop-buy">
+                <block wx:if="{{ifLottery&&lottery_status!=1}}">
+                    <template is="shopIconBtns" data="{{miniCartNum:miniCartNum,isEnshrine:isEnshrine,is_vip_goods:is_vip_goods,isCartTip:isCartTip}}"></template>
+                    <view class="shop-buy__green" wx:if="{{lottery_status==0}}">即将上线</view>
+                    <block wx:else>
+                        <view class="shop-buy__btn shop-buy__white disabled">
+                            <view class="shop-buy__btn__price">¥{{sprice}}</view>
+                            <view>立即购买</view>
+                        </view>
+                        <view class="shop-buy__btn shop-buy__red" wx:if="{{lottery_status==2}}">等待开奖</view>
+                        <navigator class="shop-buy__btn shop-buy__red" url="/pages/lottery/lottery?goods_id={{goods_id}}" wx:else>
+                查看中奖名单
+              </navigator>
+                    </block>
+                </block>
+                <block wx:elif="{{shopStatus==2}}">
+                    <template is="shopIconBtns" data="{{miniCartNum:miniCartNum,isEnshrine:isEnshrine,is_vip_goods:is_vip_goods,isCartTip:isCartTip}}"></template>
+                    <block wx:if="{{is_pt_goods==1}}">
+                        <view bindtap="openSku" class="shop-buy__btn shop-buy__white{{ifLottery||ifLaodaixin?' disabled':''}}" data-disabled="{{ifLottery||ifLaodaixin?1:0}}" data-pop="1" data-way="1">
+                            <view class="shop-buy__btn__price">¥{{sprice}}</view>
+                            <view>立即购买</view>
+                        </view>
+                        <view bindtap="openSku" class="shop-buy__btn shop-buy__red" data-pop="0" data-way="1">
+                            <view class="shop-buy__btn__price">¥{{cprice}}</view>
+                            <view>立即开团</view>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <view bindtap="buyNow" class="shop-buy__btn shop-buy__red" data-jump="{{single_jump_url}}" data-msg="{{toast_vip_msg}}" data-pop="{{pop_sku}}" data-way="1" wx:if="{{is_vip_goods=='3'}}">
+                立即购买
+              </view>
+                        <block wx:else>
+                            <block wx:if="{{is_virtual}}">
+                                <view bindtap="openSku" class="shop-buy__btn shop-buy__red" data-pop="1" data-way="1" wx:if="{{pop_sku=='1'}}">
+                    立即购买
+                  </view>
+                                <navigator class="shop-buy__btn shop-buy__red" url="{{single_jump_url}}" wx:else>
+                    立即购买
+                  </navigator>
+                            </block>
+                            <block wx:else>
+                                <view bindtap="openSku" class="shop-buy__btn shop-buy__white" data-pop="1" data-way="1">
+                  立即购买
+                </view>
+                                <view bindtap="openSku" class="shop-buy__btn shop-buy__red" data-pop="1" data-way="0">
+                  加入购物车
+                </view>
+                            </block>
+                        </block>
+                    </block>
+                    <navigator bindtap="statisticsTap" class="shop-buy__tip2" data-activity="click_temai_inpage_factivity" hoverClass="none" openType="navigate" url="{{coudanleadData.btn_url}}" wx:if="{{isCartTip2}}">
+                        <view class="shop-buy_tip2-title">
+                            <view class="tip2-title-icon">
+                                <image src="{{coudanleadData.icon}}"></image>
+                            </view>
+                {{coudanleadData.txt}}
+                <view class="tip2-title-btn">
+                  {{coudanleadData.btn_txt}}
+                  <view class="angle"></view>
+                            </view>
+                        </view>
+                        <view>
+                            <scroll-view bindscroll="buyTipScroll" class="shop-buy__tip2-scroll" scrollWithAnimation="{{true}}" scrollX="{{true}}" style="width: 100%;">
+                                <view class="shop-buy__tip2-list">
+                                    <view class="tip2-list-item" wx:if="{{item.pic}}" wx:for="{{coudanleadData.sub_goods}}" wx:key="{{ index }}">
+                                        <image class="tip2-list-item-img" src="{{item.pic}}"></image>
+                                        <view class="tip2-list-item-text" wx:if="{{item.price}}">
+                        {{item.price}}
+                      </view>
+                                    </view>
+                                </view>
+                            </scroll-view>
+                        </view>
+                    </navigator>
+                </block>
+                <form bindsubmit="submit" catchtap="delTap" class="status_form" reportSubmit="true" wx:elif="{{shopStatus==1}}">
+                    <button catchtap="delTap" class="select_button" data-aaa="{{startTime}}" data-goods_code="{{item.goods_code}}" data-goods_id="{{item.goods_id}}" data-index="{{index}}" formType="submit" hoverStopPropagation="true" plain="true">
+                        <view class="Collected" wx:if="{{isEnshrine}}">
+                已设置提醒并收藏
+                <text class="startTime" wx:if="{{startTime}}">({{startTime}})</text>
+                        </view>
+                        <view class="go_Collect" wx:else>设置开抢提醒</view>
+                    </button>
+                </form>
+                <block wx:else>
+                    <view class="shop-buy__disable">{{['','','','抢光了','已下架'][shopStatus]}}</view>
+                    <block wx:if="{{recommendArr.length>0}}">
+                        <view class="{{isSuspend?'shop-buy__disable-suspend-box__active':''}}"></view>
+                        <view class="shop-buy__disable-suspend {{isSuspend?'shop-buy__disable-suspend__active':''}}">
+                            <view bindtap="suspendBtn" class="suspend-title">
+                晚了一步，看看量身推荐的其他商品吧～
+                <text class="angle"></text>
+                            </view>
+                            <view class="suspend-content">
+                                <scroll-view class="suspend-scroll" scrollY="true">
+                                    <view class="suspend-scroll-list">
+                                        <navigator class="suspend-scroll-item" data-activity="{{item.activityname||'click_cube_goods'}}" data-activityparam="{{item.server_jsonstr}}" hoverClass="none" openType="redirect" url="{{ifIndexPage==1&&item.hot_type==3?'/pages/brand/brand?brand_id='+item.brand_id+'&shop_id='+item.shop_id:'/pages/shop/shop?id='+item.goods_id+'&goodCode='+item.goods_code+'&goodType='+item.goods_type}}" wx:if="{{item.goods_id}}" wx:for="{{recommendArr}}">
+                                            <view class="suspend-scroll-item-img">
+                                                <image mode="scaleToFill" src="{{item.pic_url}}"></image>
+                                            </view>
+                                            <view class="suspend-scroll-item-text">
+                                                <view class="suspend-scroll-item-price">
+                                                    <text>¥{{item.cprice}}</text>
+                                                    <text class="suspend-scroll-item-price-gray">¥{{item.oprice}}</text>
+                                                </view>
+                                                <view class="suspend-scroll-item-name">{{item.title}}</view>
+                                            </view>
+                                        </navigator>
+                                    </view>
+                                </scroll-view>
+                            </view>
+                        </view>
+                    </block>
+                </block>
+            </view>
+            <include src="/components/get-coupon/index.wxml"></include>
+            <include src="/components/backtop/backtop.wxml"></include>
+            <include src="/components/error-msg/error-msg.wxml"></include>
+            <include src="/components/toast/toast.wxml"></include>
+            <include src="/components/quick-menu/index.wxml"></include>
+            <view bindtap="closeMask" class="mask" data-target="showCartWin" wx:if="{{showCartWin}}"></view>
+            <view animation="{{maskAnimation}}" class="mask-pane" wx:if="{{showCartWin}}">
+                <view bindtap="closeMask" class="mask-pane__close" data-activity="click_temai_coupons_close" data-activityparam="" data-target="showCartWin">
+                    <image src="/images/del.png"></image>
+                </view>
+                <view class="cart__win">
+                    <view class="head__title">购物车</view>
+                    <scroll-view scrollY class="cart__scroll">
+                        <template is="cartBox" data="{{isEmpty:isEmpty,hasLogin:hasLogin,cart_group:cart_group,isPopWin:true}}"></template>
+                    </scroll-view>
+                    <template is="memberCard-tip" data="{{buyMemberCard:buyMemberCard}}"></template>
+                    <template is="cart-action" data="{{isEmpty:isEmpty,isAllSel:isAllSel,total_real_price:total_real_price,total_goods_price:total_goods_price,total_reduce_money:total_reduce_money,selectSku:selectSku}}"></template>
+                </view>
+            </view>
+        </view>
+        <include src="/components/share/share.wxml"></include>
+    </button>
+</form>

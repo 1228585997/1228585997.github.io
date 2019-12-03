@@ -1,0 +1,21 @@
+<import src="../../../components/countdown/countdown.wxml"></import>
+<navigator bindtap="statisticsTap" data-activity="click_cube_block" data-activityparam="{{item.data.server_jsonstr}}" data-zhuge-activity="{{item.data.zg_event}}" data-zhuge-activityparam="{{item.data.zg_json}}" hoverClass="none" openType="{{tab.isPageInTab(item.data.jump_url)?'switchTab':'navigate'}}" url="{{item.data.jump_url}}">
+    <view class="block__container block{{item.block_type}}" style="margin-top:{{item.margin_enabled}}px">
+        <view class="left-img" wx:if="{{item.data.left_img}}">
+            <image mode="widthFix" src="{{item.data.left_img}}"></image>
+        </view>
+        <view class="time-title" wx:if="item.data.text">
+      {{item.data.text}}
+    </view>
+        <view class="time-box">
+            <template is="countdownWithoutText" data="{{ time:blockTimes[item.data.bd_id] }}"></template>
+            <block wx:if="{{item.data.millsecond==1}}">
+                <text class="time__minutes__text">:</text>
+                <view class="countdown__millsecond"></view>
+            </block>
+        </view>
+        <view class="right-img" wx:if="{{item.data.right_img}}">
+            <image mode="widthFix" src="{{item.data.right_img}}"></image>
+        </view>
+    </view>
+</navigator>

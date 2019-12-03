@@ -1,0 +1,14 @@
+<template name="sort-tabs">
+    <view class="sort-tabs{{tabFix?'_fix':''}}" id="sort-tabs" style="top:{{fixedTop}}">
+        <view bindtap="handleTapSortTab" class="item {{item.selected?'red':''}}" data-value="{{item.value}}" wx:for="{{goodsTabs}}" wx:key="{{index}}">
+            {{item.text}}
+            <view class="arrow {{item.selected?item.orderType:''}}" wx:if="{{item.orderType}}">
+                <view class="up"></view>
+                <view class="down"></view>
+            </view>
+            <view class="filter" wx:if="{{item.value=='filter'}}">
+                <image src="/images/filter{{item.selected?'_active':''}}.png"></image>
+            </view>
+        </view>
+    </view>
+</template>

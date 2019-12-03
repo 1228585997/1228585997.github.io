@@ -1,0 +1,19 @@
+<view class="act-info" wx:if="{{actInfo.length>0}}" wx:for="{{actInfo}}" wx:key="index">
+    <text class="red-span">{{item.title}}</text>
+    <text>{{item.content}}</text>
+</view>
+<view class="brand-coupon" wx:if="{{coupon&&coupon.coupon_list}}">
+    <image src="/images/coupon_bg.png"></image>
+    <view class="brand-coupon__content">
+        <view class="brand-coupon__txt">
+            <view class="brand-coupon__price">{{couponInfo.money}}</view>
+            <view>
+                <view>{{couponInfo.rule_info}}</view>
+                <view>{{couponInfo.rule}}</view>
+            </view>
+        </view>
+        <view bindtap="openMask" class="brand-coupon__btn {{coupon.coupon_btn_class}}" data-classname="{{coupon.coupon_btn_class}}" data-target="showGetCoupon">
+            <view bindtap="statisticsTap" data-activity="click_branddetails_coupon" data-activityparam="{{coupon.coupon_ids}}">{{coupon.coupon_btn_txt}}</view>
+        </view>
+    </view>
+</view>

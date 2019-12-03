@@ -1,0 +1,22 @@
+<template name="groupingTpl">
+    <view class="groupings" wx:if="{{list.length>0}}">
+        <view class="grouping-title">{{title}}</view>
+        <view class="grouping" wx:for="{{list}}" wx:key="item_id">
+            <view class="grouping__status">{{item.tuan_text}}</view>
+            <navigator class="grouping__goods{{index+1>=list.length?' grouping__goods__last':''}}" openType="redirect" url="/pages/item/item?item_id={{item.item_id}}">
+                <image lazyLoad class="grouping__goods__img" src="{{item.images}}"></image>
+                <view class="grouping__goods__info">
+                    <view class="grouping__goods__title">{{item.title}}</view>
+                    <view>
+                        <text class="grouping__goods__red">{{item.cprice}}</text>
+                        <text class="grouping__goods__del">单买价¥{{item.oprice}}</text>
+                    </view>
+                    <view class="grouping__goods__badge">拼立省{{item.reduce}}元</view>
+                </view>
+                <view bindtap="statisticsTap" class="grouping__goods__btn" data-activity="click_share" data-activityparam="{{item.item_id}}" data-zhuge-activity="{{item.zg_event}}" data-zhuge-activityparam="{{item.zg_json}}">{{item.join_btn}}</view>
+            </navigator>
+        </view>
+        <view bindtap="getGrouping" class="grouping-more" wx:if="{{isMore}}">点击查看更多<view class="angle angle--down"></view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,94 @@
+<import src="./components/progress.wxml"></import>
+<import src="./components/after-sales-form.wxml"></import>
+<view class="container" hidden="{{!ready}}">
+    <form bindsubmit="bindFormSubmit">
+        <view class="type-box">
+            <text class="type-item">{{info.applyInfo.topTips}}</text>
+        </view>
+        <view class="goods m-t">
+            <view class="goods-item">
+                <view class="goods-image">
+                    <image src="{{info.goodsInfo.images}}"></image>
+                </view>
+                <view class="info">
+                    <view class="info1">
+                        <text class="title">{{info.goodsInfo.title}}</text>
+                        <text class="price">¥{{info.goodsInfo.cprice}}</text>
+                    </view>
+                    <view class="info2">{{info.goodsInfo.av_zvalue}} {{info.goodsInfo.av_fvalue}}</view>
+                    <view class="info3">{{info.goodsInfo.applyNumTips}}</view>
+                </view>
+            </view>
+            <view class="limit" wx:if="{{info.goodsInfo.num>1}}">
+                <text>售后件数</text>
+                <view class="good__count">
+                    <text bindtap="decGood" class="dec {{num<=1?'disabled':''}}">-</text>
+                    <text class="num">{{num}}</text>
+                    <text bindtap="incGood" class="inc {{num>=info.goodsInfo.num?'disabled':''}}">+</text>
+                </view>
+            </view>
+        </view>
+        <template is="progress" data="{{flowview:info.flowView,curStep:curStep,stepWidth:stepWidth,curStepWidth:curStepWidth}}"></template>
+        <view class="goods-box m-t" wx:if="{{refundType==6}}">
+            <view class="title">正在售后的商品</view>
+            <view class="desc">{{info.goodsInfo.title}}</view>
+            <view class="desc">{{info.goodsInfo.av_zvalue}}{{'、'+info.goodsInfo.av_fvalue}}</view>
+            <view class="title">希望更换为</view>
+            <view bindtap="showSku" class="sku" data-pop="1" data-way="0">
+                <text>{{selSkuTxt}}</text>
+                <text class="angle"></text>
+            </view>
+        </view>
+        <view class="money-box m-t" wx:if="{{refundType==1||refundType==2}}">
+            <view class="refund-money" wx:if="{{info.refundMoney}}">退款金额 <text>¥{{info.refundMoney}}</text>
+            </view>
+            <view bindtap="showRule" class="refund-rule" wx:if="{{info.refundMoney}}">退款细则<image src="/images/member-icon.png"></image>
+            </view>
+            <view class="refund-detail">
+                <view class="title">以下优惠金额将不与退回</view>
+                <view class="refund-item" wx:for="{{info.moneyDetail}}" wx:key="index">
+                    <text>{{item.title}}</text>
+                    <text>{{item.desc}}</text>
+                </view>
+            </view>
+        </view>
+        <template is="after-sales-form" data="{{isNoteRequired:info.isNoteRequired,isProofRequired:info.isProofRequired,imgList:imgList}}"></template>
+        <view class="subsidy-box m-t" wx:if="{{info.subsidy}}">
+            <view class="subsidy-item" wx:for="{{info.subsidy}}" wx:key="index">
+                <view class="title-box">
+                    <text class="title">{{item.title}}</text>
+                    <text class="tip">{{item.coupon}}</text>
+                </view>
+                <view class="desc">{{item.txt}}</view>
+            </view>
+        </view>
+        <button class="btn" formType="submit">提交申请</button>
+    </form>
+    <view bindtap="closeRule" class="mask" wx:if="{{showRule}}"></view>
+    <view animation="{{maskAnimation}}" class="mask-pane" wx:if="{{showRule}}">
+        <view bindtap="closeRule" class="mask-pane__close">
+            <image src="/images/del.png"></image>
+        </view>
+        <view class="rule-title">退款细则</view>
+        <view class="rule__container">
+            <view class="rule__item">
+                <view class="title">优惠券退还说明</view>
+                <view class="desc">当优惠券使用于多个商品，且所有商品都退还时，此优惠券才会返还至您的账户，优惠券有效期不变。 </view>
+            </view>
+            <view class="rule__item">
+                <view class="title">活动优惠退还说明</view>
+                <view class="desc">参与活动优惠的商品在同意退款后，实付金额将退还给您，活动优惠金额将不予退还。</view>
+            </view>
+            <view class="rule__item">
+                <view class="title">购买运费退还说明</view>
+                <view class="desc">售后类型为仅退款时，购买运费会全部退还；售后类型为退货退款时，购买运费将不予退还。</view>
+            </view>
+            <view class="rule__item">
+                <view class="title">赠品退还说明</view>
+                <view class="desc">购买时参与了满赠活动，若退货后不满足满赠条件，需将收到的赠品一并退回。（虚拟赠品将直接被收回）</view>
+            </view>
+        </view>
+    </view>
+    <include src="/components/toast/toast.wxml"></include>
+    <include src="/components/sku/sku.wxml"></include>
+</view>

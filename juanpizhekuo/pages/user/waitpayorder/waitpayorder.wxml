@@ -1,0 +1,145 @@
+<import src="../../../components/countdown/countdown.wxml"></import>
+<view class="container" hidden="{{!ready}}">
+    <include src="../../../components/toast/toast.wxml"></include>
+    <view class="order-status waitpay">
+        <view class="order-status__money">
+            <text class="order-status__money--text">{{pay_status}}</text>
+            <text class="order-status__money--icon">¥</text>
+            <text>{{remainPay}}</text>
+        </view>
+        <view class="order-status__times" wx:if="{{!virtualType}}">
+			订单为你保留
+			<text class="order-status__count" wx:if="{{leftTime>86400000}}">{{time.days+1}}天</text>
+            <text class="order-status__count" wx:elif="{{3600000<leftTime&&leftTime<86400000}}">{{time.hours+1}}小时</text>
+            <text class="order-status__count" wx:else>
+                <template is="countdownWithoutText" data="{{time:time}}"></template>
+            </text>
+			
+			, 超时后将会取消订单
+		</view>
+        <navigator bindtap="statisticsTap" class="order-status__ques--href" data-activity="click_temai_orderlist_QA" data-activityparam="" hoverClass="none" openType="navigate" url="/pages/service/question/question">
+            <view class="order-status__ques">
+                <text>{{order_question}}</text>
+                <image class="order-status__goicon" src="../../../images/go_icon.png"></image>
+            </view>
+        </navigator>
+    </view>
+    <view class="order-address" wx:if="{{!virtualType}}">
+        <view>
+            <image class="order-address__icon" src="../../../images/shop_location_new.png"></image>
+        </view>
+        <view>
+            <view class="order-address__name">
+				{{username}}
+			</view>
+            <view>
+				{{address}}
+			</view>
+        </view>
+    </view>
+    <view class="order-pay">
+        <view class="order-pay__paytype" wx:if="{{walletPay}}">
+            <text>{{walletPay}}</text>
+        </view>
+        <view class="order-pay__paytype">
+            <text>支付方式</text>
+            <view wx:if="{{walletPay}}">还需支付：<text style="color:#ff464e;">¥{{remainPay}}</text>
+            </view>
+        </view>
+        <view class="order-pay__typeselect">
+            <image class="order-pay__icon" src="http://jp.juancdn.com/jpwebapp/images/shopping/icon_wx.png"></image>
+            <text>微信支付</text>
+            <view class="order-payselect">
+                <image class="order-pay__select" src="/images/radio_sel.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="order-detail">
+        <navigator class="order-detail__store--history" hoverClass="none" openType="navigate" url="/pages/user/orderdetail/orderdetail?orderid={{original_order_no}}" wx:if="{{original_order_no}}">
+            <text>查看原订单</text>
+        </navigator>
+        <view class="order-shop" wx:for="{{shops}}" wx:for-item="s_item" wx:key="shop">
+            <view class="order-detail__store">
+                <image class="order-detail__store--icon" src="../../../images/shop_new.png"></image>
+                <navigator bindtap="statisticsTap" data-activity="click_temai_orderdetails_business" data-activityparam="{{s_item.shop_id}}" hoverClass="none" openType="navigate" url="{{s_item.xcx_jump_url}}">
+                    <text>{{s_item.shop_name}}</text>
+                    <view class="order-detail__store--arrow angle"></view>
+                </navigator>
+            </view>
+            <view class="order-detail__goods" wx:for="{{s_item.goods}}" wx:for-item="g_item" wx:key="unique">
+                <navigator bindtap="statisticsTap" data-activity="click_temai_orderdetails_complex" data-activityparam="{{g_item.goods_id}}" hoverClass="none" openType="navigate" url="/pages/shop/shop?id={{g_item.goods_id}}">
+                    <view class="order-detail__infos">
+                        <view class="order-detail__goods--imgs">
+                            <image class="order-detail__goods--img" src="{{g_item.images}}">
+                                <text class="image_tip" wx:if="{{g_item.imagesTips.length}}">{{g_item.imagesTips}}</text>
+                            </image>
+                        </view>
+                        <view class="order-detail__titles">
+                            <view class="order-detail__title">
+							{{g_item.title}}
+						</view>
+                            <view class="order-detail__sku">
+							{{g_item.av_zvalue}} {{g_item.av_fvalue}}
+						</view>
+                            <view class="order-detail__return" wx:if="{{g_item.isSupport7DayRefund==1}}">
+                                <text>7天退货</text>
+                            </view>
+                        </view>
+                        <view class="order-detail__prices">
+                            <view>
+							¥{{g_item.cprice}}
+						</view>
+                            <view class="order-detail__num">
+							x{{g_item.num}}
+						</view>
+                        </view>
+                    </view>
+                </navigator>
+                <view></view>
+            </view>
+        </view>
+    </view>
+    <view class="order-infos">
+        <block wx:for="{{details}}" wx:key="details">
+            <view class="order-infos__item" wx:if="{{index+1<details.length}}">
+                <view>{{item.title}}</view>
+                <view>{{item.desc}}</view>
+            </view>
+            <view class="order-infos__item last__item" wx:if="{{index+1==details.length}}">
+                <view>
+                    <text>{{item.title}}</text>
+                    <text class="order-infos__item--vip" wx:if="{{item.icon_txt}}">{{item.icon_txt}}</text>
+                </view>
+                <view>{{item.desc}}</view>
+            </view>
+        </block>
+        <view class="order-infos__pay">
+            <block wx:if="{{fan_money>0}}">
+                <text class="order-infos__paytext">实付款 ¥{{totalTips}}</text>
+                <text class="order__line3__fan">返：¥{{fan_money}}</text>
+            </block>
+            <block wx:else>
+                <text class="order-infos__paytext">实付款 </text>
+                <text class="order-infos__payicon">¥ </text>
+                <text class="order-infos__paynum">{{totalTips}}</text>
+            </block>
+        </view>
+    </view>
+    <view class="order-timedetail">
+        <view class="order-timedetail__time">
+			下单时间： {{create_time}}
+		</view>
+        <view class="order-timedetail__paytype">
+			支付方式： {{pay_type_name}}
+		</view>
+        <view class="order-timedetail__code">
+            <text>订单编号： {{order_no}}</text>
+            <text bindtap="copyOrder" class="order-timedetail__copy" data-activity="click_temai_orderdetails_copy" data-activityparam="{{order_no}}">复制</text>
+        </view>
+    </view>
+    <view class="order-bnt">
+        <text bindtap="goPayTap" class="order-bnt__gopay" data-activity="click_temai_orderdetails_pay" data-activityparam="{{order_no}}">去付款<block wx:if="{{leftTime<3600000}}">(<template is="countdownWithoutText" data="{{time:time}}"></template>)</block>
+        </text>
+        <text bindtap="bntClick" class="orderbnt" data-activity="click_temai_orderdetails_cancel" data-activityparam="{{order_no}}" data-bnt="cancelOrder">取消订单</text>
+    </view>
+</view>

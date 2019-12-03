@@ -1,0 +1,32 @@
+@import "../../../components/loadmore1/loadmore.wxss";
+
+@import "../TabsGoods/index.wxss";
+
+page,.container {
+    height: 100%;
+}
+
+.sub-cate-box {
+    padding: 10px 15px;
+    border-top: 1px solid #ebebeb;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    box-sizing: border-box;
+}
+
+.sub-cate-item {
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #4a4a4a;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    margin-right: 15px;
+    white-space: nowrap;
+    border-radius: 2px;
+}
+
+.sub-cate-item.active {
+    border: 1px solid #ff464e;
+    color: #ff464e;
+}

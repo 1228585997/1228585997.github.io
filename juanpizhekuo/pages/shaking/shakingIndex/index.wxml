@@ -1,0 +1,158 @@
+<import src="../../../components/goods/goods.wxml"></import>
+<import src="../../../components/countdown/countdown.wxml"></import>
+<include src="../../../components/error-msg/error-msg.wxml"></include>
+<include src="../../../components/toast/toast.wxml"></include>
+<form bindsubmit="sendPageFormId" class="page-form" data-type="1" reportSubmit="true">
+    <button class="page-form__btn" formType="submit" hoverClass="none" style="margin-top:-1px;">
+        <view class="container">
+            <view class="qipao2 {{ishidden?'hidden':''}}" style="top:{{qipaoTop}}" wx:if="{{list.length}}">
+                <view>{{username}}{{money}}</view>
+            </view>
+            <view class="content_empty" wx:if="{{!shaked}}">
+                <image class="content_empty_bkImg" src="https://jp.juancdn.com/wxMapp/yaoyiyao/empty_bk.png"></image>
+                <view class="personall_empty">已有{{peopleNum}}人参与</view>
+                <view class="circleIn">
+                    <image class="circleInImg" src="https://jp.juancdn.com/wxMapp/yaoyiyao/CircleIn.png"></image>
+                </view>
+                <view class="circleOut">
+                    <image class="circleOutImg" src="https://jp.juancdn.com/wxMapp/yaoyiyao/circleOut.png"></image>
+                </view>
+                <view class="shakeHands">
+                    <image class="shakeHandsImg" src="https://jp.juancdn.com/wxMapp/yaoyiyao/hands2.png"></image>
+                </view>
+                <view class="longTips">
+                    <image class="longTipsImg" src="https://jp.juancdn.com/wxMapp/yaoyiyao/longTips.png"></image>
+                </view>
+                <view class="payAttention">
+                    <view class="payAttention_tips">关注公众号查看活动进度</view>
+                    <view bindtap="showCode" class="payAttention_click" data-activity="click_attention_juanpi" data-activityparam=""></view>
+                </view>
+            </view>
+            <view class="content_gameStart" wx:else>
+                <image class="content_gameStart_bkImg" src="https://jp.juancdn.com/wxMapp/yaoyiyao/back.png"></image>
+                <view class="headTextContent">
+                    <image class="haedText1" src="https://jp.juancdn.com/wxMapp/yaoyiyao/headText1.png" wx:if="{{prizeType!==2}}"></image>
+                    <image class="haedText2" src="https://jp.juancdn.com/wxMapp/yaoyiyao/headText2.png" wx:else></image>
+                </view>
+                <view class="content_main">
+                    <view class="wxImgContent">
+                        <image class="wxImg" src="{{headImg}}"></image>
+                    </view>
+                    <view class="readEnvelop">
+                        <view class="tellTips" wx:if="{{ifShared&&(prizeType==2||prizeType==3)}}">恭喜你获得</view>
+                        <view class="tellTips" wx:else>恭喜你摇中</view>
+                        <view class="prizePicContent">
+                            <view class="prizePicContentImg">
+                                <image class="status1" src="https://jp.juancdn.com/wxMapp/yaoyiyao/status1.png" wx:if="{{!ifShared&&prizeType==1}}"></image>
+                                <image class="status1" src="https://jp.juancdn.com/wxMapp/yaoyiyao/status1Shared.png" wx:if="{{ifShared&&prizeType==1}}"></image>
+                                <image class="status2" src="https://jp.juancdn.com/wxMapp/yaoyiyao/status2.png" wx:if="{{prizeType==2||prizeType==3}}"></image>
+                                <image class="status4" src="https://jp.juancdn.com/wxMapp/yaoyiyao/status4.png" wx:if="{{prizeType==4}}"></image>
+                                <image class="status5" src="https://jp.juancdn.com/wxMapp/yaoyiyao/status5.png" wx:if="{{prizeType==5}}"></image>
+                                <view class="status2_3Tips" wx:if="{{prizeType==2}}">
+                    全额免单
+                  </view>
+                                <view class="status2_3Tips status3_Tips" wx:if="{{prizeType==3}}">
+                    ¥{{rewardMoney}}
+                  </view>
+                            </view>
+                        </view>
+                        <view class="hb_time" wx:if="{{!ifShared&&(prizeType==1||prizeType==2||prizeType==3)&&clockShow}}">领取倒计时  
+                <template is="countdownWithoutText" data="{{time:shareTime}}"></template>
+                        </view>
+                        <view wx:if="{{!ifShared&&(prizeType==1||prizeType==2||prizeType==3)}}">
+                            <button class="clickBtn shareBtn" openType="share"> 分享领取</button>
+                        </view>
+                        <view class="clickBtn getBtn" wx:if="{{ifShared&&prizeType===1}}">
+                            <navigator hoverClass="none" url="/pages/actvip/actvip/yiritiyan"> 立即领取</navigator>
+                        </view>
+                        <view class="clickBtn shareBtn" wx:if="{{prizeType==4}}">
+                            <navigator hoverClass="none" url="/pages/envelopDivide/envelopDivide">立即瓜分</navigator>
+                        </view>
+                        <view class="clickBtn getBtn" wx:if="{{prizeType==5}}">
+                            <navigator hoverClass="none" url="/pages/redenvelope/index"> 立即领取</navigator>
+                        </view>
+                        <view wx:if="{{ifShared&&prizeType===2||ifShared&&prizeType===3}}">
+                            <button class="clickBtn shareBtn" openType="share"> 分享炫耀</button>
+                        </view>
+                        <view class="tipsTexts vipTip" wx:if="{{!ifShared&&prizeType===1}}">
+                分享后即可获得体验权限
+              </view>
+                        <view class="tipsTexts cutMoneyTip" wx:if="{{!ifShared&&prizeType===2}}">
+                本次免单<text class="MoneyCut">¥{{rewardMoney}}</text>，分享后到账
+              </view>
+                        <view class="tipsTexts cutMoneyTipShared" wx:if="{{ifShared&&prizeType===2}}">
+                本次免单<text class="MoneyCut">¥{{rewardMoney}}</text>，确认收货15天后我们将把钱打入你的<text bindtap="goPersonCenter" class="blueText" data-activity="click_shopping_fund" data-activityparam="">余额积分</text>
+                        </view>
+                        <view class="tipsTexts cutMoneyTip" wx:if="{{!ifShared&&prizeType===3}}">
+                本次获得<text class="MoneyCut">¥{{rewardMoney}}</text>，分享后到账
+              </view>
+                        <view class="tipsTexts cutMoneyTipShared" wx:if="{{ifShared&&prizeType===3}}">
+                本次获得<text class="MoneyCut">¥{{rewardMoney}}</text>，确认收货15天后我们将把钱打入你的<text bindtap="goPersonCenter" class="blueText" data-activity="click_shopping_fund" data-activityparam="">余额积分</text>
+                        </view>
+                    </view>
+                </view>
+                <view bindtap="showRule" class="activityRules" data-activity="click_activity_rule" data-activityparam="">查看完整规则 ></view>
+                <view class="payAttention2_out">
+                    <view class="payAttention2">
+                        <view class="payAttention_tips2">关注公众号查看活动进度</view>
+                        <view bindtap="showCode" class="payAttention_click2" data-activity="click_attention_juanpi" data-activityparam=""> 点击关注</view>
+                    </view>
+                </view>
+            </view>
+            <block wx:if="{{recGoods.length}}">
+                <view class="grouping-title">一 1元火拼 一</view>
+                <template is="goodsTpl" data="{{list:recGoods,ifRecGoods:true,ifBuyNum:true}}"></template>
+                <include src="/components/loadmore/loadmore.wxml"></include>
+            </block>
+        </view>
+        <view class="overTimeWindowContent" wx:if="{{alertWindow}}">
+            <view class="overTimeWindow">
+                <view class="overTimeTips">
+      抱歉，倒计时已结束，您错过了{{content}}奖励，但我们给您赠送了一个
+      </view>
+                <view class="overTimePrize">
+                    <image class="overTimePrizeImg" src="https://jp.juancdn.com/wxMapp/yaoyiyao/overTimePrize.png"></image>
+                </view>
+                <navigator bindtap="statisticsTap" class="go60devide" data-activity="click_yaoyiyao_receive" data-activityparam="" hoverClass="none" url="/pages/envelopDivide/envelopDivide">立即领取</navigator>
+                <view bindtap="closeWindow" class="windowClose">
+                    <image class="closeImg" src="https://jp.juancdn.com/xcx_images/envelopDivide/ruleclose.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="jpCode_content" wx:if="{{showCode}}">
+            <view class="jpcode_block">
+                <view class="jpCode">
+                    <image class="jpCode_image" src="https://jp.juancdn.com/xcx_images/jpcode.png"></image>
+                </view>
+                <view class="jpcode_text">截图扫码可关注公众号</view>
+                <view bindtap="closeCode" class="windowClose">
+                    <image class="closeImg" src="https://jp.juancdn.com/xcx_images/envelopDivide/ruleclose.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="rules_content" wx:if="{{showRule}}">
+            <view class="rule_box">
+                <view class="view_head">活动规则</view>
+                <scroll-view scrollY class="rules_all">
+                    <view>1、用户在卷皮下单后，即可获得一次摇一摇抽奖的机会。</view>
+                    <view>2、摇一摇结果有多种可能，概率随机，包括获得免单、购物基金、1日会员卡体验权限、瓜分60元红包、助力红包等。</view>
+                    <view>3、若用户获得免单资格，我们将会在用户确认订单15天后，把和订单实付金额数量一致的购物基金打入用户的卷皮账户中。</view>
+                    <view>4、若用户获得购物基金，我们将会在用户确认收货15天后，把购物基金打入用户的账户中。</view>
+                    <view>5、购物基金不可提现，用户可在 我的卷皮-个人中心-余额卷币 中查看。</view>
+                    <view>6、用户若在参与活动中奖后有取消订单、退货的行为，将不会获得购物基金。</view>
+                    <view>7、活动期间，如发现任何不正当的作弊，从而有碍其他用户公平参加本活动或违反本活动目的之行为，卷皮将有权取消其参加活动 的资格及其因参加活动所获得的利益。</view>
+                    <view>8、在法律允许范围内，卷皮拥有本次活动的最终解释权。</view>
+                </scroll-view>
+                <view bindtap="closeRule" class="rule_close">
+                    <image src="https://jp.juancdn.com/xcx_images/envelopDivide/ruleclose.png"></image>
+                </view>
+            </view>
+        </view>
+        <view bindtap="bindTopTap" class="back-top {{'backtop-'+isTopHidden}}" data-activity="click_rightcorner" data-activityparam="">
+            <image src="/images/back_top.png"></image>
+        </view>
+        <view bindtap="goIndex" class="goIndex" data-activity="click_temai_stroll" data-activityparam="">
+            <image class="goIndexImg" src="../../../images/goIndex.png"></image>
+        </view>
+    </button>
+</form>

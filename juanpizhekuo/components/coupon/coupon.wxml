@@ -1,0 +1,66 @@
+<template name="couponB">
+    <view class="couponB {{(coupon.status==='1'||coupon.status==='2'||coupon.status==='3')&&'couponB--disabled'}}">
+        <view class="couponB__left">
+            <view class="couponB__left-up">
+                <text class="couponB__num-tag">¥</text>
+                <text class="couponB__num">{{coupon.money}}</text>
+            </view>
+            <text class="couponB__left-down">{{coupon.coupon_use_condition}}</text>
+        </view>
+        <image class="couponB__line" mode="scaleToFill" src="../../../images/coupon_line_red.png" wx:if="{{coupon.status==='0'||coupon.status==='6'}}"></image>
+        <image class="couponB__line" mode="scaleToFill" src="../../../images/coupon_line_gray.png" wx:if="{{coupon.status==='1'||coupon.status==='2'}}"></image>
+        <image class="couponB__line" mode="scaleToFill" src="../../../images/coupon_line_pink.png" wx:if="{{coupon.status==='3'}}"></image>
+        <view class="couponB__middle">
+            <view class="couponB__middle-up">
+                <text class="couponB__title">{{coupon.ap_belone_name}}</text>
+            </view>
+            <view class="couponB__middle-center"></view>
+            <view class="couponB__middle-down">
+        {{coupon.start_time}} 至 {{coupon.end_time}}
+      </view>
+            <view class="couponB__middle-bottom" wx:if="{{coupon.status==='4'}}">即将过期</view>
+        </view>
+        <view class="couponB__right">
+            <view class="couponB__use" wx:if="{{coupon.status==='0'||coupon.status==='4'||coupon.status==='6'}}">
+                <image class="couponB__line" mode="scaleToFill" src="../../../images/coupon_line.png"></image>
+                <view class="couponB__use-right" wx:if="{{!coupon.coupon_delay_dsc||coupon.coupon_delay_dsc==''}}">
+                    <text class="couponB__use-text">去使用</text>
+                    <image class="couponB__use-img" mode="scaleToFill" src="../../../images/tumbnailCoupon.png"></image>
+                </view>
+                <view class="couponB__active-container" wx:else>
+                    <view class="coupon_active-text">
+                        <text>{{coupon.coupon_delay_dsc}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="couponB__status" wx:if="{{coupon.status==='1'}}">
+                <image class="couponB__status-img" mode="scaleToFill" src="../../../images/coupon-used.png"></image>
+            </view>
+            <view class="couponB__status" wx:if="{{coupon.status==='2'}}">
+                <image class="couponB__status-img" mode="scaleToFill" src="../../../images/coupon-expired.png"></image>
+            </view>
+            <view class="couponB__status" wx:if="{{coupon.status==='3'}}">
+                <image class="couponB__status-img" mode="scaleToFill" src="../../../images/coupon-disabled.png"></image>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="coupon">
+    <view bindtap="selectCoupon" class="coupon" data-code="{{coupon.code}}" data-shop-id="{{shopId}}" data-type="{{type}}">
+        <view class="coupon__up">
+            <view class="coupon__money">
+                <text class="coupon__money__sm">¥</text>
+                <text>{{coupon.ae_money}}</text>
+            </view>
+            <view class="coupon__info">
+                <view class="coupon__type">{{coupon.ap_belone_name}}</view>
+                <view class="coupon__name">满{{coupon.ae_min_money}}可用</view>
+            </view>
+        </view>
+        <view class="coupon__down">
+      使用期限: {{coupon.start_time}} - {{coupon.end_time}}
+    </view>
+        <icon class="coupon__tick" color="{{coupon.active?'#ff464e':''}}" size="19" type="{{coupon.active?'success':'circle'}}"></icon>
+    </view>
+</template>
+<import src="../tag/tag.wxml"></import>

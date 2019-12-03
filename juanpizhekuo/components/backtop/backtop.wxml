@@ -1,0 +1,3 @@
+<view bindtap="bindTopTap" class="back-top" data-activity="click_rightcorner" data-activityparam="" hidden="{{isTopHidden}}">
+    <image src="/images/back_top.png"></image>
+</view>

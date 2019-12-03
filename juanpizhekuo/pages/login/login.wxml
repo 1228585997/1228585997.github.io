@@ -1,0 +1,12 @@
+<view class="container">
+    <include src="../../components/error-msg/error-msg.wxml"></include>
+    <view class="login_banner">
+        <image class="logo_icon" src="https://jp.juancdn.com/wxMapp/login/page_logo.png"></image>
+    </view>
+    <view class="btn-box">
+        <button bindgetuserinfo="getUserInfo" bindtap="statisticsTap" class="getphone_btn" data-activity="click_login_auth_write" openType="getUserInfo" type="primary" wx:if="{{!showPhone}}">
+            <image class="icon" src="https://jp.juancdn.com/wxMapp/login/wx_icon.png"></image>
+      微信登录
+    </button>
+    </view>
+</view>

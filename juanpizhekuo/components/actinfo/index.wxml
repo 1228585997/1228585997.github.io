@@ -1,0 +1,35 @@
+<view bindtap="handleVip" class="actinfo-mini vip-show text--overflow vip-section" data-jump="{{vipInfo.jump_url}}" data-pop="{{isPtGoods}}" data-sku="{{vipInfo.is_pop_sku}}" data-way="{{buyWay}}" wx:if="{{vipInfo}}">
+    <view class="vip-span" style="border-color:{{vipInfo.icon_new.border_color}}; background-color: {{vipInfo.icon_new.bg_color}}; color: {{vipInfo.icon_new.text_color}};">{{vipInfo.icon_new.text}}</view>
+    <rich-text nodes="{{vipInfo.content}}"></rich-text>
+    <view class="angle"></view>
+</view>
+<view bindtap="openMask" class="actinfo-mini text--overflow" data-activity="click_temai_discount_open" data-activityparam="{{goods_id}}" data-target="showActInfo" wx:if="{{actInfo.length>0}}" wx:for="{{actInfo}}" wx:key="index">
+    <view class="red-span">{{item.title}}</view>
+    <text>{{item.content}}</text>
+    <view class="ellipsis">
+        <view></view>
+        <view></view>
+        <view></view>
+    </view>
+</view>
+<view bindtap="closeMask" class="mask" data-target="showActInfo" wx:if="{{showActInfo}}"></view>
+<view animation="{{maskAnimation}}" class="mask-pane" wx:if="{{showActInfo}}">
+    <view bindtap="closeMask" class="mask-pane__close" data-activity="click_temai_discount_close" data-activityparam="" data-target="showActInfo">
+        <image src="/images/del.png"></image>
+    </view>
+    <view class="actinfo-detail">
+        <view class="actinfo-detail__title">促销</view>
+        <scroll-view scrollY class="actinfo-detail__container">
+            <view class="actinfo-detail__item" wx:for="{{actInfo}}" wx:key="index">
+                <view class="actinfo-detail__content">
+                    <view class="actinfo-detail__icon">{{item.title}}</view>
+                    <view>{{item.content}}</view>
+                </view>
+                <navigator class="actinfo-detail__angle" url="{{item.jump_url}}" wx:if="{{item.jump_url}}">
+                    <text>{{item.jump_text}}</text>
+                    <view class="angle"></view>
+                </navigator>
+            </view>
+        </scroll-view>
+    </view>
+</view>

@@ -1,0 +1,13 @@
+@import "../../../components/loadmore1/loadmore.wxss";
+
+@import "../../../components/blockAds/index.wxss";
+
+@import "../TabsGoods/index.wxss";
+
+@import "../TabsGoods/filter.wxss";
+
+@import "../../../components/countdown/countdown.wxss";
+
+page,.container {
+    height: 100%;
+}

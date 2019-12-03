@@ -1,0 +1,76 @@
+<template name="fSkuTpl">
+    <view class="sku-wrap">
+        <text class="sku-label">{{label_name}}</text>
+        <view class="sku-box">
+            <view bindtap="bindSkuTap" class="sku-box__block{{item.stock==0?' sku-box__block__over':selectedId==item.av_fid?' sku-box__block__active':''}}" data-id="{{item.av_fid}}" data-stock="{{item.stock}}" data-type="1" wx:for="{{list}}" wx:key="id">
+                <view class="sku-box__span">
+                    <block wx:if="{{item.stock_tips}}">
+                        <view class="sku-box__span__info">{{item.av_fvalue}}</view>
+                        <view class="sku-box__span__status">{{item.stock_tips}}</view>
+                    </block>
+                    <block wx:else>
+                {{item.av_fvalue}}
+              </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="zSkuTpl">
+    <view class="sku-wrap">
+        <text class="sku-label">{{label_name}}</text>
+        <view class="sku-box">
+            <view bindtap="bindSkuTap" class="sku-box__block{{item.stock==0?' sku-box__block__over':selectedId==item.av_zid?' sku-box__block__active':''}}" data-id="{{item.av_zid}}" data-stock="{{item.stock}}" data-type="0" wx:for="{{list}}" wx:key="id">
+                <view class="sku-box__span">
+                    <block wx:if="{{item.stock_tips}}">
+                        <view class="sku-box__span__info">{{item.av_zvalue}}</view>
+                        <view class="sku-box__span__status">{{item.stock_tips}}</view>
+                    </block>
+                    <block wx:else>
+                {{item.av_zvalue}}
+              </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="/components/send-formid/index.wxml"></import>
+<view bindtap="closeSku" class="mask" wx:if="{{showSku}}"></view>
+<view animation="{{maskAnimation}}" class="mask-pane" wx:if="{{showSku}}">
+    <view bindtap="closeSku" class="mask-pane__close">
+        <image src="/images/del.png"></image>
+    </view>
+    <view class="sku__info">
+        <image class="sku__img" src="{{goods_pic_url}}"></image>
+        <view class="sku__txt">
+            <view style="display: flex;align-items: center;" wx:if="{{isVip&&fan_price>0}}">
+                <text style="font-size: 18px;color: #333;">¥{{cprice}}</text>
+                <text style="font-size: 14px;color: #ff464e;margin-left: 8px;">返¥{{fan_price}}</text>
+            </view>
+            <view class="sku__price" wx:else>¥{{is_pt_goods==1&&ifPop==1?sprice:cprice}}</view>
+            <view class="sku__selected">{{selectedSkuTxt}}</view>
+        </view>
+    </view>
+    <scroll-view class="sku__container" scrollY="true">
+        <view class="sku">
+            <template is="zSkuTpl" data="{{shopStatus:shopStatus,list:sku.zList,selectedId:sku.selectedZ,label_name:zav_name}}" wx:if="{{sku.isZ}}"></template>
+            <template is="fSkuTpl" data="{{shopStatus:shopStatus,list:sku.fList,selectedId:sku.selectedF,label_name:fav_name}}" wx:if="{{sku.isF}}"></template>
+        </view>
+        <view class="buy-num" wx:if="{{!is_virtual&&showNum}}">
+            <text>购买数量<text style="color:#FF464E;font-size: 24rpx;" wx:if="{{moq_info_num>1}}">   ({{moq_info_num}}件起售)</text>
+            </text>
+            <view class="buy-num__operates">
+                <view bindtap="decBuyNum" class="buy-num__operate{{buy_num<=moq_info_num?' buy-num__operate__disabled':''}}" data-activity="click_temai_cut" data-activityparam="" wx:if="{{ifLaodaixin!=1}}">-</view>
+                <text>{{buy_num}}</text>
+                <view bindtap="incBuyNum" class="buy-num__operate{{buy_num>=50?' buy-num__operate__disabled':''}}" data-activity="click_temai_add" data-activityparam="" wx:if="{{ifLaodaixin!=1}}">+</view>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="sku__btn sku__btn__disabled" wx:if="{{shopStatus==1}}">
+    确定
+  </view>
+    <view class="sku__btn{{selectedSkuId?'':' sku__btn__disabled'}}" wx:else>
+    确定
+    <template is="sendFormIdTpl" data="{{dealEvent:'dealSkuSubmit'}}"></template>
+    </view>
+</view>

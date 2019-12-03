@@ -1,0 +1,109 @@
+<import src="/components/countdown/countdown.wxml"></import>
+<import src="/pages/index/index.wxml"></import>
+<import src="/pages/cart/common/index.wxml"></import>
+<scroll-view scrollY bindscroll="dealScroll" bindscrolltolower="getMoreGoods" class="container" hidden="{{!ready}}" id="container" scrollTop="{{scrollTop}}">
+    <view class="progress-list">
+        <image class="progress-bg" src="https://jp.juancdn.com/xcx_images/yiyuanpin/progress-{{progressIndex}}.png" wx:if="{{progressIndex}}"></image>
+        <navigator class="progress-rule" hoverClass="none" url="/pages/vipExperience/rules/index"></navigator>
+    </view>
+    <navigator class="basic-section" hoverClass="none" href="{{goods.jump_url?goods.jump_url:'javascript:void(0)'}}">
+        <view class="main-img">
+            <image class="goods-image" src="{{goods.picurl}}"></image>
+            <image class="vip-icon" src="{{goods.corner_img_url}}"></image>
+        </view>
+        <view class="basic-info">
+            <view class="goods_title">{{goods.title}}</view>
+            <view class="get-desc">{{goods.yiyuanpin_num}}人已领取</view>
+            <view class="vip-price">¥{{goods.cprice}}</view>
+        </view>
+    </navigator>
+    <view class="pintuan-state">
+        <view wx:if="{{isOpen=='1'}}">
+            <view class="pintuan-info">{{tuan.title}}</view>
+            <view class="result-info__clock result-info">剩余<template is="countdownWithoutText" data="{{ time:clock[10] }}"></template>结束</view>
+        </view>
+        <view wx:else>
+            <view class="pintuan-status-title">{{tuan.title}}</view>
+            <view class="pintuan-status-desc">
+                <text>{{tuan.desc}}</text>
+                <navigator class="pintuan-status-jump" hoverClass="none" url="{{tuan.jump_url}}">{{tuan.jump_title}}</navigator>
+            </view>
+        </view>
+        <view class="member-list {{isCenter?'center':''}}">
+            <view class="member-item" wx:for="{{joins}}" wx:key="{{index}}">
+                <image class="avatar" src="{{item.avatar}}"></image>
+                <view class="master-icon" wx:if="{{index==0}}">团长</view>
+                <view class="member-name">
+          {{item.username}}
+        </view>
+            </view>
+        </view>
+        <block wx:if="{{button.status!='4'}}">
+            <button bindtap="handleButton" class="pintuan-option" data-pop="0" data-status="{{button.status}}" data-url="{{button.jump_url}}" data-way="1" openType="{{shareButton}}" wx:if="{{button.title}}">
+        {{button.title}}
+      </button>
+        </block>
+        <form bindsubmit="joinTuan" reportSubmit="true" wx:else>
+            <button class="pintuan-option" data-url="{{button.jump_url}}" formType="submit" wx:if="{{button.title}}">
+        {{button.title}}
+      </button>
+        </form>
+        <view class="desc-tips" wx:if="{{showBottomTitle}}">
+      {{tuan.yiyuanpin_title}}
+      <view class="card-limit" wx:if="{{cardLimit}}">
+                <template is="countdownWholeText" data="{{ time:clock[11] }}"></template>
+            </view>
+        </view>
+    </view>
+    <view class="middle-ad" style="height: {{rate}}px">
+        <navigator bindtap="statisticsTap" class="banner-link" data-activity="click_middle_ad" data-activityparam="{{item.id}}" hoverClass="none" openType="{{item.jump_url==='/pages/supervip/index/index'?'switchTab':'navigate'}}" url="{{item.jump_url}}" wx:for="{{ads}}">
+            <image class="middle-img" src="{{item.pic}}"></image>
+        </navigator>
+    </view>
+    <view class="goods-title-1">会员折扣</view>
+    <template is="TabsGoods" data="{{tabFix:tabFix,Cates:Cates,isSupervip:isSupervip,curIndex:curIndex}}"></template>
+</scroll-view>
+<include src="/components/backtop/backtop.wxml"></include>
+<include src="/components/toast/toast.wxml"></include>
+<include src="/components/sku/sku.wxml"></include>
+<view class="show-shadow" wx:if="{{onlyNewerPop}}">
+    <view class="tip-container">
+        <view class="tip-title">温馨提示</view>
+        <view class="tip-content">仅限新用户参团购买，发起活动也可以{{goods.cprice}}元获得该商品哦～</view>
+        <view class="tip-option">
+            <view bindtap="closeTip" class="open-list-item">取消</view>
+            <navigator bindtap="goLists" class="open-list-item" data-activity="click_pintuan_popup_initiate" data-activityparam="" hoverClass="none" style="color: #ff464e;" url="/pages/vipExperience/list/index">发起活动</navigator>
+        </view>
+    </view>
+</view>
+<view class="show-shadow" wx:if="{{showExperience}}">
+    <view class="vip-pop-container">
+        <image bindtap="showGainPop" class="close-card-icon" src="../../../images/dialog_close.png"></image>
+        <view wx:if="{{!showGainCard}}">
+            <view class="card-title">限时免费体验卡</view>
+            <view class="card-desc">领取后即可获得1分拼会员商品的特权</view>
+            <view class="card-self">
+                <view class="self-left">
+                    <view class="self-first">立即享受会员超低价</view>
+                    <view class="self-second">1天会员</view>
+                </view>
+                <view class="self-right">
+                    <view bindtap="gainVip" class="get-button">
+                        <view>免费</view>
+                        <view>领取</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view wx:else>
+            <view class="card-title">恭喜你成功领取会员体验日卡</view>
+            <view class="open-desc-first">开通会员卡，预计全年</view>
+            <view class="open-desc-second">可省<text class="red">766</text>元</view>
+            <form bindsubmit="joinTuan" reportSubmit="true">
+                <button class="go-pin" formType="submit">
+          ¥{{goods.cprice}}继续拼团
+        </button>
+            </form>
+        </view>
+    </view>
+</view>

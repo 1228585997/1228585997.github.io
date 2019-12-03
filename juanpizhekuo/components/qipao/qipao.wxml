@@ -1,0 +1,3 @@
+<view class="qipao2 {{ishidden?'hidden':''}}" style="top:{{qipaoTop}}" wx:if="{{list.length}}">
+    <view>{{username}}的红包增大到{{money}}元</view>
+</view>

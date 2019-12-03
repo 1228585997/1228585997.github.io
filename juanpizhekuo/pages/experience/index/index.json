@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "体验领红包",
+    "usingComponents": {
+        "task-list": "../components/TaskList/index"
+    }
+}

@@ -1,0 +1,23 @@
+<view bindtap="closePrincessBox" class="princess-outer">
+    <view class="princess-box">
+        <image class="princess-box-image" mode="widthFix" src="https://goods6.juancdn.com/jas/180302/a/9/5a98bb65a9fcf85707435989_969x921.png?imageMogr2/quality/88!/format/png"></image>
+    </view>
+    <view catchtap="doNothing" class="princess-box">
+        <image class="princess-title" mode="widthFix" src="{{queuePop.titleImage}}"></image>
+        <text class="princess-tips100">{{queuePop.flowStep1}}</text>
+        <text class="princess-tips150">{{queuePop.flowStep2}}</text>
+        <view class="princess-progress-box">
+            <progress activeColor="#FF6767" backgroundColor="#CDAC70" class="princess-progress" percent="{{queuePop.curStepNum}}" strokeWidth="4"></progress>
+            <view class="princess-progress-point1" style="{{queuePop.curStepNum>0?'background-color:#FF6767;':''}}"></view>
+            <view class="princess-progress-point2" style="{{queuePop.curStepNum>49?'background-color:#FF6767;':''}}"></view>
+            <view class="princess-progress-point3" style="{{queuePop.curStepNum==100?'background-color:#FF6767;':''}}"></view>
+        </view>
+        <text class="princess-tips-curr" style="{{'margin-left:'+queuePop.curStepNum*0.74+8+'%'}}">{{queuePop.curStepDesc}}</text>
+        <navigator hoverClass="none" url="{{queuePop.jumpActUrl}}">
+            <image class="princess-card-btn" mode="aspectFit" src="{{queuePop.jumpActImage}}"></image>
+        </navigator>
+        <navigator hoverClass="none" url="{{queuePop.jumpActRuleUrl}}">
+            <text class="princess-rule">活动规则❯</text>
+        </navigator>
+    </view>
+</view>

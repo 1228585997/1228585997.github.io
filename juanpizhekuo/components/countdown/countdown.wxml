@@ -1,0 +1,77 @@
+<template name="countdownWholeText">
+    <text class="times">
+        <text class="prefix" wx:if="{{prefix&&prefix.length}}">{{prefix}}</text>
+        <text class="time__whole__text">{{(!!time.days?(time.days>=10?time.days:'0'+time.days)+'天':'')+(time.hours>=10?time.hours:'0'+time.hours)%24+'时'+(time.minutes>=10?time.minutes:'0'+time.minutes)+'分'+(time.seconds>=10?time.seconds:'0'+time.seconds)+'秒'}}</text>
+    </text>
+</template>
+<template name="limitCountdown">
+    <text class="times">
+        <text class="time__hours">{{time.hours>=10?time.hours:'0'+time.hours}}</text>
+        <text class="time__hours__text">:</text>
+        <text class="time__minutes">{{time.minutes>=10?time.minutes:'0'+time.minutes}}</text>
+        <text class="time__minutes__text">:</text>
+        <text class="time__seconds">{{time.seconds>=10?time.seconds:'0'+time.seconds}}</text>
+        <text class="time__minutes__text">:</text>
+    </text>
+    <image class="time" src="http://act.juancdn.com/jpwebapp/common/images/digit.gif"></image>
+</template>
+<template name="countdownWithoutText">
+    <text class="times">
+        <text class="prefix" wx:if="{{prefix&&prefix.length}}">{{prefix}}</text>
+        <text class="time__hours">{{time.hours>=10?time.hours:'0'+time.hours}}</text>
+        <text class="time__hours__text">:</text>
+        <text class="time__minutes">{{time.minutes>=10?time.minutes:'0'+time.minutes}}</text>
+        <text class="time__minutes__text">:</text>
+        <text class="time__seconds">{{time.seconds>=10?time.seconds:'0'+time.seconds}}</text>
+    </text>
+</template>
+<template name="countdownWithText">
+    <text>
+        <text class="prefix" wx:if="{{prefix&&prefix.length}}">{{prefix}}</text>
+        <text class="time__hours" wx:if="{{time.hours>0}}">{{time.hours>=10?time.hours:'0'+time.hours}}</text>
+        <text class="time__hours__text" wx:if="{{time.hours>0}}">时</text>
+        <text class="time__minutes">{{time.minutes>=10?time.minutes:'0'+time.minutes}}</text>
+        <text class="time__minutes__text">分</text>
+        <text class="time__seconds">{{time.seconds>=10?time.seconds:'0'+time.seconds}}</text>
+        <text class="time__seconds__text">秒</text>
+    </text>
+</template>
+<template name="countdownPrimaryWhitoutLimit">
+    <view class="countdown">
+        <view class="countdown__seg">
+            <text class="countdown__digit">{{time.hoursArr[0]}}</text>
+            <text class="countdown__digit">{{time.hoursArr[1]}}</text>
+        </view>
+        <text class="countdown__label">时</text>
+        <view class="countdown__seg">
+            <text class="countdown__digit">{{time.minutesArr[0]}}</text>
+            <text class="countdown__digit">{{time.minutesArr[1]}}</text>
+        </view>
+        <text class="countdown__label">分</text>
+        <view class="countdown__seg">
+            <text class="countdown__digit">{{time.secondsArr[0]}}</text>
+            <text class="countdown__digit">{{time.secondsArr[1]}}</text>
+        </view>
+        <text class="countdown__label">秒</text>
+    </view>
+</template>
+<template name="countdownPrimary">
+    <view class="countdown">
+        <view class="countdown__seg">
+            <text class="countdown__digit">{{time.hoursArr[0]}}</text>
+            <text class="countdown__digit">{{time.hoursArr[1]}}</text>
+        </view>
+        <text class="countdown__label">时</text>
+        <view class="countdown__seg">
+            <text class="countdown__digit">{{time.minutesArr[0]}}</text>
+            <text class="countdown__digit">{{time.minutesArr[1]}}</text>
+        </view>
+        <text class="countdown__label">分</text>
+        <view class="countdown__seg">
+            <text class="countdown__digit">{{time.secondsArr[0]}}</text>
+            <text class="countdown__digit">{{time.secondsArr[1]}}</text>
+        </view>
+        <text class="countdown__label">秒</text>
+        <view class="countdown__digit countdown__usecond"></view>
+    </view>
+</template>

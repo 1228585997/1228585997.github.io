@@ -1,0 +1,40 @@
+<view class="container" hidden="{{!ready}}">
+    <scroll-view bindscrolltolower="getList" class="view-list" scrollY="true" style="height: {{lh}}px">
+        <block wx:if="{{fanList&&fanList.length}}">
+            <view class="fans-title">
+                <view class="fans-num">★粉丝明细 (共{{count}}人)</view>
+                <navigator bindtap="statisticsTap" class="rule" data-activity="click_activity_rule" data-activityparam="" hoverClass="none" url="/pages/act/act?name=xcxfsgz">规则
+            <view class="icon_right angle"></view>
+                </navigator>
+            </view>
+            <view class="list-wrapper">
+                <view class="{{index%2==0?'background-yellow':'background'}}" wx:for="{{fanList}}" wx:key="index">
+                    <view class="fan-item">
+                        <view class="avatar-wrapper">
+                            <image class="avatar" src="{{item.headImg||'https://face1.juancdn.com/face/150101/0/0/default_204x204.jpg'}}"></image>
+                        </view>
+                        <view class="fan-content">
+                            <view class="fan-name">{{item.nickName}}</view>
+                            <view class="fan-tags">
+                                <view class="tag" wx:if="{{item.type==='1'}}">
+                                    <view class="tag-text">直邀</view>
+                                </view>
+                                <view class="tag">
+                                    <view class="tag-text">{{item.vipRank==='0'?'普通粉丝':item.vipRank==='3'?'过期VIP':'VIP粉丝'}}</view>
+                                </view>
+                            </view>
+                            <view class="fan-desc" wx:if="{{item.remark}}">收益贡献：{{item.remark}}</view>
+                        </view>
+                        <view class="fan-record">
+            ¥{{item.money?item.money:'0'}}
+           </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="no-list" wx:else>
+            <image class="no-list-img" src="https://jp.juancdn.com/wxMapp/vip/emptyImg.png"></image>
+            <view class="no-list-desc">暂无数据，快去邀请好友成为粉丝吧！</view>
+        </view>
+    </scroll-view>
+</view>

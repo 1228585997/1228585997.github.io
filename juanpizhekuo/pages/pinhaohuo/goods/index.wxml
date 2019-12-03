@@ -1,0 +1,61 @@
+<template name="phhGoods">
+    <view class="goods-container">
+        <block wx:for="{{list}}" wx:key="{{index}}">
+            <navigator bindtap="statisticsTap" class="goods-ad" data-activity="{{item.activityname}}" data-activityparam="{{item.server_jsonstr}}" data-zhuge-activity="{{item.zg_event}}" data-zhuge-activityparam="{{item.zg_json}}" hoverClass="none" url="{{item.goods_jump_url}}" wx:if="{{item.block_type==3&&!ifRecGoods}}">
+                <image lazyLoad mode="widthFix" src="{{item.goods_cover}}"></image>
+            </navigator>
+            <navigator bindtap="statisticsTap" class="full-good" data-activity="{{item.activityname}}" data-activityparam="{{item.server_jsonstr}}" data-zhuge-activity="{{item.zg_event}}" data-zhuge-activityparam="{{item.zg_json}}" hoverClass="none" url="/pages/shop/shop?id={{item.goods_id}}" wx:elif="{{item.block_type==15&&!ifRecGoods}}">
+                <view class="pic">
+                    <image lazyLoad mode="aspectFill" src="{{item.pic_url}}"></image>
+                    <text class="over" wx:if="{{item.status==3}}">抢光了</text>
+                    <view class="number-info">{{item.join_number_text||0}}</view>
+                </view>
+                <view class="detail">
+                    <text class="title">{{item.title_long?item.title_long:item.title}}</text>
+                    <view class="info">
+                        <template is="priceList" data="{{priceList:item.priceList}}"></template>
+                        <view class="btn-container">
+                            <view class="member-container">
+                                <image src="{{item.join_user[0].user_img}}"></image>
+                                <image class="last-image" src="{{item.join_user[1].user_img}}"></image>
+                            </view>
+                            <view class="btn btn-primary" wx:if="{{item.status==2}}">
+                                <text class="btn-text">立即抢 </text>
+                            </view>
+                            <view class="btn btn-gree" wx:elif="{{item.status==1}}">
+                                <text class="btn-text">即将开售</text>
+                            </view>
+                            <view class="btn btn-disabled" wx:elif="{{item.status==3}}">
+                                <text class="btn-text">已抢光</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+            <template is="discount_goods" data="{{item:item,ifIndexPage:ifIndexPage,ifBuyNum:ifBuyNum}}" wx:elif="{{item.block_type==29}}"></template>
+            <navigator bindtap="statisticsTap" class="goods" data-activity="{{item.activityname}}" data-activityparam="{{item.server_jsonstr}}" data-zhuge-activity="{{item.zg_event}}" data-zhuge-activityparam="{{item.zg_json}}" hoverClass="none" url="/pages/shop/shop?id={{item.goods_id}}" wx:else>
+                <view class="goods-img">
+                    <image lazyLoad src="{{item.gpic}}"></image>
+                    <text class="over" wx:if="{{item.status==3}}">抢光了</text>
+                </view>
+                <view class="goods-text">
+                    <view class="goods-text__price">
+                        <view class="goods-text__num">{{item.time_left}}</view>
+                        <text class="goods-text__red">{{item.cprice}}</text>
+                        <text class="goods-text__del">{{item.oprice}}</text>
+                    </view>
+                    <view class="goods-text_vip-cprice" wx:if="{{item.vprice}}">
+                        <text>会员价¥{{item.vprice}}</text>
+                    </view>
+                    <view class="goods-title">{{item.title}}</view>
+                </view>
+            </navigator>
+        </block>
+        <view class="goods goods-fix-odd" wx:if="{{list.length%2==1}}">
+            <image mode="aspectFit" src="https://jp.juancdn.com/xcx_images/fix_odd.png"></image>
+        </view>
+        <image class="empty-tip" src="/images/goods_empty.png" wx:if="{{list.length<=0}}"></image>
+    </view>
+</template>
+<import src="/components/goods/goods.wxml"></import>
+<import src="/components/priceList/index.wxml"></import>

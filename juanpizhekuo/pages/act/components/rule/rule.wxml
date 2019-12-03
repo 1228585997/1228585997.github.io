@@ -1,0 +1,17 @@
+<template name="rule">
+    <view class="modal {{ruleIsOpen[id]}}">
+        <view class="modal__border" style="border: 4rpx solid {{color}};">
+            <view bindtap="ruleTap" class="modal__close" data-id="{{id}}" style="border:2rpx solid {{color}};color:{{color}};">x</view>
+            <view class="modal__window">
+                <view class="modal__body">
+                    <view>
+                        <view class="{{item.class}}" wx:for="{{txtList}}" wx:key="index">{{item.txt}}</view>
+                    </view>
+                    <view bindtap="ruleTap" class="modal__btn" data-id="{{id}}" style="background:{{color}};">
+            知道了
+          </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

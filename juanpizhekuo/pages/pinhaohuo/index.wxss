@@ -1,0 +1,73 @@
+@import "../../components/backtop/backtop.wxss";
+
+@import "goods/index.wxss";
+
+@import "../../components/blockAds/index.wxss";
+
+page,.container {
+    height: 100%;
+    background-color: #efeff4;
+}
+
+.container {
+    box-sizing: border-box;
+}
+
+.container.hasTabs {
+    padding-top: 40px;
+}
+
+.tabs {
+    position: fixed;
+    left: 0;
+    top: 1px;
+    z-index: 3;
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    font-size: 0;
+    color: #353535;
+    background-color: #fff;
+    border-bottom: .5px solid #ebebeb;
+    overflow: hidden;
+}
+
+.tabs scroll-view {
+    height: 50px;
+    white-space: nowrap;
+}
+
+.tabs-btn {
+    display: inline-block;
+    height: 40px;
+    font-size: 14px;
+    padding-left: 2.5px;
+    padding-right: 2.5px;
+    margin-left: 12px;
+    margin-right: 12px;
+    text-align: center;
+}
+
+.tabs-btn__active {
+    color: #ff464e;
+    border-bottom: 3px solid #ff464e;
+}
+
+swiper {
+    height: 100%;
+    width: 100%;
+}
+
+.banner-swiper {
+    width: 100%;
+    height: 290rpx;
+}
+
+.banner-swiper navigator,.banner-swiper image {
+    width: 100%;
+    height: 100%;
+}
+
+.goods-wrap {
+    height: 100%;
+}

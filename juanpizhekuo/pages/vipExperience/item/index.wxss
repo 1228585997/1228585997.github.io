@@ -1,0 +1,471 @@
+@import "../../../components/loadmore1/loadmore.wxss";
+
+@import "../../../components/backtop/backtop.wxss";
+
+@import "../../../components/blockAds/index.wxss";
+
+@import "../../../components/minicart/minicart.wxss";
+
+@import "../../../components/sku/sku.wxss";
+
+@import "../../index/index.wxss";
+
+@import "../../cart/common/index.wxss";
+
+page,.container {
+    height: 100%;
+}
+
+.goods .goods-text__price {
+    display: flex;
+    font-size: 15px;
+    flex-direction: row;
+    color: #2a2f3b;
+}
+
+.goods .goods-text__price .discountlabel {
+    display: flex;
+    padding-left: 6rpx;
+    padding-right: 6rpx;
+    height: 14px;
+    border-radius: 2px;
+    background-color: #282d39;
+    font-size: 10px;
+    justify-content: center;
+    align-items: center;
+    color: #ffeebc;
+    margin-right: 4px;
+}
+
+.goods-title {
+    line-height: 1.2;
+    color: #3b3b3b;
+    font-size: 12px;
+}
+
+.goods-fix-odd {
+    height: 370rpx;
+    padding-bottom: 60px;
+}
+
+.middle-ad {
+    width: 100%;
+}
+
+.banner-link {
+    height: 100%;
+}
+
+.middle-img {
+    width: 100%;
+    height: 100%;
+}
+
+.to-card {
+    width: 100%;
+    height: 40px;
+}
+
+.progress-list {
+    border: 1rpx solid #E7E7E7;
+    border-left: 0;
+    border-right: 0;
+    height: 56rpx;
+    position: relative;
+    box-sizing: content-box;
+}
+
+.progress-bg {
+    width: 100%;
+    height: 56rpx;
+}
+
+.progress-rule {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16rpx;
+    width: 84rpx;
+    height: 48rpx;
+}
+
+.rule {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: #ff464e;
+    color: #fff;
+    padding: 4rpx 18rpx;
+    border-radius: 18rpx;
+    white-space: nowrap;
+    line-height: normal;
+}
+
+.basic-section {
+    background: #fff;
+    margin-bottom: 20rpx;
+    display: flex;
+    padding: 24rpx 32rpx;
+}
+
+.main-img {
+    position: relative;
+    width: 200rpx;
+    height: 200rpx;
+}
+
+.goods-image {
+    width: 100%;
+    height: 100%;
+}
+
+.vip-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.basic-info {
+    padding-left: 24rpx;
+    position: relative;
+}
+
+.goods_title {
+    color: #333;
+    font-size: 28rpx;
+}
+
+.get-desc {
+    margin-top: 10rpx;
+    color: #999;
+    font-size: 24rpx;
+}
+
+.vip-price {
+    color: #ff464e;
+    font-size: 36rpx;
+    position: absolute;
+    bottom: 10rpx;
+    left: 24rpx;
+}
+
+.pintuan-state {
+    background: #fff;
+    text-align: center;
+    padding: 48rpx 34rpx;
+    color: #333;
+    justify-content: flex-start;
+}
+
+.members-num {
+    color: #ff464e;
+}
+
+.pintuan-info {
+    font-size: 36rpx;
+    font-weight: 600;
+}
+
+.pintuan-limit {
+    font-size: 28rpx;
+    margin-top: 16rpx;
+}
+
+.pintuan-status-title {
+    color: #ff464e;
+    font-size: 36rpx;
+    font-weight: bold;
+}
+
+.pintuan-status-desc {
+    margin-top: 8rpx;
+    color: #333;
+    font-size: 32rpx;
+}
+
+.pintuan-status-jump {
+    margin-left: 10rpx;
+    color: #369bcd;
+    display: inline;
+}
+
+.member-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 16rpx;
+}
+
+.member-list.center {
+    justify-content: center;
+}
+
+.member-item {
+    width: 100rpx;
+    text-align: center;
+    position: relative;
+    margin-top: 24rpx;
+    margin-left: 18rpx;
+    margin-right: 18rpx;
+}
+
+.avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+}
+
+.member-name {
+    width: 100%;
+    font-size: 20rpx;
+    margin-top: 8rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.master-icon {
+    position: absolute;
+    left: 50%;
+    top: 56rpx;
+    transform: translateX(-50%);
+    padding: 0 12rpx;
+    background: #ff464e;
+    color: #fff;
+    font-size: 20rpx;
+    border-radius: 20rpx;
+    white-space: nowrap;
+}
+
+.pintuan-option {
+    display: inline-block;
+    margin: 44rpx 0 16rpx 0;
+    padding: 20rpx 112rpx;
+    border-radius: 44rpx;
+    background: #ff464e;
+    color: #fff;
+    font-size: 36rpx;
+    line-height: normal;
+}
+
+.desc-tips {
+    color: #ff464e;
+    font-size: 24rpx;
+}
+
+.card-limit {
+    color: #ff464e;
+    display: inline;
+}
+
+.result-info__clock {
+    margin-top: 16rpx;
+}
+
+.result-info .time__hours,.result-info .time__minutes,.result-info .time__seconds {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 2px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
+.result-info .time__seconds {
+    width: 34px;
+    padding-right: 9px;
+}
+
+.result-info .time__seconds::after {
+    content: "";
+    position: absolute;
+    right: 3px;
+    bottom: 4px;
+    width: 6px;
+    height: 10px;
+    background-image: url(https://tuan.juancdn.com/build/img/ms.gif);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.result-info .time__hours__text,.result-info .time__minutes__text {
+    color: #999;
+}
+
+.show-shadow {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.7);
+}
+
+.vip-pop-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    border-radius: 20rpx;
+    width: 612rpx;
+    height: auto;
+    padding: 48rpx 62rpx 64rpx 62rpx;
+    text-align: center;
+}
+
+.close-card-icon {
+    position: absolute;
+    top: 0;
+    right: 20rpx;
+    width: 60rpx;
+    height: 114rpx;
+    transform: translateY(-100%);
+}
+
+.card-title {
+    font-size: 36rpx;
+    color: #ff464e;
+    font-weight: bold;
+}
+
+.card-desc {
+    margin-top: 20rpx;
+    margin-bottom: 40rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.card-self {
+    margin: 0 auto;
+    display: flex;
+    border: 2rpx solid #ff464e;
+    width: 432rpx;
+}
+
+.self-left {
+    width: 304rpx;
+    height: 128rpx;
+    padding: 24rpx 40rpx;
+}
+
+.self-first {
+    color: #333;
+    font-size: 24rpx;
+}
+
+.self-second {
+    margin-top: 2rpx;
+    font-size: 32rpx;
+    color: #ff464e;
+    font-weight: bold;
+}
+
+.self-right {
+    background: #ff464e;
+    width: 128rpx;
+    height: 128rpx;
+    color: #fff;
+}
+
+.get-button {
+    margin: 0 auto;
+    padding: 24rpx 0;
+}
+
+.open-desc-first {
+    margin-top: 40rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.open-desc-second {
+    margin-top: 8rpx;
+    font-size: 48rpx;
+    margin-bottom: 40rpx;
+}
+
+.open-desc-second .red {
+    color: #ff464e;
+}
+
+.go-pin {
+    margin: 0 auto;
+    width: 416rpx;
+    height: 90rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #ff464e;
+    border-radius: 45rpx;
+    line-height: normal;
+}
+
+.goods-title-1 {
+    margin-top: 20rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    text-align: center;
+    color: #333;
+    font-size: 32rpx;
+    background: #fff;
+}
+
+.cate-tab-btn__active {
+    color: #A57800;
+    border-bottom: 2px solid #A57800;
+}
+
+.tip-container {
+    width: 612rpx;
+    height: 354rpx;
+    position: absolute;
+    top: 400rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding-top: 48rpx;
+    padding-bottom: 0;
+    text-align: center;
+    color: #333;
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+
+.tip-title {
+    font-size: 36rpx;
+    margin-bottom: 20rpx;
+    font-weight: 500;
+}
+
+.tip-content {
+    font-size: 32rpx;
+    padding: 0 48rpx;
+}
+
+.tip-option {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 32rpx;
+    height: 86rpx;
+    width: 612rpx;
+}
+
+.open-list-item {
+    width: 50%;
+    height: 86rpx;
+    line-height: 86rpx;
+    border: 1rpx solid #E7E7E7;
+    border-bottom: none;
+    vertical-align: middle;
+}

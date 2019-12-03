@@ -1,0 +1,104 @@
+@import "components/progress.wxss";
+
+.saleafter-refund {
+}
+
+.details-content {
+    padding: 20rpx 20rpx;
+    background: #fff;
+}
+
+.details-content:not(:first-child) {
+    margin-top: 20rpx;
+}
+
+.details-price {
+    padding-top: 40rpx;
+}
+
+.details-price .details-price-row {
+    display: -webkit-flex;
+    justify-content: space-between;
+}
+
+.details-price-content {
+    margin-bottom: 30rpx;
+}
+
+.details-price-font {
+    color: #9B9B9B;
+    font-size: 22rpx;
+}
+
+.customerTitle {
+    padding: 30rpx 0;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.customerRecord {
+    font-size: 28rpx;
+}
+
+.customerMessage {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.tit-sussess {
+    padding-top: 4%;
+    word-wrap: break-word;
+    margin-top: 2%;
+}
+
+.tits-title {
+    font-size: 32rpx;
+    color: #ff464e;
+    font-weight: 400;
+}
+
+.tits-tips {
+    color: #333;
+    font-size: 28rpx;
+    margin-top: 16rpx;
+}
+
+.saleafter-normal-btn {
+    padding: 16rpx;
+    font-size: 28rpx;
+    text-align: center;
+    margin-top: 32rpx;
+    margin-left: 20rpx;
+    float: right;
+    border: 1rpx solid #999;
+}
+
+.special-btn {
+    border: 1rpx solid #FF464E;
+    color: #FF464E;
+}
+
+.timeColor {
+    color: red;
+}
+
+.subsidyCoupon {
+    color: rgb(255,0,0);
+    border: 1rpx solid rgb(255,0,0);
+}
+
+.details-customer view {
+    color: #9B9B9B;
+    font-size: 26rpx;
+}
+
+.sellerInfo {
+    padding: 28rpx;
+    background: #F4F4F8;
+    margin: 28rpx 0;
+}
+
+.sellerInfo view {
+    white-space: pre-line;
+}

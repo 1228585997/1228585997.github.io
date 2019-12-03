@@ -1,0 +1,227 @@
+<import src="../../components/goods/goods.wxml"></import>
+<import src="../../components/countdown/countdown.wxml"></import>
+<include src="../../components/toast/toast.wxml"></include>
+<import src="/components/goods-list/index.wxml"></import>
+<form bindsubmit="sendPageFormId" class="page-form" data-type="1" reportSubmit="true">
+    <button class="page-form__btn" formType="submit" hoverClass="none" style="margin-top:-1px;">
+        <view class="container">
+            <view class="qipao2 {{ishidden?'hidden':''}}" style="top:{{qipaoTop}}" wx:if="{{list.length}}">
+                <view>{{username}}抢到{{money}}元</view>
+            </view>
+            <view bindtap="showRule" class="ruleButton" data-activity="click_activity_rule" data-activityparam="">
+                <image class="ruleButtonImg" src="../../images/ruleBtn.png"></image>
+            </view>
+            <view class="status1_content" wx:if="{{actStatus===-1}}">
+                <image class="status1_content_img" src="https://goods2.juancdn.com/seller/180621/d/f/5b2b481eb6f8ea14ad4a7957_750x1068.png?imageMogr2/quality/80!/format/jpg"></image>
+                <view bindtap="goSnatch" class="buttonContent_status" data-activity="click_reveive_redenvelope" data-activityparam="" wx:if="{{isLogin}}">
+                    <view class="status1_title1">60元红包已经包好</view>
+                    <view class="status1_title2">“立即领取”和小伙伴分红包</view>
+                    <view class="twinklingOut1">
+                        <view class="toGetEnvelopBtn">立即领取</view>
+                    </view>
+                </view>
+                <view bindtap="loginTip" class="buttonContent_status" data-activity="click_reveive_redenvelope" data-activityparam="" wx:else>
+                    <view class="status1_title1">60元红包已经包好</view>
+                    <view class="status1_title2">“立即领取”和小伙伴分红包</view>
+                    <view class="twinklingOut1">
+                        <view class="toGetEnvelopBtn">立即领取</view>
+                    </view>
+                </view>
+            </view>
+            <view class="status2_content" wx:if="{{actStatus===0||actStatus===2||actStatus===1&&userType===2||actStatus===1&&couponStatus===0}}">
+                <image class="status2_content_img" src="https://jp.juancdn.com/xcx_images/envelopDivide/bigback1.png"></image>
+                <view class="persons_all">
+                    <view class="personal_detail">
+                        <view class="wx_friends {{item.userName?'tuanHead':''}}" wx:for="{{memberList}}" wx:key="{{index}}">
+                            <image class="wx_headImg" src="{{item.userImg}}"></image>
+                            <view class="tuanHeadTip" wx:if="{{item.userType===1}}">团长</view>
+                        </view>
+                    </view>
+                    <view class="share_status share_status1" wx:if="{{actStatus===0}}">
+                        <view class="details">还差<text>{{oweNum}}</text>人即可瓜分{{totalMoney}}红包，快邀请好友来拆</view>
+                        <view class="time_left">一 <template is="countdownWithoutText" data="{{time:actEndTime}}"></template> 后结束 一</view>
+                    </view>
+                    <block wx:if="{{actStatus===2}}">
+                        <view class="share_status share_status2">
+                            <view class="details">很遗憾，瓜分红包失败~</view>
+                            <view class="time_left">{{endTime}} 结束</view>
+                        </view>
+                        <view class="button_groups button_groups4">
+                            <view bindtap="goSnatch" class="get_new_envelop_fail" data-activity="click_new_redenvelope" data-activityparam="{{actStatus+'_'+userType}}" wx:if="{{isLogin}}">
+                  拆一个新红包
+                </view>
+                            <view bindtap="loginTip" class="get_new_envelop_fail" data-activity="click_new_redenvelope" data-activityparam="{{actStatus+'_'+userType}}" wx:else>
+                  拆一个新红包
+                </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{actStatus===1&&userType===2}}">
+                        <view class="share_status share_status3">
+                            <view class="details">很遗憾，红包已被瓜分完了~</view>
+                        </view>
+                        <view class="button_groups button_groups5">
+                            <view bindtap="goSnatch" class="ask_friends" data-activity="click_new_redenvelope" data-activityparam="{{actStatus+'_'+userType}}" wx:if="{{isLogin}}">
+                  拆一个新红包
+                </view>
+                            <view bindtap="loginTip" class="ask_friends" data-activity="click_new_redenvelope" data-activityparam="{{actStatus+'_'+userType}}" wx:else>
+                  拆一个新红包
+                </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{actStatus===1&&couponStatus===0}}">
+                        <view class="share_status share_status4">
+                            <view class="details">恭喜你，瓜分红包成功！</view>
+                            <view class="details_tips">由于活动火爆，奖品正在火速补发中，请您耐心等待。到账后我们将通过系统消息通知您，届时您可以在优惠券列表页查看奖品哦！</view>
+                        </view>
+                        <view class="button_groups button_groups5">
+                            <view bindtap="goSnatch" class="ask_friends" data-activity="click_new_redenvelope" data-activityparam="{{actStatus+'_'+userType}}" wx:if="{{isLogin}}">
+                  拆一个新红包
+                </view>
+                            <view bindtap="loginTip" class="ask_friends" data-activity="click_new_redenvelope" data-activityparam="{{actStatus+'_'+userType}}" wx:else>
+                  拆一个新红包
+                </view>
+                        </view>
+                    </block>
+                    <view class="button_groups button_groups1" wx:if="{{actStatus===0&&userType===1}}">
+                        <view class="twinklingOut2">
+                            <button class="ask_friends_twinkle" openType="share">邀请微信好友一起拆</button>
+                        </view>
+                    </view>
+                    <view class="button_groups button_groups2" wx:if="{{actStatus===0&&userType===0}}">
+                        <view class="twinklingOut2">
+                            <button class="ask_friends_twinkle" openType="share">邀请微信好友一起拆</button>
+                        </view>
+                        <view bindtap="goSnatch" class="get_new_envelop" data-activity="click_new_redenvelope" data-activityparam="{{actStatus+'_'+userType}}" wx:if="{{isLogin}}">
+                  拆一个新红包
+                </view>
+                        <view bindtap="loginTip" class="get_new_envelop" data-activity="click_new_redenvelope" data-activityparam="{{actStatus+'_'+userType}}" wx:else>
+                  拆一个新红包
+                </view>
+                    </view>
+                    <view class="button_groups button_groups3" wx:if="{{actStatus===0&&userType===2}}">
+                        <view bindtap="goJoin" class="ask_friends" data-activity="click_together_redenvelope" data-activityparam="" wx:if="{{isLogin}}">
+                  一起拆红包
+                </view>
+                        <view bindtap="loginTip" class="ask_friends" data-activity="click_together_redenvelope" data-activityparam="" wx:else>
+                  一起拆红包
+                </view>
+                        <view bindtap="goSnatch" class="get_new_envelop" data-activity="click_new_redenvelope" data-activityparam="{{actStatus+'_'+userType}}" wx:if="{{isLogin}}">
+                  拆一个新红包
+                </view>
+                        <view bindtap="loginTip" class="get_new_envelop" data-activity="click_new_redenvelope" data-activityparam="{{actStatus+'_'+userType}}" wx:else>
+                  拆一个新红包
+                </view>
+                    </view>
+                </view>
+                <view wx:if="{{actStatus===1&&userType===2&&couponStatus!==0}}">
+                    <view class="link_img_status2">
+                        <image class="linkImg_status2" src="https://jp.juancdn.com/xcx_images/envelopDivide/link2.png"></image>
+                    </view>
+                    <view class="friends_getList_status2">
+                        <view class="list_title">一 看看好友手气 一</view>
+                        <view class="friends_list" wx:for="{{memberList}}" wx:key="{{index}}">
+                            <view class="friendsOne {{item.userType===1?'tuanTop':''}}">
+                                <view class="friendsOne_left">
+                                    <image class="wx_headImg2" src="{{item.userImg}}"></image>
+                                    <view class="tuanHeadTip2" wx:if="{{item.userType===1}}">团长</view>
+                                </view>
+                                <view class="friendsOne_center">{{item.userName}}</view>
+                                <view class="friendsOne_right">{{item.couponMoney}}元</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="status3_content" wx:if="{{actStatus===1&&userType!==2&&couponStatus!==0}}">
+                <image class="status2_content_img" src="https://jp.juancdn.com/xcx_images/envelopDivide/bigback1.png"></image>
+                <view class="success_details">
+                    <view class="success_title">恭喜您，已成功瓜分红包~</view>
+                    <view class="coupon_youGet">
+                        <image class="coupon_backImg" src="https://jp.juancdn.com/xcx_images/envelopDivide/coupons.png"></image>
+                        <view class="coupon_left">
+                            <text>¥</text>{{couponMoney}}</view>
+                        <view class="coupon_right">
+                            <view class="use_limit">现金红包 满{{minMoney}}元可用</view>
+                            <view class="coupon_tips">
+                  在卷皮购物可抵扣 <view bindtap="goMyCoupon" class="goSee" data-activity="click_temai_stroll" data-activityparam="{{userType}}">去逛逛 <text class="angle"></text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="goSnatch" class="get_new_envelop3" data-activity="click_new_redenvelope" data-activityparam="{{actStatus+'_'+userType}}" wx:if="{{isLogin}}">
+              拆一个新红包
+            </view>
+                    <view bindtap="loginTip" class="get_new_envelop3" data-activity="click_new_redenvelope" data-activityparam="{{actStatus+'_'+userType}}" wx:else>
+              拆一个新红包
+            </view>
+                    <view bindtap="goMyCoupon" class="go_use" data-activity="click_use_redenvelope" data-activityparam="{{couponId+'_'+userType}}">
+              立即使用
+            </view>
+                    <view class="link_img">
+                        <image class="linkImg" src="https://jp.juancdn.com/xcx_images/envelopDivide/link.png"></image>
+                    </view>
+                    <view class="friends_getList">
+                        <view class="list_title">一 看看好友手气 一</view>
+                        <view class="friends_list" wx:for="{{memberList}}" wx:key="{{index}}">
+                            <view class="friendsOne {{item.userType===1?'tuanTop':''}}">
+                                <view class="friendsOne_left">
+                                    <image class="wx_headImg2" src="{{item.userImg}}"></image>
+                                    <view class="tuanHeadTip2" wx:if="{{item.userType===1}}">团长</view>
+                                </view>
+                                <view class="friendsOne_center">{{item.userName}}</view>
+                                <view class="friendsOne_right">{{item.couponMoney}}元</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="closeShareModal" class="shareWindow_content" wx:if="{{showShareModal2}}">
+                <view class="shareWindow">
+                    <view class="shareTips1" wx:if="{{userType==1}}">
+                        <view>您已获得1个红包，还差<text>{{oweNum}}</text>人即可拆开</view>
+                        <view>赶快邀请好友，一起瓜分{{totalMoney}}元！</view>
+                    </view>
+                    <view class="shareTips1" wx:if="{{userType==0}}">
+                        <view>您已加入{{itemUserName}}的红包团，</view>
+                        <view>还差<text>{{oweNum}}</text>人即可拆开，</view>
+                        <view>立即邀请好友，一起瓜分60元</view>
+                    </view>
+                    <view class="share_common">
+                        <view class="money60">
+                            <image class="money60Img" src="https://jp.juancdn.com/xcx_images/envelopDivide/60rmb1.png"></image>
+                        </view>
+                        <button class="ask_friends_share" openType="share">邀请微信好友一起拆</button>
+                    </view>
+                </view>
+            </view>
+            <view class="rules_content" wx:if="{{showRule}}">
+                <view class="rule_box">
+                    <view class="view_head">活动规则</view>
+                    <scroll-view scrollY class="rules_all">
+                        <view>1) 用户邀请好友共同拆红包，满4人即可瓜分总额为60元的红包，拆开后每人获得的红包金额随机。</view>
+                        <view>2) 活动发起后24小时仍未组满4人，则拆红包失败，活动参与者每人可获得一次2元补偿红包。</view>
+                        <view>3) 每个自然日内，用户只可帮同一好友拆分红包一次，每个自然日只可帮3个好友拆分红包，但发起活动次数不做限制。</view>
+                        <view>4) 该活动获得的红包均为满减优惠券，可在个人中心-我的优惠券查看。</view>
+                        <view>5) 活动期间，如发现任何不正当的作弊，从而有碍其他用户公平参加本活动或违反本活动目的之行为，卷皮将有权取消其参加活动的资格及其因参加活动所获得的利益。</view>
+                        <view>6) 在法律允许范围内，卷皮拥有本次活动的最终解释权。</view>
+                    </scroll-view>
+                    <view bindtap="closeRule" class="rule_close">
+                        <image src="https://jp.juancdn.com/xcx_images/envelopDivide/ruleclose.png"></image>
+                    </view>
+                </view>
+            </view>
+            <block wx:if="{{recGoods.length}}">
+                <view class="grouping-title">一 猜你喜欢 一</view>
+                <template is="goods" data="{{list:recGoods,isVip:isVip}}"></template>
+                <include src="/components/share/share.wxml"></include>
+                <include src="/components/loadmore/loadmore.wxml"></include>
+            </block>
+        </view>
+        <view bindtap="bindTopTap" class="back-top {{'backtop-'+isTopHidden}}" data-activity="click_rightcorner" data-activityparam="">
+            <image src="/images/back_top.png"></image>
+        </view>
+        <view bindtap="goIndex" class="goIndex">
+            <image class="goIndexImg" src="../../images/goIndex.png"></image>
+        </view>
+    </button>
+</form>

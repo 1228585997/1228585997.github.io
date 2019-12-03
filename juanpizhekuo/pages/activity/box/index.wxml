@@ -1,0 +1,113 @@
+<view class="act-header" wx:if="{{status==0}}">
+    <view class="box-bgA" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box01.png) no-repeat; background-size: 100%;">
+        <danmu-list data="{{notice}}"></danmu-list>
+        <view bindtap="showRule" class="box-rule" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box03.png) no-repeat; background-size: 100%;"></view>
+        <view class="peo-master" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box08.png) no-repeat; background-size: 100%;">
+            <image class="peo-pic" src="{{avatarUrl}}"></image>
+            <text class="peo-sign">团长</text>
+        </view>
+        <view class="box-time">
+            <text class="time-info">{{countDownHour}}</text>
+            <text class="time-mark">:</text>
+            <text class="time-info">{{countDownMinute}}</text>
+            <text class="time-mark">:</text>
+            <text class="time-info">{{countDownSecond}}</text>
+        </view>
+    </view>
+    <view class="box-bgB" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box02.png) no-repeat; background-size: 100%;">
+        <view class="invite-list">
+            <button bindtap="showLogin" class="peo-list" openType="{{isLogin?'share':''}}" style="background: url({{item.avatar?item.avatar:'https://jp.juancdn.com/wxMapp/box/act-box-add.png'}}) no-repeat; background-size: 100%;" wx:for="{{helpList}}" wx:key="{{index}}"></button>
+        </view>
+        <button bindtap="showLogin" class="invite-peo-btn" data-actname="shareBox" data-shareimg="{{shareModalImg}}" openType="{{isLogin?'share':''}}" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box-invite.gif) no-repeat; background-size: 100%;"></button>
+        <view class="open-tips" wx:if="{{personNum}}">还差<text class="tips-num">{{personNum}}</text>人打开宝箱</view>
+    </view>
+</view>
+<view class="act-header" wx:if="{{status==1}}">
+    <view class="box-bgC" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box04.png) no-repeat; background-size: 100%;">
+        <danmu-list data="{{notice}}"></danmu-list>
+        <view bindtap="showRule" class="box-rule" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box03.png) no-repeat; background-size: 100%;"></view>
+        <view class="cash-txt">获得
+      <text class="cash-num">{{money}}</text>元无门槛现金</view>
+        <view class="peo-master peo-master-other" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box08.png) no-repeat; background-size: 100%;">
+            <image class="peo-pic" src="{{avatarUrl}}"></image>
+            <text class="peo-sign">团长</text>
+        </view>
+    </view>
+    <view class="box-bgD" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box05.png) no-repeat; background-size: 100%;">
+        <text class="cash-coupon">{{money}}</text>
+        <button bindtap="bindCreate" class="invite-btn-other" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box06.png) no-repeat; background-size: 100%;"></button>
+        <view bindtap="gotoIndex" class="coupon-txt">领券成功，去使用…</view>
+        <view class="invite-list">
+            <view class="peo-list" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box-add.png) no-repeat; background-size: 100%;" wx:for="{{helpList}}" wx:key="{{index}}">
+                <image class="peo-pic-small" src="{{item.avatar}}"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="act-goods">
+    <view class="goods-txt" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box10.png) no-repeat; background-size: 100%;"></view>
+    <view class="goods-info">
+        <navigator bindtap="statisticsTap" class="goods-list" data-activity="{{item.activityname}}" data-activityparam="{{item.server_jsonstr}}" data-zhuge-activity="{{item.zg_event}}" data-zhuge-activityparam="{{item.zg_json}}" hoverClass="none" url="/pages/shop/shop?id={{item.goods_id}}" wx:for="{{goods}}" wx:key="{{index}}">
+            <view class="goods-pic">
+                <image class="pic" src="{{item.pic_url}}"></image>
+            </view>
+            <view class="goods-title">{{item.title_long?item.title_long:item.title}}</view>
+            <view class="goods-price">
+                <view class="new-price">
+                    <text class="rmb-mark">￥</text>{{item.cprice}}</view>
+                <view class="old-price">¥{{item.oprice}}</view>
+            </view>
+        </navigator>
+    </view>
+</view>
+<view class="box-alert" wx:if="{{showHelp}}">
+    <view class="ceng"></view>
+    <view class="box-alert-info">
+        <view bindtap="hideHelp" class="icons-close-btn" style="background: url(https://jp.juancdn.com/wxMapp/activity/icons-close.png) no-repeat; background-size: 100%;"></view>
+        <view class="box-alertA" style="background: url(https://jp.juancdn.com/wxMapp/box/box-alert01.png) no-repeat; background-size: 100%;">
+            <button class="alertABtn" data-actname="shareBox" data-shareimg="{{shareModalImg}}" openType="share" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box-share-btn.gif) no-repeat; background-size: 100%;"></button>
+        </view>
+    </view>
+</view>
+<view class="box-alert" wx:if="{{showReceive}}">
+    <view class="ceng"></view>
+    <view class="box-alert-info">
+        <view bindtap="hideReceive" class="icons-close-btn" style="background: url(https://jp.juancdn.com/wxMapp/activity/icons-close.png) no-repeat; background-size: 100%;"></view>
+        <view class="box-alertB" style="background: url(https://jp.juancdn.com/wxMapp/box/box-alert02.png) no-repeat; background-size: 100%;">
+            <button class="alertBBtn" data-actname="shareBox" data-shareimg="{{shareModalImg}}" openType="share"></button>
+        </view>
+    </view>
+</view>
+<view class="box-alert" wx:if="{{showInviteSuccess}}">
+    <view class="ceng"></view>
+    <view class="box-alert-full">
+        <view bindtap="hideInviteSuccess" class="box-alert-full-closebtn" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box-close.png) no-repeat; background-size: 100%;"></view>
+        <view class="box-alert-bg" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box-help-bg.png) no-repeat; background-size: 100%;">
+            <view class="box-alert-des">
+                <text>你帮{{inviteName}}成功点开宝箱</text>
+            </view>
+            <view class="box-alert-text">
+                <text>邀请好友帮开宝箱</text>
+                <text>100%赢取奖金</text>
+            </view>
+            <button bindtap="showLogin" class="box-alert-btn" data-actname="shareBox" data-shareimg="{{shareModalImg}}" openType="{{isLogin?'share':''}}" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box-help-share.gif) no-repeat; background-size: 100%;"></button>
+        </view>
+    </view>
+</view>
+<view class="box-alert" wx:if="{{showRedenvelope}}">
+    <view class="ceng"></view>
+    <view class="box-alert-full">
+        <view bindtap="hideRedenvelope" class="box-alert-full-closebtn" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box-close.png) no-repeat; background-size: 100%;"></view>
+        <navigator class="box-alert-hongbao" openType="redirect" style="background: url(https://jp.juancdn.com/wxMapp/box/act-box-hongbao-bg.png) no-repeat; background-size: 100%;" url="/pages/redenvelope/index">
+            <image class="box-alert-hongbao_btn" src="https://jp.juancdn.com/wxMapp/box/act-box-hongbao-chai.gif"></image>
+        </navigator>
+    </view>
+</view>
+<rule-dialog bindhide="hideRule" data="{{rules}}" wx:if="{{showRule}}"></rule-dialog>
+<include src="/components/share/share.wxml"></include>
+<navigator class="go-red-envelope" hoverClass="none" url="/pages/redenvelope/index">
+    <image class="red-envelope_img" src="https://jp.juancdn.com/wxMapp/box/act-box-welt-hongbao.gif"></image>
+</navigator>
+<navigator class="go-kill" hoverClass="none" url="/pages/timeBuy/timeBuy">
+    <image class="kill_img" src="https://jp.juancdn.com/wxMapp/box/act-box-welt-miaosha.gif"></image>
+</navigator>

@@ -1,0 +1,2 @@
+<view class="msgbubble" style="{{stylestr}}{{extraStyle}}" wx:if="{{even}}">{{data[index]}}</view>
+<view class="msgbubble" style="{{stylestr}}{{extraStyle}}" wx:else>{{data[index]}}</view>

@@ -1,0 +1,23 @@
+<view class="main">
+    <view class="process-pic" hidden="{{tab==1}}">
+        <image class="process-pic__image" src="{{LIST_IMAGES.process}}"></image>
+    </view>
+    <marquee users="{{users}}" wx:if="{{tab==1}}"></marquee>
+    <view class="content-container" wx:if="{{tab==0}}">
+        <goods-item data="{{item}}" type="0" wx:for="{{goodsListData}}" wx:key="{{index}}"></goods-item>
+    </view>
+    <view class="content-container" wx:if="{{tab==1}}">
+        <goods-item data="{{item}}" type="1" wx:for="{{myBargainsData}}" wx:key="{{index}}"></goods-item>
+    </view>
+    <view class="bottom-button">
+        <view bindtap="onTapBottomButton" class="bottom-button__cell" data-order="0">
+            <image class="bottom-button__image" hidden="{{tab==1}}" src="{{BARGAIN_IMAGES.bargaining}}"></image>
+            <image class="bottom-button__image" hidden="{{tab==0}}" src="{{BARGAIN_IMAGES.unbargaining}}"></image>
+        </view>
+        <view bindtap="onTapBottomButton" class="bottom-button__cell" data-order="1">
+            <image class="bottom-button__image" hidden="{{tab==1}}" src="{{BARGAIN_IMAGES.unjoin}}"></image>
+            <image class="bottom-button__image" hidden="{{tab==0}}" src="{{BARGAIN_IMAGES.join}}"></image>
+        </view>
+    </view>
+</view>
+<include src="/components/login-modal/index.wxml"></include>

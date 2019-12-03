@@ -1,0 +1,9 @@
+<template name="clock">
+    <view class="jp-clock {{style}}" style="height:{{bg.height}}rpx;background-image:url({{bg.src}});">
+        <view class="jp-clock-inner" style="color:{{unitColor}};">
+            <view class="clock-label">{{title}}</view>
+            <template is="countdownPrimary" data="{{ time:clock[id] }}"></template>
+        </view>
+    </view>
+</template>
+<import src="/components/countdown/countdown.wxml"></import>

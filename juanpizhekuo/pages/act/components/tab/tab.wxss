@@ -1,0 +1,144 @@
+.tabs-wrap {
+    position: relative;
+    width: 100%;
+    color: #333;
+    min-height: 44px;
+    line-height: 44px;
+    font-size: 28rpx;
+    text-align: center;
+    background-color: #fff;
+}
+
+.tabs-wrap .text--overflow {
+    transition: background-color 0.5s linear;
+}
+
+.tabs {
+    display: flex;
+}
+
+.tabs__item {
+    height: 44px;
+}
+
+.lt5 .tabs__item {
+    flex: 1;
+}
+
+.gt5 .tabs {
+    flex-wrap: wrap;
+}
+
+.tabs__item3 {
+    width: 33.33%;
+}
+
+.tabs__item4 {
+    width: 25%;
+}
+
+.tabs__item5 {
+    width: 20%;
+}
+
+.tabs__fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+}
+
+.tabs__fixed scroll-view {
+    height: 44px;
+    white-space: nowrap;
+    font-size: 0;
+    background-color: #252525;
+}
+
+.tabs__fixed scroll-view .text--overflow {
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    font-size: 14px;
+    background-color: #3f3f3f;
+    color: #fff;
+    border-right: 2rpx solid #252525;
+    vertical-align: top;
+}
+
+.tabs__fixed__angle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 3;
+    height: 44px;
+    width: 44px;
+    background-color: #666;
+}
+
+.tabs__fixed__angle .angle {
+    width: 10px;
+    height: 10px;
+    color: #9b9b9b;
+}
+
+.tabs__holder {
+    display: inline-block;
+    width: 40px;
+    height: 100%;
+}
+
+.tabs__fixed__all {
+    background-color: rgba(0,0,0,0.7);
+    color: #fff;
+}
+
+.tabs__fixed__all__title {
+    height: 44px;
+    background-color: #4a4a4a;
+    font-size: 36rpx;
+}
+
+.tabs__fixed__all .text--overflow {
+    width: 25%;
+}
+
+.tabs__fixed__all .text--overflow text {
+    padding-top: 8rpx;
+    padding-bottom: 8rpx;
+}
+
+.white-mode scroll-view {
+    background-color: #fff;
+    border-bottom: 3rpx solid #eee;
+}
+
+.white-mode .tabs__fixed__all__title {
+    background-color: #fff;
+    color: #545454;
+    border-bottom: 3rpx solid #eee;
+}
+
+.white-mode scroll-view .text--overflow {
+    background-color: #fff;
+    border-right: none;
+    color: #545454;
+}
+
+.white-mode scroll-view .text--overflow text {
+    display: inline-block;
+    width: 100%;
+    line-height: 22px;
+    border-right: 2rpx solid #eee;
+}
+
+.white-mode .tabs__fixed__angle {
+    height: 42px;
+    background-color: #fff;
+}
+
+.white-mode .tabs__fixed__all {
+    background-color: rgba(255,255,255,.94);
+    color: #545454;
+}

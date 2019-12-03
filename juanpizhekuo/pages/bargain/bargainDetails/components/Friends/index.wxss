@@ -1,0 +1,101 @@
+.main {
+    margin: 26rpx auto 0;
+    min-width: 320rpx;
+    position: relative;
+    width: 100%;
+    font-size: 24rpx;
+}
+
+.friends-help-top {
+    width: 686rpx;
+    height: 78rpx;
+    background: rgba(255,255,255,0.7);
+    border-top-left-radius: 30rpx;
+    border-top-right-radius: 30rpx;
+    margin: 0 auto;
+    line-height: 78rpx;
+    text-align: center;
+}
+
+.red-slash {
+    width: 52rpx;
+    height: 20rpx;
+}
+
+.top-title {
+    font-size: 32rpx;
+    color: #ff464e;
+}
+
+.friends-help-bottom {
+    width: 686rpx;
+    height: 106rpx;
+    background: rgba(255,255,255,0.7);
+    margin: 0 auto;
+    border-top: 1px solid #ffffff;
+    text-align: center;
+}
+
+.friends-help-bottom:last-child {
+    border-bottom-left-radius: 30rpx;
+    border-bottom-right-radius: 30rpx;
+}
+
+.user-avatar {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+    margin-left: 34rpx;
+    margin-top: 22rpx;
+    float: left;
+}
+
+.user-name {
+    float: left;
+    margin-left: 34rpx;
+    margin-top: 32rpx;
+}
+
+.no-data {
+    text-align: center;
+    line-height: 106rpx;
+}
+
+.save-money {
+    float: right;
+    margin-right: 90rpx;
+    margin-top: 32rpx;
+    font-size: 28rpx;
+    color: #ff464e;
+}
+
+.friends-item {
+    width: 686rpx;
+    height: 106rpx;
+    background: rgba(255,255,255,0.7);
+    margin: 0 auto;
+    border-top: 1px solid #ffffff;
+}
+
+.folding {
+    width: 686rpx;
+    height: 68rpx;
+    line-height: 68rpx;
+    text-align: center;
+    background: rgba(255,255,255,0.7);
+    border-bottom-left-radius: 30rpx;
+    border-bottom-right-radius: 30rpx;
+    border-top: 1px solid #ffffff;
+    margin: 0 auto;
+}
+
+.folding-title {
+    font-size: 24rpx;
+    margin-left: 8rpx;
+    color: #666666;
+}
+
+.show-iocn {
+    width: 24rpx;
+    height: 24rpx;
+}

@@ -1,0 +1,17 @@
+<template name="cycleNotice">
+    <view class="cycleNotice_box" style="background-color: {{bgColor?bgColor:'#000'}}">
+        <view class="cyclenotice_inner" style="background-color: {{linkBgColor?linkBgColor:'#fff'}}">
+            <view class="cyclenotice_title" style="color: {{titleColor?titleColor:'#333'}}">{{title}}</view>
+            <view class="cyclenotice_icon" style="background-image: url({{icon.src?icon.src:''}})"></view>
+            <view class="cyclenotice_textUl" style="color: {{textColor?textColor:'#333'}}">
+                <navigator bindtap="statisticsTap" class="{{textArr.length>1?'cyclenotice_textLi scroll'+textArr.length:'cyclenotice_textLi'}}" data-activity="normal_activity" data-activityparam="{{actName}}_xctopbang11_1001.0" hoverClass="none" openType="{{item.type==4?'switchTab':'navigate'}}" url="{{item.xcxUrl?item.xcxUrl:''}}" wx:for="{{textArr}}" wx:key="{{index}}">
+              {{item.text}}
+              <view class="{{item.xcxUrl?'cyclenotice_hrefIcon':''}}"></view>
+                </navigator>
+                <navigator navigate bindtap="statisticsTap" class="{{textArr.length>1?'cyclenotice_textLi scroll'+textArr.length:'cyclenotice_textLi'}}" data-activity="normal_activity" data-activityparam="{{actName}}_xctopbang11_1001.0" hoverClass="none" openType="{{textArr[0].type==4?'switchTab':'navigate'}}" url="{{textArr[0].xcxUrl?textArr[0].xcxUrl:''}}">{{textArr[0].text}}
+              <view class="{{textArr[0].xcxUrl?'cyclenotice_hrefIcon':''}}"></view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</template>

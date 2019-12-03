@@ -1,0 +1,551 @@
+@import "../../components/jp-promise/index.wxss";
+
+@import "../../components/grouping/index.wxss";
+
+@import "../../components/near-group/index.wxss";
+
+@import "../../components/joins/index.wxss";
+
+@import "../../components/sku/sku.wxss";
+
+@import "../../components/get-coupon/index.wxss";
+
+@import "../../components/actinfo/index.wxss";
+
+@import "../pinhaohuo/goods/index.wxss";
+
+@import "../../components/todesk-tip/index.wxss";
+
+@import "../../components/blockAds/index.wxss";
+
+page,.container {
+    height: 100%;
+}
+
+.angle {
+    color: #999;
+}
+
+.item-goods {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.item-goods image {
+    width: 100px;
+    height: 100px;
+}
+
+.item-goods__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    line-height: 1.4;
+    padding-left: 12px;
+}
+
+.item-goods__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-bottom: 10px;
+}
+
+.item-goods__tags .red-span {
+    margin-right: 6px;
+}
+
+.item-goods .text--justify {
+    color: #666;
+    font-size: 12px;
+}
+
+.item-goods__red {
+    font-size: 22px;
+    font-weight: bolder;
+    color: #ff464e;
+    margin-right: 4px;
+}
+
+.item-goods__red::before {
+    content: "¥";
+    font-size: 12px;
+}
+
+.item-goods__del {
+    font-size: 12px;
+    color: #bbb;
+    text-decoration: line-through;
+}
+
+.item-goods__sec {
+    color: #666;
+    padding-top: 16px;
+    padding-bottom: 12px;
+    border-top: 1px solid #dbdbdb;
+}
+
+.item-goods__sec__item {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 6px;
+}
+
+.result-info {
+    padding-bottom: 24px;
+    background-color: #fff;
+    text-align: center;
+    color: #333;
+    line-height: 1.4;
+}
+
+.result-info__caption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 18px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+.result-info__caption icon {
+    margin-right: 10px;
+}
+
+.result-info__desc {
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+.result-info__desc text {
+    color: #ff464e;
+}
+
+.result-info__desc__jump {
+    display: inline-block;
+    color: #369bcd;
+    margin-left: 4px;
+}
+
+.result-info__clock {
+    margin-bottom: 14px;
+}
+
+.result-info__btn {
+    line-height: 42px;
+    background-color: #ff464e;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+.result-info__btns {
+    display: flex;
+    justify-content: center;
+}
+
+.result-info__btns navigator,.result-info__btns view {
+    width: 120px;
+    line-height: 36px;
+    font-size: 14px;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+.result-info__btns navigator {
+    background-color: #ff464e;
+    color: #fff;
+}
+
+.result-info__btns view {
+    color: #ff464e;
+    border: 1px solid #ff464e;
+}
+
+.result-info__sharetip {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.result-info__sharetip text {
+    width: 140px;
+    height: 18px;
+    line-height: 18px;
+    margin-right: 4px;
+    margin-left: 4px;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #666;
+    background-color: #f6f6f6;
+}
+
+.result-info__sharetip view {
+    flex: 1;
+    height: 1px;
+    background-color: #dbdbdb;
+}
+
+.result-info__ldxtip {
+    margin-top: -10px;
+    margin-bottom: 18px;
+    color: #ff464e;
+    font-size: 12px;
+}
+
+.result-info .time__hours,.result-info .time__minutes,.result-info .time__seconds {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 2px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
+.result-info .time__seconds {
+    width: 34px;
+    padding-right: 9px;
+}
+
+.result-info .time__seconds::after {
+    content: "";
+    position: absolute;
+    right: 3px;
+    bottom: 4px;
+    width: 6px;
+    height: 10px;
+    background-image: url(https://tuan.juancdn.com/build/img/ms.gif);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.result-info .time__hours__text,.result-info .time__minutes__text {
+    color: #999;
+}
+
+.flow-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #4a4a4a;
+    line-height: 48px;
+}
+
+.flow-nav .angle {
+    color: #999;
+}
+
+.ldx-tip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 12px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.ldx-tip .red-span {
+    margin-right: 8px;
+}
+
+.share_content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.share_content .shareImg_content {
+    width: 78.6%;
+    height: 68.21%;
+    border-radius: 20rpx;
+    background-color: #fff;
+    margin: 10% auto 0rpx;
+    overflow: hidden;
+}
+
+.share_content .shareImg_content image {
+    width: 100%;
+    height: 100%;
+}
+
+.share_content .share_button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 18.7%;
+    background-color: #fff;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    line-height: normal;
+}
+
+.title {
+    width: 100%;
+    margin-top: 28rpx;
+    text-align: center;
+    color: #333333;
+    font-size: 14px;
+}
+
+.title .shadow {
+    display: inline-block;
+    width: 64rpx;
+    height: 24rpx;
+    overflow: hidden;
+    padding: 0;
+}
+
+.title .shadow image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    vertical-align: top;
+}
+
+.button_groups {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.button_groups .button {
+    width: 11.2%;
+    height: 100%;
+    display: inline-block;
+    margin-top: 20rpx;
+    background-color: transparent;
+    border: none;
+    position: static;
+    padding: 0;
+}
+
+.button_groups .button .image_content {
+    width: 82rpx;
+    height: 82rpx;
+}
+
+.button_groups .button .image_content image {
+    width: 100%;
+    height: 100%;
+}
+
+.button_groups .button .button_text {
+    font-size: 12px;
+    color: #333333;
+    margin-top: 8rpx;
+}
+
+.two_group {
+    width: 100%;
+    height: auto;
+    margin-top: -20rpx;
+}
+
+.two_group .two_group_goods {
+    width: 100%;
+    height: auto;
+}
+
+.two_group_goods_one {
+    width: 100%;
+    height: 248rpx;
+    box-sizing: border-box;
+    padding: 20rpx 28rpx 0rpx 28rpx;
+    margin-bottom: 20rpx;
+    background-color: #fff;
+}
+
+.two_group_goods .lastGroupGoods {
+    margin-bottom: 0rpx;
+}
+
+.groupImg_content {
+    width: 200rpx;
+    height: 200rpx;
+    float: left;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: #ccc;
+}
+
+.groupImg_content image {
+    width: 100%;
+    height: 100%;
+}
+
+.groupDetail_content {
+    position: relative;
+    width: 494rpx;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+    overflow: hidden;
+}
+
+.group_title {
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 14px;
+    color: #333333;
+}
+
+.groupTo2 {
+    display: inline-block;
+    margin-top: 4rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+    width: auto;
+    padding: 0 8rpx;
+    font-size: 12px;
+    color: #fff;
+    background: #FFBBBB;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.group_Price {
+    margin-top: 75rpx;
+}
+
+.group_newPrice {
+    float: left;
+    display: inline-block;
+    width: auto;
+    color: #FF464E;
+    line-height: 38rpx;
+    height: 38rpx;
+    font-size: 24px;
+}
+
+.group_newPrice .newPriceIcon {
+    font-size: 12px;
+    height: 24rpx;
+    line-height: 24rpx;
+    display: inline-block;
+}
+
+.group_oldPrice {
+    display: inline-block;
+    width: auto;
+    height: 18rpx;
+    line-height: 18rpx;
+    padding: 0 10rpx;
+    color: #BBBBBB;
+    font-size: 12px;
+    margin-top: 18rpx;
+    text-decoration: line-through;
+}
+
+.startGroup_button {
+    position: absolute;
+    right: 0;
+    bottom: 28rpx;
+    width: 160rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    background: #FF464E;
+    color: #fff;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.coupon-confirm {
+    position: fixed;
+    z-index: 210;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.4);
+}
+
+.coupon-confirm__content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 590rpx;
+    margin-left: -295rpx;
+    margin-top: -380rpx;
+    text-align: center;
+}
+
+.coupon-confirm__box {
+    border-radius: 24rpx;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.coupon-confirm__header {
+    height: 214rpx;
+    color: #fff;
+    font-size: 36rpx;
+    background-image: url(https://tuan.juancdn.com/src/img/coupon_header.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.coupon-confirm__title {
+    font-size: 44rpx;
+    padding-top: 50rpx;
+    padding-bottom: 10rpx;
+}
+
+.coupon-confirm__coupon {
+    padding: 56rpx 44rpx;
+}
+
+.coupon-confirm__coupon image {
+    display: block;
+    width: 100%;
+}
+
+.coupon-confirm__btn {
+    display: block;
+    width: 269rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 48rpx;
+    color: #ff464e;
+    font-size: 36rpx;
+    background-color: #fff;
+    border-radius: 100rpx;
+}
+
+.coupon-confirm__close {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%,-50%);
+}
+
+.vip-span {
+    margin-left: 0;
+}

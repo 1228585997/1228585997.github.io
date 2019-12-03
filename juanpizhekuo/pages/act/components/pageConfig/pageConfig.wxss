@@ -1,0 +1,16 @@
+.bottom-logo {
+    padding: 49rpx 0;
+    text-align: center;
+}
+
+.bottom-logo image {
+    width: 102rpx;
+    height: 102rpx;
+    margin: 0 auto;
+}
+
+.page-nomore {
+    text-align: center;
+    line-height: 88rpx;
+    font-size: 24rpx;
+}

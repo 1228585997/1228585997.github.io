@@ -1,0 +1,87 @@
+page,.container {
+    height: 100%;
+    background-color: #f7f7f7;
+}
+
+.content_box {
+    background: #fff;
+    padding: 40rpx 32rpx 0 32rpx;
+}
+
+.detail_title {
+    margin-bottom: 20rpx;
+    color: #4a4a4a;
+    font-size: 20px;
+    font-family: PingFangSC-Medium;
+}
+
+.detail_info {
+    font-size: 15px;
+    color: #6B6B6B;
+    line-height: 26px;
+}
+
+.upgrade_tip {
+    height: 200rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.icon_info {
+    margin-right: 18rpx;
+}
+
+.connect {
+    width: 100%;
+    background: #fff;
+    margin-top: 10px;
+    margin-bottom: 14px;
+}
+
+.none_question {
+    height: 48px;
+    line-height: 48px;
+    font-size: 14px;
+    color: #9b9b9b;
+    letter-spacing: 0;
+    padding-left: 16px;
+}
+
+.customer_tel {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    position: relative;
+    border-top: 1rpx solid #E7E7E7;
+}
+
+.customer_block {
+    display: flex;
+    align-items: center;
+    color: #999;
+    font-size: 12px;
+}
+
+.icon_customer {
+    width: 20px;
+    height: 20px;
+}
+
+.to_connect {
+    font-size: 14px;
+    color: #666;
+    letter-spacing: 0;
+    margin-left: 10px;
+}
+
+.icon_right.angle {
+    opacity: .7;
+    width: 18rpx;
+    height: 18rpx;
+    color: #666;
+}

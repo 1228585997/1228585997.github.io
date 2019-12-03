@@ -1,0 +1,284 @@
+@import "components/share/share.wxss";
+
+view,text,scroll-view,textarea {
+    box-sizing: border-box;
+}
+
+page {
+    font-size: 14px;
+    background-color: #efeff4;
+    color: #4a4a4a;
+    border-top: solid 1px #e7e7e7;
+    font-family: "SF Pro SC","HanHei SC","SF Pro Text","Myriad Set Pro","PingFang SC","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+textarea {
+    width: auto;
+}
+
+.text--center {
+    text-align: center;
+}
+
+.text--justify {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text--overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text--hl {
+    color: #ff464e;
+}
+
+.text--muted {
+    color: #888;
+}
+
+.hidden {
+    display: none;
+}
+
+.separator {
+    margin-top: 20rpx;
+}
+
+.btn-wrap {
+    padding: 60rpx 40rpx 20rpx;
+}
+
+.mask {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.45);
+}
+
+.mask-pane {
+    position: fixed;
+    z-index: 11;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+}
+
+.mask-pane-80 {
+    width: 80%;
+    height: 444rpx;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: absolute;
+    z-index: 11;
+    margin: auto;
+    background-color: #fff;
+}
+
+.mask-pane__close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 10;
+    padding: 8px 10px;
+}
+
+.mask-pane__close image {
+    width: 14px;
+    height: 14px;
+}
+
+.error-msg {
+    position: fixed;
+    z-index: 11;
+    top: 0;
+    right: 0;
+    left: 0;
+    color: #fff;
+    background-color: #e64340;
+    text-align: center;
+    padding: 16rpx 0;
+    font-size: 24rpx;
+}
+
+.toast-msg {
+    position: fixed;
+    z-index: 12;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    background-color: rgba(0,0,0,0.75);
+    text-align: center;
+    padding: 16rpx 32rpx;
+    font-size: 24rpx;
+    max-width: 80%;
+    border-radius: 2px;
+    transform: translate(-50%,-50%);
+}
+
+.angle {
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 8px;
+    width: 8px;
+    border-width: 2px 2px 0 0;
+    border-style: solid;
+    position: relative;
+    margin-left: 0.3em;
+}
+
+.angle--down {
+    transform: rotate(135deg);
+    top: -2px;
+}
+
+.angle--up {
+    transform: rotate(-45deg);
+    margin-top: 2px;
+}
+
+.fixedbar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.fixedbar button,.fixedbar button::after {
+    border-radius: 0;
+}
+
+.fixedbar__placeholder {
+    height: 46px;
+}
+
+.input--placeholder {
+    color: #dbdbdb;
+}
+
+.cell__group {
+    background-color: #fff;
+}
+
+.cell__group .cell {
+    position: relative;
+}
+
+.cell__group .cell::after {
+    content: '';
+    position: absolute;
+    left: 30rpx;
+    right: 0;
+    bottom: 0;
+    border-bottom: solid 1px #e5e5e5;
+}
+
+.cell__group .cell__last::after {
+    display: none;
+}
+
+.cell {
+    padding: 20rpx 30rpx;
+}
+
+.cell .input {
+    line-height: 48rpx;
+}
+
+.load-more {
+    line-height: 1;
+    padding: 2% 0;
+    color: #9b9b9b;
+    text-align: center;
+    font-size: 14px;
+}
+
+.ellipsis {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -2px;
+    width: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ellipsis view {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #bbb;
+}
+
+.red-span {
+    display: inline-block;
+    line-height: 12px;
+    height: 12px;
+    font-size: 10px;
+    color: #fff;
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: #ff464e;
+    border-radius: 1px;
+}
+
+.yellow-span {
+    display: inline-block;
+    line-height: 12px;
+    height: 12px;
+    font-size: 10px;
+    color: #fff;
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: #f90;
+    border-radius: 1px;
+}
+
+.margin-view {
+    background-color: #fff;
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-bottom: 10px;
+}
+
+.empty-tip {
+    width: 280rpx;
+    height: 280rpx;
+    margin-top: 144rpx;
+    margin-left: 235rpx;
+}
+
+.clear {
+    clear: both;
+}
+
+.clear::after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.clear::before {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}

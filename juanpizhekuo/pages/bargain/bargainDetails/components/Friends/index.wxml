@@ -1,0 +1,53 @@
+<view class="main">
+    <view class="friends-help-top">
+        <view class="on-half">
+            <image class="red-slash" src="{{DETAILS_IMAGES.slash}}"></image>
+            <text class="top-title">好友助力砍价记录</text>
+            <image class="red-slash" src="{{DETAILS_IMAGES.slash}}"></image>
+        </view>
+    </view>
+    <view wx:if="{{m.size(data)===0}}">
+        <view class="friends-help-bottom">
+            <text class="no-data">暂无数据</text>
+        </view>
+    </view>
+    <view wx:elif="{{m.size(data)===1}}">
+        <view class="friends-help-bottom" wx:for="{{m.list(data,showMore)}}" wx:key="{{index}}">
+            <image class="user-avatar" src="{{item.avatar}}"></image>
+            <text class="user-name">{{item.nickname}}</text>
+            <text class="save-money">砍掉{{item.reduced}}元</text>
+        </view>
+    </view>
+    <view wx:if="{{m.size(data)===2}}">
+        <view class="friends-item" wx:for="{{m.list(data,showMore)}}" wx:key="{{index}}">
+            <image class="user-avatar" src="{{item.avatar}}"></image>
+            <text class="user-name">{{item.nickname}}</text>
+            <text class="save-money">砍掉{{item.reduced}}元</text>
+        </view>
+        <view bindtap="onTapToggle" class="folding">
+            <view wx:if="{{showMore}}">
+                <text class="folding-title">收起</text>
+                <image class="show-iocn" src="{{DETAILS_IMAGES.closeItem}}"></image>
+            </view>
+            <view wx:else>
+                <text class="folding-title">展开</text>
+                <image class="show-iocn" src="{{DETAILS_IMAGES.openItem}}"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<wxs module="m">
+function size(data) {
+    if (!data) return (0);;
+    var len = data.length;
+    return (len === 0 ? 0 : len > 3 ? 2 : 1)
+};
+
+function list(data, showMore) {
+    return (showMore ? data : data.slice(0, 3))
+};
+module.exports = ({
+    size: size,
+    list: list,
+});
+</wxs>

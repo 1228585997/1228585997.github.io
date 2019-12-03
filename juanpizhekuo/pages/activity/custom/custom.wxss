@@ -1,0 +1,222 @@
+image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.TopGifOuter {
+    width: 100%;
+    height: 524rpx;
+}
+
+.TopGif {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.CountDown {
+    position: relative;
+    margin-top: -1px;
+    width: 100%;
+    height: 100rpx;
+    background-image: url('https://web.juanpi.com/images/activity/custom/countDownBg.png');
+    background-size: cover;
+    font-size: 24rpx;
+    color: #fff;
+}
+
+.CountDown .p {
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 40rpx;
+}
+
+.CountDown .p::after {
+    content: '';
+    height: 1px;
+    width: 52rpx;
+    background: #fff;
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translate(-100%,-50%);
+}
+
+.CountDown .p::before {
+    content: '';
+    height: 1px;
+    width: 52rpx;
+    background: #fff;
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translate(100%,-50%);
+}
+
+.CountDown .custom-count-down {
+    width: 100%;
+    font-size: 20rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CountDown .custom-count-down text {
+    font-size: 32rpx;
+    background-color: #fff;
+    color: #333;
+    margin: 0 2px;
+    padding: 0 4rpx;
+    border-radius: 4rpx;
+}
+
+.CountDown .custom-count-down image {
+    width: 28rpx;
+    height: 48rpx;
+}
+
+.imageBox1 {
+    width: 100%;
+    height: 225rpx;
+}
+
+.imageBox2 {
+    width: 100%;
+    height: 225rpx;
+}
+
+.imageBox3 {
+    width: 100%;
+    height: 260rpx;
+}
+
+.Gift {
+    width: 100%;
+    font-size: 0;
+}
+
+.Gift img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: -1px;
+}
+
+.GoodsOuter {
+    background-color: #e5304c;
+    padding: 0 14rpx 0 6rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.GoodsItem {
+    width: 355rpx;
+    margin: 0 0 10rpx 10rpx;
+    float: left;
+    background-color: #fff;
+}
+
+.ItemImg {
+    width: 100%;
+    height: 352rpx;
+    position: relative;
+}
+
+.ItemImg .item-img-logo {
+    width: 146rpx;
+    height: 52rpx;
+    background-color: #fff;
+    position: absolute;
+    border: 1px solid #ccc;
+    border-radius: 30rpx;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%,50%);
+}
+
+.ItemImg .item-img-logo image {
+    width: 60%;
+    max-height: 90%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.ItemDes {
+    padding-top: 30rpx;
+    padding-bottom: 14rpx;
+}
+
+.ItemDes .h3 {
+    color: #333;
+    font-size: 28rpx;
+    line-height: 50rpx;
+    text-align: center;
+    font-weight: 400;
+    width: 100%;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+    display: -webkit-inline-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.ItemDes .item-des-ticket {
+    font-size: 30rpx;
+    color: #f7e4ac;
+    background: url('https://web.juanpi.com/images/activity/custom/customTicket.png') no-repeat center center;
+    background-size: 326rpx 107rpx;
+    height: 107rpx;
+}
+
+.ItemDes .item-des-ticket .p {
+    margin-left: 16rpx;
+    padding-top: 22rpx;
+    width: 212rpx;
+    text-align: center;
+    line-height: 42rpx;
+}
+
+.Foot {
+    width: 100%;
+}
+
+.imageMore {
+    width: 100%;
+    height: 184rpx;
+}
+
+.imageFoot {
+    width: 100%;
+    height: 200rpx;
+}
+
+.back-top {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    z-index: 3;
+    width: 46px;
+    height: 50px;
+    transition: all 0.5s ease;
+}
+
+.back-top image {
+    width: 100%;
+    height: 100%;
+}
+
+.backtop-true {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.backtop-false {
+    opacity: 1;
+    transform: translateY(0);
+}

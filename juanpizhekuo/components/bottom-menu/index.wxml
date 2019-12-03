@@ -1,0 +1,8 @@
+<block wx:if="{{bottomMenu&&bottomMenu.length}}">
+    <view class="menu-placeholder"></view>
+    <view class="menu">
+        <navigator bindtap="statisticsTap" class="menu__item" data-activity="click_navigation" data-activityparam="{{item.item}}" hoverClass="none" openType="redirect" url="{{item.link}}" wx:for="{{bottomMenu}}" wx:key="{{index}}">
+            <image src="{{item.img}}"></image>
+        </navigator>
+    </view>
+</block>

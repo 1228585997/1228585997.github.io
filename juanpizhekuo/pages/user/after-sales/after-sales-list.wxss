@@ -1,0 +1,71 @@
+page {
+    background: #fff;
+}
+
+.my-order {
+    background: #fff;
+}
+
+.order-state {
+    padding: 0 4%;
+    font-size: 28rpx;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 76rpx;
+}
+
+.customList-box {
+    padding: 28rpx;
+    display: -webkit-flex;
+    background: #fafafa;
+}
+
+.pic image {
+    width: 140rpx;
+    height: 140rpx;
+}
+
+.ob-info {
+    margin-left: 24rpx;
+    flex: 1;
+    color: #bbb;
+}
+
+.obi-second {
+    display: -webkit-flex;
+    justify-content: space-between;
+}
+
+.pay-detail {
+    padding: 0 4%;
+    font-size: 28rpx;
+    height: 76rpx;
+    line-height: 76rpx;
+    background: #fff;
+}
+
+.time {
+    color: #999;
+}
+
+.state {
+    color: #ff464e;
+}
+
+.item-empty {
+    display: -webkit-flex;
+    flex-direction: column;
+    padding-top: 50rpx;
+}
+
+.item-empty image {
+    margin: 0 auto;
+    margin-bottom: 24rpx;
+    width: 280rpx;
+    height: 280rpx;
+}
+
+.b-title {
+    text-align: center;
+}

@@ -1,0 +1,361 @@
+.turnplate-page {
+    width: 100%;
+    position: relative;
+    background-color: #cb004c;
+    color: #ffeeea;
+    text-align: center;
+    font-size: 24rpx;
+    overflow: hidden;
+}
+
+.turnplate-alert {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    z-index: 999;
+    left: 0;
+    top: 0;
+}
+
+.turnplate-alertBox {
+    width: 274px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    background-color: #fff;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAABCAYAAADn9T9+AAAAF0lEQVQImWP8////fwZcYDojhM78zwAAo3gF/mXdkL0AAAAASUVORK5CYII=');
+    background-position: top left;
+    background-repeat: repeat-y;
+    background-size: 5px;
+}
+
+.turnplate-alertBox .turnplate-alertBox-topBoder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15.5px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAiQAAAAfBAMAAAAl/8sEAAAAJFBMVEUAAAD/////////////////////////////////lgD/+fD/nA/N1VPHAAAACHRSTlMAH3Xz5LmnVRvflNwAAAC1SURBVGje7dYhDsJAEEbhKQJdicSQcAM4QjUKicRjsECBv+kFuj0tC5Smm00NSdW+lz3Bl8zOmC9bFSJfucvtU3YUdT2+JidR38Z8M9GgpZmdRYOeZtlWNOiW21wUdLCFVDnnWtWOXCNdbA1JSHK1vVQ1qtv3Sz4vobsVkIQkpQmSkESQQALJvySuL3EWSMZJpG5wkh8eSCCBhO8Vkl+camGQREESBUkUJFGQRE1KwgKGZJzkBR7gvEJjTe/JAAAAAElFTkSuQmCC');
+    background-size: 100%;
+}
+
+.turnplate-alertBox .turnplate-alertBox-btmBoder {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15.5px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAiQAAAAfBAMAAAAl/8sEAAAAJFBMVEUAAAD/////////////////////////////////lgD/+fD/nA/N1VPHAAAACHRSTlMAH3Xz5LmnVRvflNwAAADKSURBVGje7dYhDsJAEIXhVwS6Eokh4QZwhGoUEonHYIECj/QCbG+wN+jxmKal2RUNCQG17xd7gC+ZnQHJx5OVc65mwnkDaFoJUiSjJDWrtEkaepGIRCQiEcnfSVxXqovYuyGRjJFY/eAkOjy+eQ+OJRKRiOQLEn2v2jifSHSq6XoViUh+RlKIJCYpsRVJTHLFslvCRuKSzkjsNZIzZiKJSU6YUkXtkK2pgi45cKQKugOYUAXNYR2ohlZoy/ZUfbccncmioLLKTSvyAow1y86OC3PrAAAAAElFTkSuQmCC');
+    background-size: 100%;
+}
+
+.turnplate-alertBox .turnplate-alertBox-close {
+    width: 34rpx;
+    height: 34rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 20rpx;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MEJENzFBRkNGMjc4MTFFN0FBOURDNDU4N0REMjIwMDUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MEJENzFBRkRGMjc4MTFFN0FBOURDNDU4N0REMjIwMDUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowQkQ3MUFGQUYyNzgxMUU3QUE5REM0NTg3REQyMjAwNSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowQkQ3MUFGQkYyNzgxMUU3QUE5REM0NTg3REQyMjAwNSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pox5VDkAAAOmSURBVHjavJhZSFVRFIbvPVYP5VDkBCVkGpRNRg9JesukyaQeAqOs6KV6CCmbC6KiJMiwwgYiekiC20P4ZEFYmXq7ZRZlZVYQaiQ0+WKDQWb2r/hvbC5n2Ce9LfjQe84e1tl7r7X+c7z9Zz1uLBEsAXPBFDAOxPLeZ9ABWkA9uA7e6w5saLbzgWrwCuSDRlAMJtORWP5fzHuLwUv28elM4HVYkfGgAkwCR4EffNV0PhqsBHvBC7AZtP3LiqwC90ADHTnvwgkP215g3waOVWTVeIjF9f1gHVgEmj0Dsx+gDNSAKpAODuk4sg8Ugmw3h03DmjnmDfALlNo5UsSVkA4fPYNv8mB54C7Pi9/MkVRwktsRCSdC9okrXsMIaws/rKfAcfDYE3lr5lwV4VEjsT4RlNt03sJDrGuHwVab++Wc06duzS7miV6LThvACck74JuDwx7mDjn0/eA7OGfSppdz7gQBg2k7Wz04JjabTogdA5scVu5IKGGCWTZtZc4ckBR1sODPwZEOl206XAUZxMt688Ykx6wHZxSnrzAK+y3GlVWZIe1lRXJBrcNS94HV4JrypJI1Vyht1nALQk5U81qfw9gyd67BYvVEM0PK6t3i7yhwCSwDy8FFXvMwaRWyj5M9lUouRa+Lp7dLMxqGMwdkKw6KDePfAKtvj+Z48VKpZUViqCV0TSYoAA8VB0JONIGlLpwI6ZgYw+Yg2Vm3WeGCHeA912awXMe67DeT5yPcJPKmuxxL5v4ijrSDNBcdp1IGxvH3a0XwjORBzXAxnsiCDnHkuYunmMCJ4vm7EywgnbyWwMOcrjnmNNG54kgdS7OTpTLmk5SSPo+CWVZkvlK1xzDMUzTGlbnrJHwTKXRTWEfMbCwdTlNKeR4Ve/i23QajlW2bA95ZjDsCvBU5afApgjZ6Uga9qTjRzTzRYtL2GVV+t7L/spWjbHTxHfAhJANEU+4GQy1CtVURxOLEI5ulfsA806NkTrM8JXPtYRH9q0cC3J7tJh1+8rWgium8UWPfg2wr4bzWot5s45yB8PcaOYz3wcJBUO5OlsnIyjKTipJPSli6EyPoRALnKFFfuAwToVLJ0EuOgBPJTAGV4ULM7E2vlB4HuYSDuR1Bjl0aflMUmpnVUxb4qTGaNASOlUll3kHRJNr4tNt3Xz8PUw5fojfyxVrXoikdW6nUs+x0sVfz+4iPT5PDglfHyGpXklccIy+T8jOfoVkWCtGBfJb4bx9qfgswAKxB5MINAljXAAAAAElFTkSuQmCC');
+    background-size: 100% 100%;
+}
+
+.turnplate-alertBox .turnplate-alertBox-inner {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAABCAYAAADn9T9+AAAAG0lEQVQImWP8////f4bpjAwMDAwMDJn/GXABANN4Bf4vSpZOAAAAAElFTkSuQmCC');
+    background-position: top right;
+    background-repeat: repeat-y;
+    background-size: 5px;
+    padding: 20px 15px;
+}
+
+.turnplate-alertBox .turnplate-alertBox-inner .turnplate-alertBox-rule {
+    color: #ff9600;
+    font-size: 24rpx;
+    text-align: left;
+    text-indent: 24rpx;
+}
+
+.turnplate-alertBox .turnplate-alertBox-inner .turnplate-alertBox-rule .rule-title {
+    text-align: center;
+    font-size: 28rpx;
+    line-height: 40rpx;
+}
+
+.turnplate-alertBox .turnplate-alertBox-lucky {
+    min-height: 174rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.turnplate-alertBox .turnplate-alertBox-lucky image {
+    width: 115rpx;
+    height: 121rpx;
+}
+
+.turnplate-alertBox .turnplate-alertBox-lucky text {
+    font-size: 32rpx;
+    color: #ff9600;
+}
+
+.turnplate-alertBox .turnplate-alertBox-sorry {
+    justify-content: center;
+}
+
+.turnplate-alertBox .turnplate-alertBox-lucky .turnplate-alertBox-h2 {
+    font-size: 36rpx;
+    color: #919191;
+}
+
+.turnplate-alertBox .turnplate-alertBox-lucky .turnplate-alertBox-h3 {
+    font-size: 28rpx;
+    color: #919191;
+}
+
+.turnplate-alertBox .turnplate-alertBox-btns {
+    display: flex;
+    justify-content: center;
+    height: 85rpx;
+    padding-top: 20rpx;
+}
+
+.turnplate-alertBox .turnplate-alertBox-btn {
+    display: flex;
+    width: 170rpx;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    background-color: #ff5328;
+    border-radius: 4rpx;
+    font-size: 28rpx;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.turnplate-alertBox .turnplate-alertBox-btn:nth-child(2) {
+    margin-left: 32rpx;
+}
+
+.turnplate-alertBox .turnplate-alertBox-btn text {
+    width: 16rpx;
+    height: 16rpx;
+    box-sizing: border-box;
+    border-bottom: 4rpx solid #fff;
+    border-right: 4rpx solid #fff;
+    transform: rotate(-45deg);
+}
+
+.turnplate-alertBox .turnplate-alertBox-bigBtn {
+    width: 300rpx;
+}
+
+.turnplate-topBox {
+    position: relative;
+    width: 100%;
+    height: 1181rpx;
+    background: url('https://web.juanpi.com/images/turnplate/bg.png') no-repeat;
+    background-size: 100% 100%;
+    padding-top: 208rpx;
+    box-sizing: border-box;
+}
+
+.turnplate-topBox .turnplate-rule {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    width: 100rpx;
+    height: 40rpx;
+    background-color: rgba(0,0,0,.3);
+    border-radius: 50rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22rpx;
+}
+
+.turnplate-topBox .turnplate-rule text {
+    font-size: 20rpx;
+    width: 26rpx;
+    height: 26rpx;
+    line-height: 20rpx;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    margin-right: 8rpx;
+}
+
+.turnplate-topBox .turnplate-date {
+    color: #fae58e;
+    font-size: 26rpx;
+    line-height: 50rpx;
+    font-style: oblique;
+}
+
+.turnplate-topBox .turnplate-prizeHint {
+    height: 83rpx;
+    color: #fff;
+    background: url('https://goods7.juancdn.com/act/180116/c/d/5a5d9e5d8150a17c643d7bea_623x83.png') no-repeat center center;
+    background-size: 623rpx;
+    line-height: 56rpx;
+    text-shadow: 0rpx 4rpx 8rpx rgba(0,0,0,.5);
+}
+
+.turnplate-topBox .turnplate-lucky {
+    height: 660rpx;
+    position: relative;
+}
+
+.turnplate-topBox .turnplate-lucky .turnplate-luckyBox {
+    width: 660rpx;
+    height: 660rpx;
+}
+
+.turnplate-topBox .turnplate-lucky .turnplate-luckyBtn {
+    width: 231rpx;
+    height: 270rpx;
+    background: url('https://goods4.juancdn.com/act/180116/6/4/5a5da331a9fcf873f341f102_231x270.png');
+    background-size: 100% 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.turnplate-topBox .turnplate-numberHint {
+    font-size: 30rpx;
+    line-height: 80rpx;
+}
+
+.turnplate-topBox .turnplate-numberHint text {
+    color: #fffd39;
+}
+
+.turnplate-topBox .turnplate-btnBox {
+    height: 96rpx;
+    text-align: center;
+    font-size: 0;
+}
+
+.turnplate-topBox .turnplate-btnBox .turnplate-btn {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 304rpx;
+    line-height: 96rpx;
+    color: #fff;
+    background: url('https://goods8.juancdn.com/act/180116/f/5/5a5dab328150a17f084958c3_304x96.png');
+    background-size: 100% 100%;
+    font-size: 36rpx;
+    vertical-align: middle;
+}
+
+.turnplate-topBox .turnplate-btnBox .turnplate-btn .angle {
+    width: 20rpx;
+    height: 20rpx;
+}
+
+.turnplate-midBox {
+    width: 100%;
+    height: 424rpx;
+    padding: 20rpx 20rpx 0;
+    box-sizing: border-box;
+}
+
+.turnplate-midBox .turnplate-msgBox {
+    width: 100%;
+    height: 100%;
+    border-radius: 20rpx;
+    background-color: #ff604b;
+    border: 1px solid #f5aa19;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,.2);
+}
+
+.turnplate-midBox .turnplate-msgBox .turnplate-msgBox-header {
+    display: flex;
+    align-items: center;
+    height: 72rpx;
+    background-color: #ff604b;
+    border-radius: 20rpx 20rpx 0 0;
+    color: #fff;
+    overflow: hidden;
+}
+
+.turnplate-midBox .turnplate-msgBox .turnplate-msgBox-header view {
+    flex: 1;
+    font-size: 36rpx;
+    height: 100%;
+    line-height: 72rpx;
+    background-color: #f5aa19;
+}
+
+.turnplate-midBox .turnplate-msgBox .turnplate-msgBox-header .turnplate-msgBox-active {
+    color: #961f08;
+    background-color: #ff604b;
+}
+
+.turnplate-msgBox-body {
+    width: 100%;
+    height: 328rpx;
+    background: #fffbf0;
+    border: 8rpx solid #ff604b;
+    border-top: none;
+    padding: 0 8rpx;
+    box-sizing: border-box;
+    border-radius: 0 0 20rpx 20rpx;
+    font-size: 26rpx;
+}
+
+.turnplate-msgBox-body .turnplate-msgBox-body-header {
+    height: 68rpx;
+    border-bottom: 1px dashed #8a8a8a;
+    color: #8a8a8a;
+    display: flex;
+    align-items: center;
+}
+
+.turnplate-msgBox-body .turnplate-msgBox-body-Ul {
+    height: 250rpx;
+    line-height: 48rpx;
+    color: #ff604b;
+}
+
+.turnplate-msgBox-body .turnplate-msgBox-body-Ul .turnplate-msgBox-body-li {
+    display: flex;
+    align-items: center;
+}
+
+.turnplate-msgBox-body-empty {
+    color: #8a8a8a;
+    padding-top: 136rpx;
+}
+
+.turnplate-msgBox-body .turnplate-msgBox-body-header text,.turnplate-msgBox-body .turnplate-msgBox-body-Ul .turnplate-msgBox-body-li text,.turnplate-msgBox-body .turnplate-msgBox-body-Ul .turnplate-msgBox-body-li navigator {
+    display: -webkit-inline-box;
+    flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.turnplate-btmBox .turnplate-more {
+    height: 120rpx;
+    background: url('https://goods8.juancdn.com/act/180118/e/f/5a6004e08150a16c4f1a2e82_750x120.png');
+    background-size: 100% 100%;
+}
+
+.turnplate-btmBox .turnplate-goHome {
+    height: 200rpx;
+    background: url('https://goods5.juancdn.com/act/180118/9/b/5a60062e8150a16c9a164815_750x200.png');
+    background-size: 100% 100%;
+}
+
+.turnplate-btmBox .turnplate-footLogo {
+    height: 200rpx;
+    background: url('https://goods6.juancdn.com/act/180116/a/0/5a5d97358150a17de80f6283_750x200.png');
+    background-size: 100% 100%;
+}

@@ -1,0 +1,91 @@
+<view class="container hasTabs">
+    <view class="tabs">
+        <view bindtap="bindNavTap" class="tabs-btn {{curTab==='0'?'tabs-btn__active':''}}" data-index="0">我要反馈</view>
+        <view bindtap="bindNavTap" class="tabs-btn {{curTab==='1'?'tabs-btn__active':''}}" data-index="1">历史反馈</view>
+    </view>
+    <view class="box-outer">
+        <view class="content-item1" wx:if="{{curTab==='0'}}">
+            <view class="content-item1-item">
+                <view class="title">
+            反馈类型
+            </view>
+                <radio-group bindchange="radioChange" class="radio-group">
+                    <label class="radio {{param_sendCurRadio==item.id?'radio__active':''}}" wx:for="{{getAskItems}}" wx:key="id">
+                        <radio checked="{{item.checked}}" value="{{item.id}}"></radio>{{item.title}}
+                </label>
+                </radio-group>
+            </view>
+            <view class="content-item1-item">
+                <view class="title">
+                    <text class="color-red">*</text>
+              请描述你遇到的问题
+              <text class="color-red">(不少于10个字)</text>
+                </view>
+                <view class="textarea-box item-pad12">
+                    <textarea autoHeight="{{true}}" bindinput="changeText" maxlength="200" placeholder="{{textareaPlaceholder}}"></textarea>
+                    <text class="textarea-len">{{textLen}}/200</text>
+                </view>
+            </view>
+            <view class="content-item1-item">
+                <view class="title">
+              上传图片
+              <text class="color-gray">(选填)</text>
+                </view>
+                <view class="upload-box">
+                    <view class="upload-item" wx:for="{{imgArr}}" wx:key="index">
+                        <image mode="aspectFill" src="{{item.tempFilePaths}}" wx:if="{{item.tempFilePaths}}"></image>
+                        <view bindtap="uploadFn" class="upload-icon" data-arrIdx="{{index}}" wx:elif="{{imgArrLen+index==5&&!item.tempFilePaths}}">
+                            <image mode="scaleToFill" src="https://jp.juancdn.com/xcx_images/icon_camera.png"></image>
+                        </view>
+                        <text wx:else></text>
+                        <view bindtap="delImgFn" class="upload-item-icon" data-imgIdx="{{index}}" wx:if="{{item.tempFilePaths}}">
+                            <image mode="scaleToFill" src="https://jp.juancdn.com/xcx_images/icon_clear.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="content-item1-item">
+                <view class="title">
+              您的联系方式
+              <text class="color-gray">(选填)</text>
+                </view>
+                <view class="item-pad12">
+                    <input bindinput="bindKeyInput" placeholder="手机号/邮箱/QQ/微信等填写其一即可"></input>
+                </view>
+            </view>
+            <view class="content-item1-item">
+                <button bindtap="submitClick" class="{{hasBtn?'btnDisabled':''}}" disabled="{{hasBtn}}" type="warn">提 交</button>
+            </view>
+        </view>
+        <view class="content" wx:else>
+            <scroll-view enableBackToTop class="content-item2" scrollTop="{{scrollTop}}" scrollY="true" style="height: 100%;">
+                <view class="order-empty" wx:if="{{getQuestionItems.length===0}}">
+                    <image mode="scaleToFill" src="https://jp.juancdn.com/xcx_images/order_empty.png"></image>
+                    <text>暂时没有留言</text>
+                </view>
+                <view class="question-box" wx:else>
+                    <view class="question-item" wx:for="{{getQuestionItems}}" wx:key="id">
+                        <navigator hoverClass="none" url="/pages/user/feedback-details/feedback-details?fdid={{item.fd_id}}">
+                            <view class="question-title">
+                                <view class="question-title-details">
+                                    <text class="question-title-details-text">{{item.fd_ask}}</text>
+                                    <text class="angle"></text>
+                                </view>
+                                <view class="question-title-time">
+                    {{item.fd_ask_time2}}
+                    已提交
+                  </view>
+                            </view>
+                            <view class="question-reply" wx:if="{{item.fd_reply}}">
+                                <view class="service-box-outer">
+                                    <text class="question-reply-content">
+                                        <text class="question-reply-name">客服{{item.fd_cs_name}}</text> 回复：{{item.fd_reply}}</text>
+                                </view>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>

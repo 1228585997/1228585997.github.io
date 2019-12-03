@@ -1,0 +1,40 @@
+.experience-top {
+    position: relative;
+    height: 290.2rpx;
+    width: 100%;
+    background: #fff url(//jp.juancdn.com/xcx_images/dasabi/banner.png) no-repeat;
+    background-size: cover;
+}
+
+.rule-txt {
+    width: 368rpx;
+    height: 48rpx;
+    background: url(//jp.juancdn.com/xcx_images/dasabi/rule.png) no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 50rpx;
+    top: 156rpx;
+    color: #fff;
+}
+
+.activity-entrance {
+    margin-top: 24rpx;
+    background-color: #fff;
+    padding: 32rpx 28rpx;
+}
+
+.entrance-title {
+    border-left: #FF6000 solid 6rpx;
+    padding-left: 16rpx;
+}
+
+.title-txt {
+    font-size: 28rpx;
+    color: #000;
+}
+
+.ad_content {
+    margin-top: 25rpx;
+    background-color: #fff;
+    padding: 15px;
+}

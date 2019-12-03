@@ -1,0 +1,23 @@
+<import src="../../components/coupon/coupon.wxml"></import>
+<view class="modal-mask"></view>
+<view class="modal-dialog-coupon">
+    <view bindtap="closeCoupon" style="position:absolute;top:0;bottom:0;left:0;right:0;"></view>
+    <view class="modal-dialog-coupon-content">
+        <view class="modal-title-head">绑定成功</view>
+        <view class="modal-title-coupon">{{explain_msg}}</view>
+        <view class="modal-coupon-content">
+            <view wx:for="{{couponList}}" wx:key="index">
+                <view class="coupon-title" wx:if="{{item.type==='tab_name'}}">— {{item.name}} —</view>
+                <block wx:if="{{item.type==='coupon'}}">
+                    <navigator bindtap="couponTap" data-activity="{{item.data.ju_id}}" openType="{{item.data.goBuyUrl==='/pages/index/index'?'switchTab':'navigate'}}" url="{{item.data.goBuyUrl}}" wx:if="{{item.data.status==='0'||item.data.status==='4'}}">
+                        <template is="couponB" data="{{coupon:item.data}}"></template>
+                    </navigator>
+                    <template is="couponB" data="{{coupon:item.data}}" wx:else></template>
+                </block>
+            </view>
+        </view>
+        <view class="modal-footer">
+            <view bindtap="closeCoupon" class="btn-confirm">我知道了</view>
+        </view>
+    </view>
+</view>

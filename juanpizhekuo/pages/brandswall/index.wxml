@@ -1,0 +1,28 @@
+<view class="container">
+    <scroll-view scrollX class="Nav" scrollLeft="{{scrollLeft}}">
+        <view bindtap="jumpTo" class="navTab {{target===index?'activeTab':''}}" data-index="{{index}}" data-target="{{target}}" wx:for="{{list}}" wx:key="index">
+            <text>{{item}}</text>
+        </view>
+    </scroll-view>
+    <view bindtap="showNavtabs" class="toggle">
+        <text class="angle {{notShow?' ':'angle2'}}"></text>
+    </view>
+    <scroll-view scrollY bindtap="showNavtabs" class="Navshow {{notShow?'notshow':''}}">
+        <view bindtap="jumpToScroll" class="navButton {{target===index?'navButton_active':''}}" data-index="{{index}}" data-target="{{target}}" wx:for="{{list}}" wx:key="index">
+            <view class="navButtonInner">
+                <text>{{item}}</text>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="shadow_cover {{notShow?'notshow':''}}"></view>
+    <scroll-view scrollY bindscroll="chooseNavTabs" class="productContainer" id="productContainer" scrollIntoView="{{toView}}" scrollWithAnimation="true">
+        <view class="navTab_link" wx:for="{{blockadsArr}}" wx:key="index">
+            <view class="adsContent location {{item.block_type==1&&index!=0?'blockType1':''}}" id="{{idList[index/3]}}" wx:if="{{item.block_type==1}}">
+                <include src="../../components/blockAds/nBlock/index.wxml"></include>
+            </view>
+            <view class="adsContent" wx:if="{{item.block_type==15}}">
+                <include src="../../components/blockAds/cookieBlock/index.wxml"></include>
+            </view>
+        </view>
+    </scroll-view>
+</view>

@@ -1,0 +1,272 @@
+@import "../../../components/qipao/qipao.wxss";
+
+@import "../../../components/goods/goods.wxss";
+
+@import "../../../components/send-formid/index.wxss";
+
+@import "../../../components/backtop/backtop.wxss";
+
+page {
+    padding: 0;
+}
+
+page,.container,.goods-wrap {
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+
+img {
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 1px;
+    height: 1px;
+}
+
+.goods-container {
+    width: 100%;
+    background-color: #f4f4f8;
+}
+
+.grouping-title {
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    color: #fff;
+    font-size: 32rpx;
+    background-color: #FFC925;
+    text-align: center;
+}
+
+.goIndex {
+    width: 192rpx;
+    height: 56rpx;
+    position: fixed;
+    right: 0;
+    top: 825rpx;
+    z-index: 9999;
+}
+
+.goIndex .goIndexImg {
+    width: 100%;
+    height: 100%;
+}
+
+.qipao2 {
+    background: rgba(255,255,255,0.6);
+    font-size: 24rpx;
+    color: #FD4E40;
+    height: 40rpx;
+    line-height: 40rpx;
+    border: none;
+    border-radius: 0 20rpx 20rpx 0;
+}
+
+.main {
+    width: 100%;
+    height: 1544rpx;
+    position: relative;
+    background-color: #F96960;
+}
+
+.backImg {
+    width: 100%;
+    height: 762rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.prizeLists {
+    height: 544rpx;
+    width: 645rpx;
+    overflow: hidden;
+    position: absolute;
+    top: 942rpx;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+    background: linear-gradient(-180deg,#FFEBB2 0%,#FFF4D2 100%);
+    box-sizing: border-box;
+    padding: 40rpx 40rpx 40rpx 40rpx;
+    box-sizing: border-box;
+    border-radius: 0 0 10rpx 10rpx;
+}
+
+.listHead {
+    width: 100%;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    font-size: 36rpx;
+    color: #C83831;
+    font-weight: bold;
+    margin-bottom: 20rpx;
+}
+
+.prizeListsContent {
+    width: 100%;
+    height: 404rpx;
+    overflow: hidden;
+}
+
+.prizeListsContentInner {
+    width: 100%;
+    height: auto;
+    animation: 20s rowup linear infinite normal;
+    position: relative;
+}
+
+@-webkit-keyframes rowup {
+    0% {
+        transform: translate3d(0,0,0);
+    }
+
+    100% {
+        transform: translate3d(0,-2320rpx,0);
+    }
+}
+
+@keyframes rowup {
+    0% {
+        transform: translate3d(0,0,0);
+    }
+
+    100% {
+        transform: translate3d(0,-2320rpx,0);
+    }
+}
+
+.personOne {
+    font-size: 32rpx;
+    color: #C83831;
+    height: 44rpx;
+    line-height: 44rpx;
+    margin-bottom: 24rpx;
+}
+
+.person_name,.person_prize {
+    text-align: left;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.person_name {
+    width: 40%;
+}
+
+.person_prize {
+    width: 60%;
+}
+
+.win_button {
+    width: 376rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    background: #FFC700;
+    border-radius: 44rpx;
+    font-size: 36rpx;
+    color: #C83831;
+    font-weight: bold;
+    position: absolute;
+    z-index: 2;
+    top: 720rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.goSeeRule {
+    width: 100%;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #FFDF26;
+    position: absolute;
+    z-index: 2;
+    top: 828rpx;
+    left: 0;
+}
+
+.listHaedImg {
+    width: 100%;
+    height: 48rpx;
+    position: absolute;
+    z-index: 2;
+    top: 928rpx;
+    left: 0;
+}
+
+.rules_content {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    z-index: 9999999999999;
+    top: 0;
+    left: 0;
+}
+
+.rule_box {
+    color: #fff;
+    position: absolute;
+    width: 612rpx;
+    height: 780rpx;
+    background: #fff;
+    box-shadow: 0 4rpx 32rpx 0 rgba(0,0,0,0.90);
+    border-radius: 16rpx;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-40%);
+    box-sizing: border-box;
+    padding: 48rpx 24rpx 60rpx 24rpx;
+}
+
+.view_head {
+    width: 100%;
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 36rpx;
+    margin-bottom: 24rpx;
+    text-align: center;
+    font-weight: bold;
+    color: #333333;
+}
+
+.rules_all {
+    width: 100%;
+    list-style: none;
+    height: 616rpx;
+    font-size: 28rpx;
+    color: #333333;
+    line-height: 44rpx;
+}
+
+.rules_all view {
+    display: block;
+    width: 100%;
+    font-size: 28rpx;
+    line-height: 44rpx;
+}
+
+.rule_close,.coupon_close {
+    width: 60rpx;
+    height: 114rpx;
+    position: absolute;
+    right: 19rpx;
+    top: -113rpx;
+    text-align: center;
+}
+
+.rule_close image {
+    width: 100%;
+    height: 100%;
+}

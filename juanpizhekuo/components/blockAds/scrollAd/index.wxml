@@ -1,0 +1,21 @@
+<view class="block__container block{{item.block_type}}" style="margin-top:{{item.margin_enabled}}px">
+    <scroll-view scrollX class="scrollAd">
+        <view class="scrollAd-box clear">
+            <view class="scrollAd-item {{item.data.style=='1'?'ml0':''}}" style="width:{{childitem.width}}" wx:for="{{item.data.child}}" wx:for-item="childitem" wx:key="bd_id">
+                <navigator bindtap="statisticsTap" data-activity="click_cube_block" data-activityparam="{{childitem.server_jsonstr}}" data-url="{{childitem.jump_url}}" data-zhuge-activity="{{childitem.zg_event}}" data-zhuge-activityparam="{{childitem.zg_json}}" hoverClass="none" openType="{{tab.isPageInTab(childitem.jump_url)?'switchTab':'navigate'}}" url="{{childitem.jump_url}}">
+                    <view class="img-box">
+                        <image mode="widthFix" src="{{childitem.pic_url}}"></image>
+                        <image class="corner" src="{{childitem.corner}}" wx:if="{{childitem.corner}}"></image>
+                    </view>
+                    <view class="price" wx:if="{{childitem.type==1||childitem.type==2}}">
+                        <text class="cprice">{{childitem.cprice}}</text>
+                        <text class="oprice">{{childitem.oprice}}</text>
+                    </view>
+                    <view class="scrollAd-title" wx:if="{{childitem.type==1||childitem.type==2}}">
+          {{childitem.title}}
+          </view>
+                </navigator>
+            </view>
+        </view>
+    </scroll-view>
+</view>

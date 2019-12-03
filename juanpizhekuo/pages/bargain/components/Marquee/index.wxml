@@ -1,0 +1,11 @@
+<view class="marquee-box">
+    <image class="wrapper-bg" src="{{COMMON_IMAGES['box-bg']}}"></image>
+    <view class="marquee-users">
+        <image class="users-pic" src="{{COMMON_IMAGES['name-bg']}}"></image>
+        <view class="marquee-info">
+            <view class="marquee-auto {{_animate?'animated':''}}">
+                <view class="marquee-item" wx:for="{{_listData}}" wx:key="this">{{item}}</view>
+            </view>
+        </view>
+    </view>
+</view>

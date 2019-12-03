@@ -1,0 +1,9 @@
+<view class="expr-modal__root">
+    <view class="expr-modal__box" style="background-image: url('//jp.juancdn.com/xcx_images/dasabi/money_bg.png');">
+        <view class="expr-modal__tips">获得现金红包（元）</view>
+        <view class="expr-modal__money">¥ {{money}}</view>
+        <view class="expr-modal__title">已存入账户</view>
+        <view bindtap="onTapLookBtn" class="expr-modal__confirm-btn"></view>
+        <view bindtap="onTapCloseBtn" class="expr-modal__close-btn"></view>
+    </view>
+</view>

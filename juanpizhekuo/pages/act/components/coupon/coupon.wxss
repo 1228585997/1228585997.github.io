@@ -1,0 +1,122 @@
+.coupons {
+    position: relative;
+    font-size: 22rpx;
+}
+
+.coupons_time {
+    text-align: center;
+    padding: 10rpx 0;
+}
+
+.coupons_list {
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+}
+
+.coupons_list .coupons_item {
+    display: inline-block;
+    font-size: 0;
+    text-align: center;
+    overflow: hidden;
+    word-spacing: 0;
+}
+
+.coupons_list.col3 .coupons_item {
+    width: 33.3333%;
+}
+
+.coupons_list.col2 .coupons_item,.coupons_list.col4 .coupons_item {
+    width: 50%;
+}
+
+.coupons_list.col1 .coupons_item {
+    width: 100%;
+}
+
+.coupons_rules {
+    display: block;
+    text-align: right;
+    padding: 10rpx 10rpx 10rpx 0;
+    margin: 0;
+}
+
+.modal__couponbag {
+}
+
+.modal__couponbag .modal-title {
+    width: 249rpx;
+    margin: 0 auto 28rpx auto;
+    background: url('//act.juancdn.com/jpwebapp/common/_dist/images/coupon-modal-title.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.modal__couponbag .paragraph {
+    color: #404040;
+    text-align: center;
+    font-size: 24rpx;
+    line-height: 1.5;
+    margin: 0 0;
+}
+
+.modal__couponbag .paragraph text {
+    color: #fd5d5b;
+    display: inline-block;
+}
+
+.modal__couponbag .info {
+    width: 508rpx;
+    height: 218rpx;
+    margin: 28rpx auto 30rpx auto;
+    background: url('//act.juancdn.com/jpwebapp/common/_dist/images/coupon-modal-bg.png') no-repeat;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+
+.modal__couponbag .info .paragraph {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.modal__couponbag .info .couponbag__info,.modal__couponbag .info .times {
+    font-size: 18rpx;
+    color: #924800;
+    line-height: 2;
+}
+
+.modal__couponbag .info .couponbag__info {
+    width: 93%;
+    margin: 0 auto;
+}
+
+.modal__couponbag .info .times {
+    width: 450rpx;
+    margin: 0 auto;
+    border-bottom-width: 1px;
+    border-bottom: dashed #924800;
+}
+
+.modal__couponbag .info .price__info {
+    position: relative;
+    margin-top: 20rpx;
+    font-size: 40rpx;
+    line-height: 1;
+}
+
+.modal__couponbag .info .price__info .price {
+    padding-left: 10rpx;
+    font-size: 100rpx;
+    line-height: 40rpx;
+}
+
+.modal__couponbag .info .price__info .price text {
+    color: #fd5d5b;
+}
+
+.modal__couponbag .info .price__info .price .cleat {
+    position: absolute;
+    top: 10px;
+    color: #fd5d5b;
+    font-style: normal;
+}

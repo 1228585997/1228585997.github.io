@@ -1,0 +1,5 @@
+<template name="sendFormIdTpl">
+    <form bindsubmit="{{dealEvent}}" class="form-id" data-dataset="{{dataset}}" reportSubmit="true">
+        <button formType="submit" hoverClass="none" plain="true"></button>
+    </form>
+</template>

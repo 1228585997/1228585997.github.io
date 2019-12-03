@@ -1,0 +1,31 @@
+<template name="shopTimeLimit">
+    <view class="STL" style="background: {{bgColor}} url({{bgImage.src}}) 0% 0% / 100% 100% no-repeat">
+        <view class="STL__header">
+            <text class="STL__title" style="color: {{textColor}}">{{title}}</text>
+            <view class="STL__counting" hidden="{{shopTimeLimitHidden}}" style="color: {{textColor}}">
+                <template is="limitCountdown" data="{{ time:clock[id] }}"></template>
+            </view>
+            <navigator class="STL__morelink" url="{{type==='0'?xcxUrl:'/pages/act/act?name='+actPageName}}" wx:if="{{moreLinkTitle!==''}}">{{moreLinkTitle}} ></navigator>
+        </view>
+        <view class="STL__scroll-view">
+            <view class="STL__goods">
+                <view class="STL__good STL__good--{{goodStyle}}" wx:for="{{gFloorsLimit}}" wx:for-item="good" wx:key="good.p">
+                    <navigator bindtap="statisticsTap" class="STL__link" data-a="{{good.url}}" data-activity="normal_activity" data-activityparam="{{actName}}.{{gFloorsLimit.zid}}.2001.{{index+1}}.{{good.l}}.{{good.n}}.{{good.p}}" url="{{good.url}}">
+                        <view class="STL__good-img">
+                            <image src="https:{{good.r2}}"></image>
+                            <image class="STL__good-jiao" src="{{good.tag.src}}" style="width: {{good.tag.width}}rpx; height: {{good.tag.height}}rpx"></image>
+                        </view>
+                        <view class="STL__good-title" wx:if="{{goodStyle=='P3'}}">{{good.q}}</view>
+                        <view class="STL__good-prices">
+                            <text class="STL__good-cprice">¥{{good.u||good.h}}</text>
+                            <text class="STL__good-oprice">¥{{good.i}}</text>
+                        </view>
+                        <view class="STL__good-title" wx:if="{{goodStyle!=='P3'}}">{{good.q}}</view>
+                        <view class="{{good.g==='end'?'STL__good-btn STL__good-btn--disabled':'STL__good-btn'}}" wx:if="{{goodStyle==='P3'}}">{{good.g==='end'?'抢光了':'立即抢购'}}</view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="/components/countdown/countdown.wxml"></import>

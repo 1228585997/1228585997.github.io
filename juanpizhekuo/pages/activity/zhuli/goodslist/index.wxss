@@ -1,0 +1,111 @@
+page {
+    background: #ffffff;
+}
+
+.goods-item {
+    display: flex;
+    background: #fff;
+    width: 100%;
+    overflow: hidden;
+    padding: 18rpx 15rpx;
+    border-bottom: 1px solid #FF464E;
+}
+
+.goods-item .goods-pic {
+    width: 216rpx;
+    height: 216rpx;
+    margin-right: 24rpx;
+}
+
+.goods-pic__image {
+    display: block;
+    width: 216rpx;
+    height: 216rpx;
+}
+
+.goods-info {
+    flex-grow: 1;
+    width: 460rpx;
+}
+
+.goods-info .goods-title {
+    color: #333;
+    line-height: 40rpx;
+    margin-bottom: 20rpx;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.goods-body {
+    color: #333;
+    margin-bottom: 10rpx;
+    min-height: 44rpx;
+}
+
+.goods-body .left-time {
+    color: #999;
+}
+
+.goods-body .new-price {
+    color: #ff464e;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.goods-body .cprice-num {
+    font-size: 40rpx;
+}
+
+.goods-body .old-price {
+    color: #999;
+    margin-left: 10rpx;
+    font-size: 24rpx;
+    display: inline-block;
+}
+
+.goods-bottom {
+    overflow: hidden;
+}
+
+.goods-bottom .remaining-info {
+    color: #ff464e;
+    float: left;
+    margin-top: 22rpx;
+}
+
+.goods-bottom .handle-btn {
+    border-radius: 4rpx;
+    background: #ff464e;
+    color: #fff;
+    float: right;
+    width: 140rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+}
+
+.goods-bottom .handle-btn.disabled {
+    background: #ccc;
+}
+
+.zhuli-button-left {
+    background: url(https://jp.juancdn.com/wxMapp/zhuli/zhuli-free-goods01.png) no-repeat;
+    background-size: 100%;
+    width: 370rpx;
+    height: 96rpx;
+    display: block;
+    float: left;
+}
+
+.zhuli-button-right {
+    background: url(https://jp.juancdn.com/wxMapp/zhuli/zhuli-free-goods02.png) no-repeat;
+    background-size: 100%;
+    width: 370rpx;
+    height: 96rpx;
+    display: block;
+    float: right;
+}

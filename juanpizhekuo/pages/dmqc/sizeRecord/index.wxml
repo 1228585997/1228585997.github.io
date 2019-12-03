@@ -1,0 +1,87 @@
+<view class="container">
+    <scroll-view class="scroll">
+        <view class="wrapper" style="flex-direction: row;margin-top:14px">
+            <text class="title_text">{{title}}</text>
+            <text style="color:#ff464e" wx:if="{{!!size}}">{{size}}</text>
+        </view>
+        <view class="wrapper">
+            <image class="body_image" mode="scaleToFill" src="/images/body-image.png"></image>
+        </view>
+        <view>
+            <view class="wrapper" style="margin-top:20px">
+                <view class="sex_container">
+                    <view bindtap="tapSex" class="male-btn{{sex=='1'?'__active':''}}" id="male">
+                        <text style="color:{{sex=='1'?'#ff464e':'#666666'}}">男</text>
+                    </view>
+                    <view class="middle_view{{sex>=0?'_active':''}}"></view>
+                    <view bindtap="tapSex" class="female-btn{{sex=='0'?'__active':''}}" id="female">
+                        <text style="color:{{sex=='0'?'#ff464e':'#666666'}}">女</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="input_wrapper">
+            <view class="input_item_wrapper">
+                <view class="text_contaner">
+                    <text class="red_star">*</text>
+                    <text>身高：</text>
+                </view>
+                <input bindinput="infoInput" class="input_view" id="1" placeholder="" type="digit" value="{{height}}"></input>
+                <text class="unit">cm</text>
+            </view>
+            <view class="input_item_wrapper">
+                <view class="text_contaner">
+                    <text class="red_star">*</text>
+                    <text>体重：</text>
+                </view>
+                <input bindinput="infoInput" class="input_view" id="2" placeholder="" type="digit" value="{{weight}}"></input>
+                <text class="unit">kg </text>
+            </view>
+        </view>
+        <view class="input_wrapper">
+            <view class="input_item_wrapper">
+                <view class="text_contaner">
+                    <text class="red_star" style="color:#fff">*</text>
+                    <text>肩宽：</text>
+                </view>
+                <input bindinput="infoInput" class="input_view" id="3" placeholder="" type="digit" value="{{arg3}}"></input>
+                <text class="unit">cm</text>
+            </view>
+            <view class="input_item_wrapper">
+                <view class="text_contaner">
+                    <text class="red_star" style="color:#fff">*</text>
+                    <text>胸围：</text>
+                </view>
+                <input bindinput="infoInput" class="input_view" id="4" placeholder="" type="digit" value="{{arg4}}"></input>
+                <text class="unit">cm</text>
+            </view>
+        </view>
+        <view class="input_wrapper">
+            <view class="input_item_wrapper">
+                <view class="text_contaner">
+                    <text class="red_star" style="color:#fff">*</text>
+                    <text>腰围：</text>
+                </view>
+                <input bindinput="infoInput" class="input_view" id="5" placeholder="" type="digit" value="{{arg5}}"></input>
+                <text class="unit">cm</text>
+            </view>
+            <view class="input_item_wrapper">
+                <view class="text_contaner">
+                    <text class="red_star" style="color:#fff">*</text>
+                    <text>臀围：</text>
+                </view>
+                <input bindinput="infoInput" class="input_view" id="6" placeholder="" type="digit" value="{{arg6}}"></input>
+                <text class="unit">cm</text>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="bottom_view">
+        <view bindtap="goBack" class="cancel_btn">
+            <text style="color:#666">取消</text>
+        </view>
+        <view bindtap="upLoad" class="confirm_btn">
+            <text style="color:#fff">确定</text>
+        </view>
+    </view>
+    <include src="/components/toast/toast.wxml"></include>
+</view>

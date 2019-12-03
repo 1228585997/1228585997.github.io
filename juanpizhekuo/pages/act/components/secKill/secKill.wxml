@@ -1,0 +1,53 @@
+<template name="secKill">
+    <view class="seckill" style="background-color:{{panelColor}}">
+        <scroll-view scrollX class="seckill__dates-wrapper" scrollLeft="{{secKill.scrollLeft}}" style="width:{{secKill.windowWidth}}px">
+            <view catchtap="dateItemTap" class="seckill__dates seckill__dates--{{secKill.dateTxtArr.length>=5?5:secKill.dateTxtArr.length}}">
+                <view class="seckill__date {{index==secKill.activeDateIndex?'seckill__date--active':''}}" data-activity="normal_activity" data-activityparam="{{actName+'_'+8001+index+'.0'}}" data-index="{{index}}" style="background-color:{{index==secKill.activeDateIndex?dateBgColorActive:dateBgColor}};border-color: {{index==secKill.activeDateIndex?dateBgColorActive:''}};color:{{index==secKill.activeDateIndex?dateColorActive:dateColor}};" wx:for="{{secKill.dateTxtArr}}" wx:key="index">
+              {{item}}
+            </view>
+            </view>
+        </scroll-view>
+        <view class="seckill__times-wrapper">
+            <view class="seckill__bg-line" style="{{lineColor?'background-color:'+lineColor+';':''}}"></view>
+            <scroll-view scrollX class="seckill__times-scroll" style="width:{{secKill.windowWidth}}px">
+                <view catchtap="timeItemTap">
+                    <view class="seckill__times seckill__times--{{secKill.timeArr[dateIndex].length}}" wx:if="{{dateIndex==secKill.activeDateIndex}}" wx:for="{{secKill.dateArr}}" wx:for-index="dateIndex" wx:for-item="dateItem" wx:key="dateIndex">
+                        <view class="seckill__time {{timeIndex==secKill.activeTimesIndex[dateIndex]?'seckill__time--active':''}}" data-activity="normal_activity" data-activityparam="{{actName+'_'+8001+dateIndex+'.'+timeIndex+1+'.0'}}" data-index="{{timeIndex}}" style="background-color:{{timeIndex==secKill.activeTimesIndex[dateIndex]?timeBgColorActive:timeBgColor}};color: {{timeIndex==secKill.activeTimesIndex[dateIndex]?timeColorActive:timeColor}}" wx:for="{{secKill.timeArr[dateIndex]}}" wx:for-index="timeIndex" wx:for-item="timeItem" wx:key="timeIndex">
+              {{secKill.timeTxtArr[dateIndex][timeIndex]}}{{secKill.timeTxtArr[dateIndex].length==1?'当日专场':''}}
+            </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <scroll-view scrollX class="seckill__prods-wrapper" style="width:{{secKill.windowWidth}}px;">
+            <view class="seckill__prods" wx:if="{{timeItem.combineIndex===secKill.activeDateIndex+'.'+secKill.activeTimesIndex[secKill.activeDateIndex]}}" wx:for="{{secKill.times}}" wx:for-item="timeItem" wx:key="index">
+                <view class="seckill__prod" wx:for="{{timeItem.goodsList}}" wx:for-item="goodsItem" wx:key="index">
+                    <navigator navigate bindtap="statisticsTap" class="seckill__prod-link" data-activity="normal_activity" data-activityparam="{{goodsItem.activityparam}}" hoverClass="none" url="{{goodsItem.url}}">
+                        <view class="seckill__prod-img">
+                            <text class="seckill__prod-jiao"></text>
+                            <image src="https:{{goodsItem.r2}}" wx:if="{{timeItem.combineIndex===secKill.activeDateIndex+'.'+secKill.activeTimesIndex[secKill.activeDateIndex]}}"></image>
+                        </view>
+                        <view class="seckill__prod-title">{{goodsItem.q}}</view>
+                        <view class="seckill__prod-prices">
+                            <text class="seckill__prod-price-tag">秒杀价:</text>
+                            <text class="seckill__prod-cprice">
+                                <text class="priceicon">¥</text>{{goodsItem.u||goodsItem.h}}</text>
+                            <text class="seckill__prod-oprice">¥{{goodsItem.i}}</text>
+                        </view>
+                        <view class="seckill__prod-btn-wrapper">
+                            <view catchtap="secKillCollectTap" class="seckill__prod-btn {{goodsItem.favored?'seckill__prod-btn--disabled':''}}" data-favored="{{goodsItem.favored}}" data-goodscode="{{goodsItem.d2}}" data-goodsid="{{goodsItem.p}}" data-salestype="{{goodsItem.b1}}" wx:if="{{!timeItem.isOver}}">{{goodsItem.favored?'已收藏':'抢先收藏'}}</view>
+                            <view class="seckill__prod-btn seckill__prod-btn--active {{goodsItem.g==='end'?'seckill__prod-btn--disabled':''}}" wx:if="{{timeItem.isOver}}">{{goodsItem.g==='end'?'抢光了':'立即抢购'}}</view>
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="seckill__count-wrapper" style="color:{{countColor}};">
+            <text class="js-seckill__text">{{secKill.timeText}}</text>
+            <text id="seckill__count">
+                <template is="countdownWithText" data="{{ time:clock[id] }}"></template>
+            </text>
+        </view>
+    </view>
+</template>
+<import src="/components/countdown/countdown.wxml"></import>

@@ -1,0 +1,70 @@
+page,.container {
+    height: 100%;
+    background: #fff;
+}
+
+.title {
+    font-size: 12px;
+    color: #333;
+    padding: 28rpx 36rpx;
+}
+
+.logistics-item {
+    padding: 28rpx 36rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #ccc;
+}
+
+.logistics-item .txt {
+    font-size: 14px;
+    color: #333;
+    flex: 1;
+}
+
+.logistics-item .angle {
+    color: #999;
+}
+
+.cut-line {
+    height: 10px;
+    background: #efefef;
+}
+
+.logistics-num-input {
+    border: 1px solid #e7e7e7;
+    margin: 0 36rpx;
+    height: 88rpx;
+}
+
+.btn {
+    height: 48px;
+    line-height: 48px;
+    background: #ff464e;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    width: 90%;
+    margin-top: 20rpx;
+}
+
+.logistics-title {
+    height: 96rpx;
+    line-height: 96rpx;
+    border-bottom: 1px solid #ebebeb;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+
+.logistics-lab {
+    font-size: 12px;
+    color: #333;
+    padding: 28rpx 36rpx 8rpx 36rpx;
+    background: #efefef;
+}
+
+.logistics__container {
+    max-height: 340px;
+}

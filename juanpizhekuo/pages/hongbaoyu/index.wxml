@@ -1,0 +1,2 @@
+<web-view bindmessage="onPostMessage" src="{{webviewUrl}}" wx:if="{{showWebview}}"></web-view>
+<include src="/components/login-modal/index.wxml"></include>

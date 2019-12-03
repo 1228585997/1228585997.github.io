@@ -1,0 +1,24 @@
+<view bindtap="openMask" class="promise" data-activity="click_temai_service_popup" data-activityparam="{{item_id?item_id:goods_id?goods_id:''}}" data-target="showPromise" wx:if="{{jpPromise&&jpPromise.length}}">
+    <view class="promise__item" wx:if="{{index<=2}}" wx:for="{{jpPromise}}" wx:key="index">{{item.content}}</view>
+    <view class="ellipsis">
+        <view></view>
+        <view></view>
+        <view></view>
+    </view>
+</view>
+<view bindtap="closeMask" class="mask" data-target="showPromise" wx:if="{{showPromise}}"></view>
+<view animation="{{maskAnimation}}" class="mask-pane" wx:if="{{showPromise}}">
+    <view bindtap="closeMask" class="mask-pane__close" data-target="showPromise">
+        <image src="/images/del.png"></image>
+    </view>
+    <view class="promise-mask">
+        <view class="promise-mask__title">服务说明</view>
+        <scroll-view scrollY class="promise-mask__list">
+            <view class="promise-mask__item {{jpPromise.length-index==1?'promise-mask__item__last':''}}" wx:for="{{jpPromise}}" wx:key="index">
+                <view class="promise-mask__item__title">{{item.content}}</view>
+                <view class="promise-mask__item__desc">{{item.description}}</view>
+            </view>
+        </scroll-view>
+        <view bindtap="closeMask" class="promise-mask__btn" data-target="showPromise">知道了</view>
+    </view>
+</view>

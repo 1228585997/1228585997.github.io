@@ -1,0 +1,65 @@
+<template name="newgoods">
+    <view class="invite-goods" wx:if="{{goods.length>0}}">
+        <view class="goods-list" wx:if="{{index==0}}" wx:for="{{goods}}" wx:key="index">
+            <navigator bindtap="statisticsTap" data-activity="{{item.activityname}}" data-activityparam="{{item.server_jsonstr}}" data-zhuge-activity="{{item.zg_event}}" data-zhuge-activityparam="{{item.zg_json}}" hoverClass="none" url="/pages/shop/shop?id={{item.goods_id}}">
+                <view class="pic">
+                    <image class="goods-pic" src="{{item.gpic}}"></image>
+                </view>
+                <view class="texts">
+                    <view class="goods-title">{{item.title_long?item.title_long:item.title}}</view>
+                    <view class="vip-sign">
+                        <text class="new-zx">新用户专享</text>
+                    </view>
+                    <view class="goods-bottom">
+                        <view class="goods-price">
+                            <text class="coupons-price">券后价</text>
+                            <text class="old-price"> ¥{{price.sub(item.cprice,5)}}</text>
+                        </view>
+                        <view class="goods-buy-hanle">
+                            <view class="hanle-info">
+                                <button class="hanle-btn">立即购买</button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</template>
+<template name="vipgoods">
+    <view class="invite-part">
+        <view class="invite-goods" wx:if="{{goods.length>0}}">
+            <view class="goods-list" wx:for="{{goods}}" wx:key="index">
+                <view class="pic">
+                    <image class="goods-pic" src="{{item.gpic}}"></image>
+                </view>
+                <view class="texts">
+                    <view class="goods-title">{{item.title_long?item.title_long:item.title}}</view>
+                    <view class="vip-sign">
+                        <text class="vip-zx">VIP专享</text>
+                    </view>
+                    <view class="goods-bottom">
+                        <view class="goods-price">
+                            <text class="new-price">¥{{item.cprice}}</text>
+                            <text class="back-mark" wx:if="{{item.fan_price}}">/</text>
+                            <text class="old-price" wx:if="{{item.fan_price}}">返 ¥{{item.fan_price}}</text>
+                        </view>
+                        <view class="goods-buy-hanle">
+                            <view class="hanle-info">
+                                <button catchtap="checkCanBuyVipGoods" class="hanle-btn" data-goodsid="{{item.goods_id}}">立即购买</button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<wxs module="price">
+var sub = (function(arg1, arg2) {
+    return (parseFloat(arg1 * 1 - arg2 * 1).toFixed(1))
+});
+module.exports = ({
+    sub: sub,
+});
+</wxs>

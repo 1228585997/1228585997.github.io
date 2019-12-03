@@ -1,0 +1,67 @@
+.priceList {
+    display: flex;
+    align-items: center;
+    float: left;
+    margin-right: 8rpx;
+}
+
+.priceList .style1 {
+    font-size: 14px;
+    color: #ff464e;
+    display: inline-block;
+    margin-right: 8px;
+    line-height: 32rpx;
+}
+
+.priceList .style2 {
+    font-size: 14px;
+    color: #4a4a4a;
+    text-decoration: line-through;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.priceList .style3 {
+    font-size: 14px;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.priceList .style3_extra {
+    height: 19px;
+    transform: translateX(-25%);
+    position: relative;
+}
+
+.priceList .style3_extra .bubble_image {
+    width: 74px;
+}
+
+.priceList .style3_extra .bubble_txt {
+    z-index: 2;
+    position: absolute;
+    top: 5;
+    left: 0;
+    width: 74px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 14px;
+    color: white;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.priceList .style4 {
+    font-size: 14px;
+    color: #ffe8ab;
+    background-color: #2f3345;
+    padding: 1px 4px;
+    display: inline-block;
+    margin-right: 8px;
+    border-radius: 2px;
+}
+
+.priceList .style5 {
+    width: 36px;
+    display: inline-block;
+}

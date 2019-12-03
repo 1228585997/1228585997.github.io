@@ -1,0 +1,5 @@
+<template name="rate">
+    <view bindtap="changeStar" class="rateStar" data-index="{{index}}" data-key="{{rateKey}}" wx:for="{{startNum}}">
+        <image src="/images/{{index<rateNum||index==rateNum?'Star_red':'Star_gray'}}.png"></image>
+    </view>
+</template>

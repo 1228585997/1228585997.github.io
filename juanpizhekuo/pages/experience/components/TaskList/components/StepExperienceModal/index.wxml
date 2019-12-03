@@ -1,0 +1,6 @@
+<view class="expr-modal__root">
+    <view class="expr-modal__box" style="background-image: url({{bgImage}});">
+        <view class="expr-modal__title">{{success?steps+'步数已经存入步数余额':'体验20秒以上才能获得奖励哦'}}</view>
+        <view bindtap="onTapConfirmBtn" class="expr-modal__confirm-btn">确定</view>
+    </view>
+</view>

@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "砍价免费领",
+    "usingComponents": {
+        "goods-item": "../components/GoodsItem/index",
+        "marquee": "../components/Marquee/index"
+    }
+}

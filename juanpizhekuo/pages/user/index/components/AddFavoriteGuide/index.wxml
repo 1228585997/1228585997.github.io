@@ -1,0 +1,1 @@
+<view bindtap="onTap" class="board-top-right__root" style="background-image:url({{bgImageUrl}});" wx:if="{{shown}}"></view>

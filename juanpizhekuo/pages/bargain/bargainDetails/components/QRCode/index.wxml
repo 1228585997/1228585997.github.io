@@ -1,0 +1,9 @@
+<view bindtap="onTap" class="root">
+    <view class="top-images">
+        <image class="left-axe" src="{{DETAILS_IMAGES.left}}"></image>
+        <image class="right-axe" src="{{DETAILS_IMAGES.right}}"></image>
+        <image class="weixin-code" src="{{codeUrl}}"></image>
+    </view>
+    <view class="weixin-title">长按识别图中二维码</view>
+    <view class="weixin-title">关注公众号，砍价免费领商品</view>
+</view>

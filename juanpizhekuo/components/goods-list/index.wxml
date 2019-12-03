@@ -1,0 +1,33 @@
+<template name="goods">
+    <view class="goods-list goods-container">
+        <navigator bindtap="statisticsTap" class="goods-square-item" data-activity="{{item.activityname}}" data-activityparam="{{item.server_jsonstr}}" data-zhuge-activity="{{item.zg_event}}" data-zhuge-activityparam="{{item.zg_json}}" hoverClass="none" url="/pages/shop/shop?id={{item.goods_id}}" wx:for="{{list}}" wx:key="{{index}}">
+            <view class="goods-img">
+                <image lazyLoad="" src="{{item.pic_url}}"></image>
+                <image class="jiao" src="{{item.corner}}" wx:if="{{item.corner}}"></image>
+            </view>
+            <view class="goods-text">
+                <view class="goods_detail">
+                    <view class="goods-title">{{item.title}}</view>
+                    <view class="goods-text__price">
+                        <text>{{item.cprice}}</text>
+                        <text class="goods-text__del">{{item.oprice}}</text>
+                    </view>
+                    <view class="goods-text-extra">
+                        <text class="good-comment-rate">{{item.bottomTexts?item.bottomTexts.leftText:''}}</text>
+                        <text class="sale-amount">{{item.bottomTexts?item.bottomTexts.rightText:''}}</text>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</template>
+<wxs module="price">
+var format = (function(price) {
+    if (!price) return (price);;
+    price = price * 1;
+    return (price.toFixed(2))
+});
+module.exports = ({
+    format: format,
+});
+</wxs>

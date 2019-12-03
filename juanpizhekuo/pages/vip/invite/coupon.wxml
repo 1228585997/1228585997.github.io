@@ -1,0 +1,24 @@
+<import src="/components/vip-invite-goods/index.wxml"></import>
+<view class="invite-content new-user-content">
+    <form bindreset="formReset" bindsubmit="formSubmit">
+        <view class="coupon-bg" style="background: url(https://jp.juancdn.com/wxMapp/vip/new-user01.png) no-repeat; background-size: 100%;">
+            <view class="code-txt">填写好友邀请码，领取优惠券</view>
+            <view class="coupon-info" style="background: url(https://jp.juancdn.com/wxMapp/vip/new-user02.png) no-repeat; background-size: 100%;"></view>
+            <view class="input-info">
+                <input class="code-input" name="code" placeholder="请输入邀请码" placeholderClass="code-placeholder" type="text"></input>
+            </view>
+            <button class="now-get-btn" formType="submit" style="background: url(https://jp.juancdn.com/wxMapp/vip/new-user03.png) no-repeat; background-size: 100%;"></button>
+            <navigator url="/pages/vip/invite/index">
+                <view class="code-tips">没有邀请码，跳过此步骤</view>
+            </navigator>
+        </view>
+    </form>
+    <view class="new-user-part">
+        <template is="newgoods" data="{{goods:NEWgoods}}"></template>
+    </view>
+    <view class="new-user-rule">
+        <view class="rule-title">- 领取规则 -</view>
+        <view class="rule-txt">1、领取好友送的优惠券后，您将成为他在卷皮的粉丝</view>
+        <view class="rule-txt">2、如有任何问题，请联系卷皮客服</view>
+    </view>
+</view>

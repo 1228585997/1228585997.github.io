@@ -1,0 +1,30 @@
+.quick-menu-cover {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 10;
+    background: rgba(0,0,0,0.6);
+}
+
+.quick-menu-box {
+    position: absolute;
+    right: 16px;
+    bottom: 96px;
+    z-index: 11;
+}
+
+.quick-menu-box .menu-item {
+    font-size: 32rpx;
+    color: #fff;
+    margin-bottom: 14px;
+    text-align: right;
+}
+
+.quick-menu-box .menu-item image {
+    width: 40px;
+    height: 40px;
+    margin: 0 0 0 12px;
+    vertical-align: middle;
+}

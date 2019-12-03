@@ -1,0 +1,32 @@
+<view class="container" hidden="{{!ready}}">
+    <view class="type-box">
+        <view class="type-title">{{title}}</view>
+        <view bindtap="typeTap" class="type-item" data-extraparam="{{item.extraParam}}" wx:for="{{refundType}}" wx:key="index">
+            <view class="icon">
+                <image src="{{item.icon}}"></image>
+            </view>
+            <view class="info">
+                <view class="info1">{{item.title}}</view>
+                <view class="info2">{{item.msg}}</view>
+            </view>
+            <text class="angle"></text>
+        </view>
+    </view>
+    <view bindtap="serviceTap" class="concat">
+        <image src="https://jp.juancdn.com/jpwebapp_v1/images_wx_v1/saleafter/saleafter-icon.png"></image>如有疑问请联系客服
+	</view>
+    <view bindtap="closeReason" class="mask" wx:if="{{showReason}}"></view>
+    <view animation="{{maskAnimation}}" class="mask-pane" wx:if="{{showReason}}">
+        <view bindtap="closeReason" class="mask-pane__close">
+            <image src="/images/del.png"></image>
+        </view>
+        <view class="reason-title">请选择售后原因</view>
+        <scroll-view class="reason__container" scrollY="true">
+            <view bindtap="reasonTap" class="reason-item" data-extraparam="{{item.extraParam}}" wx:for="{{reasons}}" wx:key="index">
+                <view class="txt">{{item.desc}}</view>
+                <text class="angle"></text>
+            </view>
+        </scroll-view>
+    </view>
+    <include src="/components/toast/toast.wxml"></include>
+</view>

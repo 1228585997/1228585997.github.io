@@ -1,0 +1,147 @@
+.cells {
+    width: 100%;
+    height: 96rpx;
+    line-height: 96rpx;
+    box-sizing: border-box;
+    padding-left: 28rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+.cells .title_list {
+    width: 140rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    font-size: 24rpx;
+    color: #BBBBBB;
+    float: left;
+    position: relative;
+}
+
+.cells input,.cells .picker_content {
+    float: left;
+    width: 502rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    font-size: 28rpx;
+    color: #4A4A4A;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.cells .picker_content .pickers {
+    width: 30%;
+    height: 96rpx;
+    line-height: 96rpx;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+    font-size: 24rpx;
+    color: #4A4A4A;
+    position: relative;
+}
+
+.cells .picker_content .pickers picker {
+    width: 100%;
+    font-size: 24rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.cells .location {
+    position: relative;
+    float: right;
+    width: 80rpx;
+    height: 96rpx;
+}
+
+.addressPic {
+    width: 48rpx;
+    height: 56rpx;
+    overflow: hidden;
+    margin: 4rpx auto;
+}
+
+.location_text {
+    width: 100%;
+    height: 28rpx;
+    line-height: 28rpx;
+    color: #9B9B9B;
+    font-size: 20rpx;
+    text-align: center;
+    margin-top: 2rpx;
+}
+
+.addressPic image {
+    width: 48rpx;
+    height: 52rpx;
+}
+
+.location_line {
+    position: absolute;
+    left: -2rpx;
+    top: 4rpx;
+    height: 84rpx;
+    width: 2rpx;
+    background-color: #E7E7E7;
+}
+
+.cells_special {
+    width: 100%;
+    min-height: 96rpx;
+    height: auto;
+    box-sizing: border-box;
+    padding-left: 28rpx;
+    overflow: hidden;
+}
+
+.cells_special .title_list {
+    width: 140rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    font-size: 24rpx;
+    color: #BBBBBB;
+    float: left;
+}
+
+.cells_special input {
+    float: left;
+    width: 580rpx;
+    min-height: 96rpx;
+    height: auto;
+    line-height: 96rpx;
+    font-size: 28rpx;
+    color: #4A4A4A;
+    box-sizing: border-box;
+}
+
+.separator {
+    width: 100%;
+    height: 96rpx;
+    line-height: 96rpx;
+    font-size: 28rpx;
+    color: #4A4A4A;
+    padding: 0 34rpx 0 28rpx;
+}
+
+.btn-wrap button {
+    height: 84rpx;
+    line-height: 84rpx;
+    background: #FF464E;
+    border-radius: 4rpx;
+}
+
+.delete button {
+    background: #DBDBDB;
+    border-radius: 4rpx;
+    color: white;
+    border: none;
+}
+
+#hidden {
+    display: none;
+}

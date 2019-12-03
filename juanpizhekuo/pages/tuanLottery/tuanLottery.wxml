@@ -1,0 +1,14 @@
+<import src="../../components/tuangoods/tuangoods.wxml"></import>
+<import src="../../pages/pinhaohuo/goods/index.wxml"></import>
+<scroll-view enableBackToTop bindscroll="dealScroll" bindscrolltolower="scrollGetGoods" class="container" scrollTop="{{scrollTop}}" scrollY="true">
+    <view class="banner">
+        <image src="https://jp.juancdn.com/wxMapp/tuanLottery/yifenqian.jpg"></image>
+    </view>
+    <template is="tuanGoodsTpl" data="{{list:list,timeArr:timeArr,time:lotteryTimes}}"></template>
+    <block wx:if="{{recGoods.length}}">
+        <view class="jiu-title">一 爆款推荐 一</view>
+        <template is="phhGoods" data="{{list:recGoods,ifRecGoods:true}}"></template>
+    </block>
+    <include src="../../components/loadmore/loadmore.wxml"></include>
+</scroll-view>
+<include src="../../components/backtop/backtop.wxml"></include>

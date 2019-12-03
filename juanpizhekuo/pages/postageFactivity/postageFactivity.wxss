@@ -1,0 +1,74 @@
+@import "../../components/factivity-goods/factivity-goods.wxss";
+
+@import "../../components/sku/sku.wxss";
+
+@import "../../components/loadmore1/loadmore.wxss";
+
+.filter-box {
+    background: #fff;
+    padding: 8px 14px;
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+}
+
+.filter-box .filter-item {
+    box-sizing: border-box;
+    height: 28px;
+    line-height: 28px;
+    width: 80px;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+    background: #f4f4f8;
+    margin-right: 10px;
+    border-radius: 3px;
+    border: 1px solid #f4f4f8;
+}
+
+.filter-box .filter-item.active {
+    border: 1px solid #ff464e;
+    color: #ff464e;
+    background: #fff;
+}
+
+.goods-box {
+    padding-top: 44px;
+    padding-bottom: 48px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.bottom-box {
+    height: 48px;
+    background: #fff;
+    border-top: 1px solid #ebebeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.bottom-box .factivy-info {
+    flex: 1;
+    font-size: 14px;
+    color: #666;
+    padding-left: 14px;
+}
+
+.bottom-box .btn {
+    width: 118px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    background: #ff464e;
+}

@@ -1,0 +1,94 @@
+page,.container {
+    height: 100%;
+}
+
+.info {
+    padding: 36rpx;
+    background: #fff;
+}
+
+.info .info1 {
+    padding: 10rpx 0;
+}
+
+.follow {
+    border-top: 1px solid rgba(5,5,5,.1);
+    background-color: #fff;
+    padding: 0 36rpx;
+    margin-bottom: 20rpx;
+}
+
+.follow__title {
+    padding: 28rpx 0;
+}
+
+.follow__nodes {
+    padding-bottom: 28rpx;
+}
+
+.follow__node {
+    padding-left: 56rpx;
+    padding-top: 48rpx;
+    position: relative;
+}
+
+.follow__node--active {
+    color: #ff464e;
+    padding-top: 0;
+    margin-top: 16rpx;
+}
+
+.follow__node__date {
+    color: #9b9b9b;
+    font-size: 12px;
+    margin-top: 16rpx;
+}
+
+.follow__line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    left: 6px;
+    top: 0;
+    background-color: #bbb;
+}
+
+.follow__node--active .follow__circle {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    left: 0;
+    top: 0;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ff464e;
+    border-radius: 7px;
+}
+
+.follow__circle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    left: 4px;
+    top: 28px;
+    background-color: #bbb;
+    border-radius: 2.5px;
+}
+
+.follow__node--active .follow__circle view {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 2px;
+    left: 2px;
+    background-color: #ff464e;
+    border-radius: 4px;
+}
+
+.text--gray {
+    color: #c7c7c7;
+}
+
+.nofollow {
+    padding: 18rpx 0;
+}

@@ -1,0 +1,27 @@
+<template name="quick-sort-cates">
+    <view catchtap="quickSortCatesTap" class="quick-sort__cates-wrapper" data-type="close" hidden="{{!quickSortCatesWrapperOpen}}">
+        <scroll-view scrollY class="quick-sort__cates">
+            <view catchtap="quickSortCateTap" class="quick-sort__cate {{index==activeCateIndex&&'quick-sort__cate--active'}}" data-activity="click_category_sort_cate" data-activityparam="{{item.id}}" data-ctid="{{item.id}}" data-index="{{index}}" data-type="quick" wx:for="{{cates}}" wx:key="id">{{item.name}}</view>
+        </scroll-view>
+        <scroll-view scrollY class="quick-sort__subcates">
+            <view catchtap="filterItemTap" class="quick-sort__subcate {{subcate.issel&&'quick-sort__subcate--active'}}" data-activity="click_category_sort_cate" data-ctid="{{subcate.id}}" data-type="quick" wx:for="{{cates[activeCateIndex].sub_cat}}" wx:for-item="subcate" wx:key="id">{{subcate.name}}</view>
+        </scroll-view>
+    </view>
+</template>
+<template name="quick-sort">
+    <view class="quick-sort fixed" hidden="{{hidden}}" style="{{hideSearchBar?'top: 0;':'top: 80px;'}}">
+        <view class="quick-sort__items">
+            <block wx:for="{{quickSortFilter}}" wx:key="id">
+                <view catchtap="filterItemTap2" class="quick-sort-dacu" data-activity="{{item.bi_activityname}}" data-activityparam="{{item.bi_params}}" data-filterid="{{item.filter_id}}" data-type="quick" wx:if="{{item.pic_url}}">
+                    <image src="{{item.clicked==='1'?item.act_pic_url:item.pic_url}}"></image>
+                </view>
+                <view catchtap="quickSortCatesTap" class="quick-sort__item quick-sort__item--active" data-activity="{{item.bi_activityname}}" data-activityparam="{{item.bi_params}}" data-filterid="{{item.filter_id}}" wx:elif="{{item.type==2}}">
+          {{activeCateText}}
+          <image class="quick-sort__item__arrow" src="{{quickSortCatesWrapperOpen?'/images/arrow_up_pink.png':'/images/arrow_down_pink.png'}}"></image>
+                </view>
+                <view catchtap="filterItemTap2" class="quick-sort__item {{item.clicked==='1'&&'quick-sort__item--active'}}" data-activity="{{item.bi_activityname}}" data-activityparam="{{item.bi_params}}" data-filterid="{{item.filter_id}}" data-type="quick" wx:elif="{{index<4}}">{{item.text}}</view>
+            </block>
+        </view>
+        <template is="quick-sort-cates" data="{{quickSortCatesWrapperOpen:quickSortCatesWrapperOpen,cates:cates,activeCateIndex:activeCateIndex}}"></template>
+    </view>
+</template>

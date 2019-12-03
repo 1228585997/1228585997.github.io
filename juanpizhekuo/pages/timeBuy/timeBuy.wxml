@@ -1,0 +1,94 @@
+<import src="/components/countdown/countdown.wxml"></import>
+<import src="../../components/blockAds/index.wxml"></import>
+<view class="container" hidden="{{!ready}}">
+    <view class="swiper-place">
+        <view class="swiper-container">
+            <view class="swiper-box">
+                <view animation="{{animationData}}" class="swiper" style="width:{{swiperWidth}}px;">
+                    <view class="we-empty-slide" style="width:{{swiperItemWidth*2}}px">
+          精选好货,底价狂欢
+          </view>
+                    <view bindtap="timeTabTap" class="we-slide {{curIndex==index?'active':''}}" data-activity="click_tab_item" data-activityparam="{{tab_id}}" data-index="{{index}}" style="width:{{swiperItemWidth}}px" wx:for="{{time_tabs}}" wx:key="tab_id">
+                        <text class="time">{{item.tab_title}}</text>
+                        <text class="txt">{{item.tab_txt}}</text>
+                    </view>
+                    <view class="we-empty-slide" style="width:{{swiperItemWidth*2}}px">
+          持续上新,不要走开
+          </view>
+                </view>
+            </view>
+            <view class="cur-item">
+                <view class="down"></view>
+            </view>
+        </view>
+    </view>
+    <scroll-view scrollY bindscroll="dealScroll" bindscrolltolower="getMoreGoods" scrollTop="{{scrollTop}}">
+        <view class="tab-box" wx:if="{{curIndex==index}}" wx:for="{{time_tabs}}" wx:for-item="tabitem" wx:key="tab_id">
+            <view class="cate-tab" wx:if="{{tabitem.sub_tabs}}">
+                <view bindtap="cateItemTap" class="cate-tab-btn {{cateitem.selected=='1'?'cate-tab-btn__active':''}}" data-index="{{index}}" wx:for="{{tabitem.sub_tabs}}" wx:for-item="cateitem" wx:key="index">{{cateitem.cate_name}}</view>
+            </view>
+            <view class="cate-box">
+                <template is="blockAdsTpl" data="{{blocks:blockadsArr[curIndex],blockTimes:blockTimes,countDownText:countDownText}}" wx:if="{{cate_item=='all'||cate_item==''}}"></template>
+                <view style="height:10px;background:#f4f4f8;"></view>
+                <view class="tab-time" wx:if="{{tabitem.tab_txt=='抢购中'}}">
+                    <block wx:if="{{tabitem.tab_txt=='抢购中'}}">离本场结束仅剩：</block>
+                    <template is="countdownPrimaryWhitoutLimit" data="{{ time:clock[tabitem.tab_id] }}"></template>
+                </view>
+                <navigator bindtap="statisticsTap" data-activity="{{item.activityname}}" data-activityparam="{{item.server_jsonstr}}" data-zhuge-activity="{{item.zg_event}}" data-zhuge-activityparam="{{item.zg_json}}" hoverClass="none" url="{{item.goods_jump_url}}" wx:for="{{tabitem.goodslist}}" wx:key="goods_id">
+                    <image class="goods-ad" mode="widthFix" src="{{item.pic_url}}" wx:if="{{item.block_type==3}}"></image>
+                    <view class="goods-item" wx:else>
+                        <view class="img">
+                            <image lazyLoad src="{{item.pic_url}}"></image>
+                            <image class="jiao" src="{{item.corner}}" wx:if="{{item.corner}}"></image>
+                        </view>
+                        <view class="goods-info">
+                            <view class="title">{{item.title_long}}</view>
+                            <view class="info-bottom">
+                                <view class="info-box">
+                                    <view class="limit-count" wx:if="{{tabitem.tab_txt=='即将开抢'}}">
+                        {{item.rate_pre_txt}}
+                      </view>
+                                    <view class="price">
+                      限量价:<text class="icon">¥</text>
+                                        <text class="cprice">{{item.cprice}}</text>
+                                        <text class="oprice">¥{{item.oprice}}</text>
+                                    </view>
+                                    <block wx:if="{{tabitem.tab_txt!='即将开抢'}}">
+                                        <view class="progress{{ifSupportQuery?' needAni':''}}" id="{{item.goods_id}}" wx:if="{{item.progress_info.style=='1'}}">
+                                            <view animation="{{inViemportArr[item.goods_id]?animation:backAnimation}}" class="cover-bar" style="width:{{item.progress_info.percent*100}}%;"></view>
+                                            <view class="txt">
+                                                <image class="fire-icon" src="{{item.progress_info.img}}" wx:if="{{item.progress_info.img}}"></image>{{item.progress_info.txt}}</view>
+                                        </view>
+                                        <view class="progress-over" wx:if="{{item.progress_info.style=='2'}}">
+                        {{item.progress_info.txt}}
+                      </view>
+                                    </block>
+                                </view>
+                                <view class="btn-box">
+                                    <view class="people-count" style="color:#ff464e;" wx:if="{{item.status!=3&&tabitem.tab_txt!='即将开抢'&&item.rate<10}}">{{item.person_stock_text}}</view>
+                                    <block wx:if="{{tabitem.tab_txt=='即将开抢'}}">
+                                        <view class="people_enter">{{item.person_stock_text}}</view>
+                                        <view catchtap="enshrineBtn" class="btn collect hasEnshrined" data-goodsCodes="{{item.goods_code}}" data-goodsId="{{item.goods_id}}" data-index="{{index}}" wx:if="{{item.hasEnshrined}}">已收藏</view>
+                                        <view catchtap="enshrineBtn" class="btn collect" data-goodsCodes="{{item.goods_code}}" data-goodsId="{{item.goods_id}}" data-index="{{index}}" wx:else>抢先收藏</view>
+                                    </block>
+                                    <view class="btn {{item.status==3?'over':''}}" wx:if="{{tabitem.tab_txt!='即将开抢'}}">{{item.status==3?'逛逛店铺':'马上抢'}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+                <view class="load-more">
+                    <view hidden="{{tabitem.has_more_page==1}}">
+                        <image class="loading_icon" src="/images/loading.png"></image>正在努力加载中
+          </view>
+                    <view hidden="{{tabitem.has_more_page==0}}">
+              亲，没有更多的数据了
+          </view>
+                </view>
+            </view>
+        </view>
+        <include src="/components/bottom-menu/index.wxml"></include>
+    </scroll-view>
+</view>
+<include src="/components/backtop/backtop.wxml"></include>
+<include src="/components/toast/toast.wxml"></include>

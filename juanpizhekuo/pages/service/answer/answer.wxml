@@ -1,0 +1,25 @@
+<view class="container">
+    <view class="content_box" wx:if="{{ContentShow}}">
+        <view class="detail_title">{{title}}</view>
+        <rich-text class="detail_info" nodes="{{nodes}}"></rich-text>
+    </view>
+    <view class="upgrade_tip" wx:if="{{!ContentShow}}">
+        <icon class="icon_info" size="19" type="info"></icon>
+        <text>当前版本过低，请升级微信</text>
+    </view>
+    <view class="connect" wx:if="{{customer_list&&customer_list.length}}">
+        <view class="none_question">
+            <text>没有找到您的问题？</text>
+        </view>
+        <view bindtap="serviceTap" class="customer_tel" data-activity="click_service_phone_problem" data-activityparam="{{customer_item.type}}" data-num="{{customer_item.explain}}" data-option="{{customer_item.type}}" wx:for="{{customer_list}}" wx:for-item="customer_item" wx:key="customer">
+            <view class="customer_block">
+                <image class="icon_customer" src="{{customer_item.logo}}"></image>
+                <text class="to_connect">{{customer_item.title}}</text>
+            </view>
+            <view class="customer_block">
+                <text>{{customer_item.explain}}</text>
+                <view class="icon_right angle"></view>
+            </view>
+        </view>
+    </view>
+</view>

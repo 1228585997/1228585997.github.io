@@ -1,0 +1,5 @@
+<template name="tag">
+    <view class="tag" style="border-color: {{bdColor}}; background-color: {{bgColor}}">
+        <text style="color: {{ftColor}}">{{text}}</text>
+    </view>
+</template>

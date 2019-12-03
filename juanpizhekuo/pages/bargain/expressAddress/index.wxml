@@ -1,0 +1,8 @@
+<view class="main">
+    <view class="text-box" wx:for="{{labels}}" wx:key="*this">
+        <text class="text-box_left">{{item}}</text>
+        <input bindinput="onInput" class="text-box_right" data-index="{{index}}" type="{{index===1?'number':'text'}}"></input>
+    </view>
+    <view class="red-prompt">*请确保填写的地址准确无误，提交后将无法修改</view>
+    <view bindtap="submit" class="confirm-button">提交</view>
+</view>

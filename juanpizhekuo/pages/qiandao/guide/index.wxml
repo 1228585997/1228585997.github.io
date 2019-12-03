@@ -1,0 +1,10 @@
+<view class="container">
+    <view class="article">
+        <text class="item">
+            <text class="snum">1</text>打开微信进入“卷皮”微信公众号，发送“提现”</text>
+        <image src="https://jp.juancdn.com/jpwebapp_v1/images_wx_v1/luckmoney/money_rule01.png"></image>
+        <text class="item">
+            <text class="snum">2</text>您会立刻收到对应红包，可以立即提现哦~</text>
+        <image src="https://jp.juancdn.com/jpwebapp_v1/images_wx_v1/luckmoney/money_rule02.png"></image>
+    </view>
+</view>

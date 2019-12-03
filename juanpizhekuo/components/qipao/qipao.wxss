@@ -1,0 +1,18 @@
+.qipao2 {
+    width: auto;
+    height: 48rpx;
+    line-height: 48rpx;
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    color: #fff;
+    font-size: 24rpx;
+    z-index: 999999;
+    border-radius: 0 24rpx 24rpx 0;
+    padding: 0 20rpx;
+    left: 0;
+    top: 61rpx;
+}
+
+.hidden {
+    display: none;
+}

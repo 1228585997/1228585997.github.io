@@ -1,0 +1,5 @@
+<view class="container">
+    <image class="act-over-img" mode="widthFix" src="https://s.juancdn.com/jpwebapp/images/act_common/banner.jpg?ts=2017009282100"></image>
+    <navigator class="act-over-btn" hoverClass="none" openType="switchTab" url="/pages/index/index">去逛更多优惠</navigator>
+    <image class="act-over-why" mode="widthFix" src="https://s.juancdn.com/jpwebapp/images/act_common/why.jpg?ts=2017009282100"></image>
+</view>

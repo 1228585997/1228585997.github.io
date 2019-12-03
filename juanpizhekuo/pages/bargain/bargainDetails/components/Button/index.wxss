@@ -1,0 +1,21 @@
+.button {
+    width: 100%;
+    text-align: center;
+}
+
+.button__image {
+    width: 100%;
+    height: 144rpx;
+}
+
+.button__image_share {
+    width: 100%;
+    height: 144rpx;
+    background: #ff464e url(https://jp.juancdn.com/jpwebapp_v4/dist/stylesheets/bargain/details/images/button1.png);
+    background-size: cover;
+    border: none;
+}
+
+.button__image_share::after {
+    border: none;
+}

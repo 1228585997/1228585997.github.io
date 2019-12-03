@@ -1,0 +1,147 @@
+page {
+    background-color: #DD2F2F;
+    line-height: 1.2;
+}
+
+.creater {
+    position: relative;
+    width: 100%;
+    margin-bottom: 32rpx;
+    font-size: 32rpx;
+    color: #ffd98f;
+    text-align: center;
+}
+
+.creater__bg {
+    width: 100%;
+    height: 298rpx;
+    background-image: url(https://jp.juancdn.com/xcx_images/redbag/head_bg.png?2);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.creater__info {
+    position: absolute;
+    left: 0;
+    top: 48rpx;
+    width: 100%;
+}
+
+.creater__avatar {
+    width: 120rpx;
+    height: 120rpx;
+    margin-bottom: 24rpx;
+}
+
+.creater__btn {
+    position: absolute;
+    left: 50%;
+    bottom: -80rpx;
+    z-index: 3;
+    width: 160rpx;
+    height: 160rpx;
+    margin-left: -80rpx;
+    background-image: url(https://jp.juancdn.com/xcx_images/redbag/open_btn.png?2);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.cur-user {
+    font-size: 32rpx;
+    color: #ffd98f;
+    text-align: center;
+}
+
+.cur-user__money {
+    margin-bottom: 8rpx;
+    font-size: 24rpx;
+}
+
+.cur-user__money text {
+    color: #fff;
+    font-size: 80rpx;
+}
+
+.cur-user__msg {
+    margin-bottom: 16rpx;
+    font-size: 40rpx;
+    color: #fff9e5;
+}
+
+.status-2 .go-btns {
+    margin-top: 48rpx;
+}
+
+.group {
+    padding: 72rpx 32rpx;
+}
+
+.group-users {
+    padding-left: 32rpx;
+    padding-right: 32rpx;
+    background-color: #fff;
+    border-radius: 8rpx;
+    color: #333;
+    font-size: 28rpx;
+}
+
+.group-users__title {
+    padding-top: 32rpx;
+    padding-bottom: 14rpx;
+    text-align: center;
+}
+
+.group-users__item {
+    display: flex;
+    align-items: center;
+    padding-top: 24rpx;
+    padding-bottom: 24rpx;
+    border-top: 1px dashed #e6e6e6;
+}
+
+.group-users__avatar {
+    width: 88rpx;
+    height: 88rpx;
+    margin-right: 20rpx;
+}
+
+.group-users__info {
+    flex: 1;
+}
+
+.group-users__info text {
+    float: right;
+    font-size: 32rpx;
+    font-weight: 600;
+}
+
+.group-users__time {
+    font-size: 24rpx;
+    color: #999;
+    margin-top: 12rpx;
+}
+
+.back-top {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    z-index: 3;
+    width: 46px;
+    height: 50px;
+    transition: all 0.5s ease;
+}
+
+.back-top image {
+    width: 100%;
+    height: 100%;
+}
+
+.backtop-true {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.backtop-false {
+    opacity: 1;
+    transform: translateY(0);
+}

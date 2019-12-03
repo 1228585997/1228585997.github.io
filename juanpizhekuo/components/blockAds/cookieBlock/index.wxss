@@ -1,0 +1,65 @@
+.block9,.block10,.block14,.block15 {
+    background: #fff;
+}
+
+.block9 .block__n--row,.block14 .block__n--row {
+    height: 190rpx;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.block9 image,.block14 image {
+    width: 96rpx;
+    height: 96rpx;
+    margin-top: 24rpx;
+}
+
+.block9 text,.block14 text {
+    position: absolute;
+    bottom: 24rpx;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #333333;
+    letter-spacing: 0;
+}
+
+.blick3 {
+    position: relative;
+}
+
+.block10 .block__n--row image,.block15 .block__n--row image {
+    display: block;
+}
+
+.block3 .block__n--row image,.block5 .block__n--row image,.block6 .block__n--row image {
+    display: block;
+}
+
+.border-none {
+    border-left: 0px!important;
+}
+
+.blick_3_countdown {
+    position: absolute;
+    left: 48rpx;
+    bottom: 58rpx;
+    color: #fff;
+    font-size: 24rpx;
+}
+
+.blick_3_countdown .time__hours__text,.blick_3_countdown .time__minutes__text {
+    margin: 0 4rpx;
+    color: #4A4A4A;
+}
+
+.blick_3_countdown .times .time__hours,.blick_3_countdown .time__minutes,.blick_3_countdown .time__seconds {
+    background-color: #333;
+    display: inline-block;
+    width: 32rpx;
+    height: 32rpx;
+    text-align: center;
+    line-height: 32rpx;
+}

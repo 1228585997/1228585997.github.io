@@ -1,0 +1,111 @@
+.princess-outer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.princess-box {
+    width: 646rpx;
+    height: 614rpx;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.princess-box-image {
+    width: 100%;
+}
+
+.princess-title {
+    width: 460rpx;
+    display: block;
+    margin-top: 140rpx;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.princess-tips100 {
+    font-size: 24rpx;
+    color: #734017;
+    display: inline-block;
+    margin-left: 270rpx;
+    margin-top: 40rpx;
+}
+
+.princess-tips150 {
+    font-size: 24rpx;
+    color: #734017;
+    display: inline-block;
+    margin-left: 120rpx;
+    margin-top: 40rpx;
+}
+
+.princess-progress-box {
+    width: 500rpx;
+    height: 24rpx;
+    display: block;
+    margin: auto;
+    margin-top: 12rpx;
+}
+
+.princess-progress {
+    margin-left: 12rpx;
+    margin-right: 12rpx;
+}
+
+.princess-progress-point1 {
+    width: 24rpx;
+    height: 24rpx;
+    background-color: #cdac70;
+    border-radius: 50%;
+    position: relative;
+    top: -16rpx;
+}
+
+.princess-progress-point2 {
+    width: 24rpx;
+    height: 24rpx;
+    background-color: #cdac70;
+    border-radius: 50%;
+    position: relative;
+    margin: auto;
+    top: -38rpx;
+}
+
+.princess-progress-point3 {
+    width: 24rpx;
+    height: 24rpx;
+    background-color: #cdac70;
+    border-radius: 50%;
+    position: relative;
+    top: -62rpx;
+    left: 476rpx;
+}
+
+.princess-tips-curr {
+    font-size: 24rpx;
+    color: #ff374e;
+    display: block;
+    margin-left: 8%;
+}
+
+.princess-card-btn {
+    width: 410rpx;
+    height: 96rpx;
+    display: block;
+    margin: auto;
+    margin-top: 48rpx;
+}
+
+.princess-rule {
+    font-size: 24rpx;
+    color: #734017;
+    text-align: center;
+    display: block;
+    margin-top: 24rpx;
+}

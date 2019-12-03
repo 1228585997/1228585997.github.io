@@ -1,0 +1,372 @@
+<template name="addressDetail">
+    <view>{{username}} {{mobile}}</view>
+    <view class="address__detail">{{full_name+addr}}</view>
+</template>
+<import src="/components/priceList/index.wxml"></import>
+<view class="Mask" wx:if="{{memberCheckShow}}"></view>
+<view class="container" hidden="{{!ready}}">
+    <include src="../../../components/toast/toast.wxml"></include>
+    <include src="../../../components/error-msg/error-msg.wxml"></include>
+    <form bindsubmit="submitCheckout" reportSubmit="true">
+        <view class="section separator" wx:if="{{virtualType>0}}">
+            <view class="text--justify phone_container">
+                <text class="phone_text">充值号码：</text>
+                <input disabled class="phone_input" maxlength="11" name="phone" placeholder="请输入手机号码" type="number" value="{{mobile}}" wx:if="{{!!mobile}}"></input>
+                <input class="phone_input" maxlength="11" name="phone" placeholder="请输入手机号码" type="number" value="{{mobile}}" wx:else></input>
+            </view>
+        </view>
+        <block wx:else>
+            <view wx:if="{{defaultAddress}}">
+                <view class="cell__group cell--detail" wx:if="{{expanded}}">
+                    <radio-group bindchange="addressChange" data-activity="click_pay_address" data-activityparam="" name="address_id">
+                        <label bindtap="addressClick" class="cell cell__address" data-addressid="{{item.id}}" wx:for="{{addressList}}" wx:key="id">
+                            <view class="cell__head">
+                                <radio checked="{{defaultAddress.id==item.id}}" value="{{item.id}}"></radio>
+                                <image class="icon" src="/images/radio_sel.png" wx:if="{{defaultAddress.id==item.id}}"></image>
+                                <icon size="19" type="circle" wx:else></icon>
+                            </view>
+                            <view class="cell__body">
+                                <template is="addressDetail" data="{{...item}}"></template>
+                            </view>
+                            <navigator catchtap="stopBtnPropagation" class="btn-edit" data-activity="click_pay_address_edition" data-activityparam="" url="/pages/user/address-edit/address-edit?id={{item.id}}">
+                                <image class="icon" src="https://jp.juancdn.com/xcx_images/icon_edit.png"></image>
+                            </navigator>
+                        </label>
+                    </radio-group>
+                    <view class="cell cell__last cell_new">
+                        <navigator bindtap="statisticsTap" class="address_addButton" data-activity="click_pay_address_add" data-activityparam="" url="/pages/user/address-edit/address-edit" wx:if="{{addressList.length<maxAddressLimit}}">
+                            <button class="add_address">手动添加</button>
+                        </navigator>
+                        <view bindtap="getWxAddress" class="address_addButton address_addButton2" data-activity="click_pay_address_addwx" data-activityparam="" wx:if="{{addressList.length<maxAddressLimit}}">
+                            <button class="WXaddress">添加微信地址</button>
+                        </view>
+                        <view bindtap="toggleAddressList" class="show-less" data-activity="click_pay_address_receives" data-activityparam="">收起
+              <text class="angle angle--up"></text>
+                        </view>
+                    </view>
+                </view>
+                <view class="section-default" wx:else>
+                    <image class="icon default-pointer" src="/images/pointer_white.png"></image>
+                    <view class="cell__body">
+                        <template is="addressDetail" data="{{...defaultAddress}}"></template>
+                    </view>
+                    <view bindtap="toggleAddressList" class="show-all" data-activity="click_pay_address_open" data-activityparam="">
+                        <text class="angle angle--down"></text>
+                    </view>
+                </view>
+                <input class="hidden" name="addr" value="{{defaultAddress.id}}"></input>
+            </view>
+            <view class="address_group" wx:else>
+                <view class="cell__last">
+                    <navigator bindtap="statisticsTap" class="address_addButton" data-activity="click_pay_address_add" data-activityparam="" url="/pages/user/address-edit/address-edit" wx:if="{{addressList.length<maxAddressLimit}}">
+                        <button class="add_address">手动添加</button>
+                    </navigator>
+                    <view bindtap="getWxAddress" class="address_addButton address_addButton2" data-activity="click_pay_address_addwx" data-activityparam="" wx:if="{{addressList.length<maxAddressLimit}}">
+                        <button class="WXaddress">添加微信地址</button>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="section separator">
+            <view class="goods__list" wx:if="{{goodsImage.length>1}}">
+                <scroll-view scrollX class="goods__list__box">
+                    <view class="good__list__item" wx:for="{{goodsImage}}" wx:key="{{index}}">
+                        <view class="goods__list__item">
+                            <image class="good__img" src="{{item.images}}"></image>
+                            <text class="images_tip" wx:if="{{item.imagesTips}}">{{item.imagesTips}}</text>
+                        </view>
+                    </view>
+                </scroll-view>
+                <view class="good__count">
+          共{{cart_sku}}件
+        </view>
+            </view>
+            <view class="good__item" wx:if="{{goodsItem}}">
+                <view class="good__body">
+                    <view class="good__body_l">
+                        <image class="good__img" src="{{goodsItem.images}}"></image>
+                        <text class="image_tip" wx:if="{{goodsItem.imagesTips}}">{{goodsItem.imagesTips}}</text>
+                    </view>
+                    <view class="good__body_r">
+                        <view class="good__info1">
+                            <view class="good__name">
+                {{goodsItem.title}}
+              </view>
+                        </view>
+                        <view class="good__info2">
+                            <text class="sku-info">{{goodsItem.av_zvalue}} {{goodsItem.av_fvalue}}</text>
+                            <view class="good__price">
+                                <view class="goods_number">X{{goodsItem.num}}</view>
+                            </view>
+                        </view>
+                        <view class="good__info3">
+                            <template is="priceList" data="{{priceList:goodsItem.priceList}}"></template>
+                            <view class="msg__box">
+                                <text bindtap="msgTipTap" class="msg__tip" data-activity="click_temai_pay_message" data-activityparam="">给商家留言</text>
+                                <text bindtap="msgTipTap" class="{{msgTipExpanded?'angle__up':'angle__down'}}"></text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="message_input" style="{{msgTipExpanded?'display:block;':'display:none;'}}">
+                    <textarea class="message_textarea" name="user_notes.{{goodsItem.shop_id}}" placeholder="{{msgTipExpanded?'给卖家留言(50字以内)':''}}"></textarea>
+                </view>
+            </view>
+            <view class="checkout__body">
+                <view class="text--justify" wx:for="{{money.detail}}" wx:key="index">
+                    <text>{{item.title}}</text>
+                    <text class="flex-center">{{item.desc}}</text>
+                    <text class="empty__angle"></text>
+                </view>
+                <view class="text--justify highlighted" wx:if="{{fanList.total>0&&isVip}}">
+                    <view>
+                        <text>{{money.money_fan_text}}</text>
+                    </view>
+                    <text class="flex-center">¥{{fanList.total}}</text>
+                    <text class="empty__angle"></text>
+                </view>
+                <view class="text--justify">
+                    <view>
+                        <text>总运费</text>
+                    </view>
+                    <text class="flex-center">¥0.00</text>
+                    <text class="empty__angle"></text>
+                </view>
+                <view bindtap="subCheckoutTap" class="text--justify" data-activity="click_fav_open" data-activityparam="">
+                    <view>
+                        <text>优惠总额</text>
+                        <text class="vip__tag" wx:if="{{memberCard.viptext}}">{{memberCard.viptext}}</text>
+                    </view>
+                    <text class="flex-center">-¥{{money.discount}}</text>
+                    <text class="angle {{subCheckoutExpanded?'angle--up':'angle--down'}}"></text>
+                </view>
+                <view class="sub__checkout" style="{{subCheckoutExpanded?'display:block;':'display:none;'}}">
+                    <view class="text--justify" wx:for="{{money.subDetail}}" wx:key="index">
+                        <text>{{item.title}}</text>
+                        <text>{{item.desc}}</text>
+                    </view>
+                </view>
+                <view bindtap="couponTap" class="text--justify line__top" data-hascoupon="{{selectedCoupon.hasCoupon}}" wx:if="{{selectedCoupon&&virtualType<=0}}">
+                    <text>{{selectedCoupon.use_condition}}</text>
+                    <text class="flex-center {{selectedCoupon.money>0?'text_red':''}}">{{selectedCoupon.count_desc}}</text>
+                    <text class="angle"></text>
+                    <input name="coupon_code" style="display:none;" type="text" value="{{selectedCoupon.coupon_code}}"></input>
+                </view>
+                <view class="text--justify line__top">
+                    <view>
+                        <text>选择获赠商品</text>
+                    </view>
+                    <text class="flex-center"></text>
+                    <text class="angle"></text>
+                </view>
+            </view>
+        </view>
+        <view class="section separator">
+            <view class="moneypay.pay__item" wx:if="{{jpPurse&&jpPurse.status!=1002}}">
+                <text class="pay__name" style="{{jpPurse.status==1002?'color:#999':'color:#333'}}">{{jpPurse.msg}}</text>
+                <image bindtap="changePurseCheckStatus" class="pay__sel" src="/images/radio{{jpPurse.status==1002?'_dis':jpPurseChecked?'_sel':''}}.png"></image>
+            </view>
+            <view class="pay__header">
+        支付方式
+      </view>
+            <view class="pay__list">
+                <view bindtap="wxpayCheck" class="pay__item">
+                    <image class="pay__icon" src="https://jp.juancdn.com/jpwebapp/images/shopping/icon_wx.png"></image>
+                    <text class="pay__name">微信支付</text>
+                    <image class="pay__sel" src="/images/radio{{jpWxPayChecked?'_sel':''}}.png"></image>
+                </view>
+            </view>
+        </view>
+        <view bindtap="closeKeyboard" class="mask" wx:if="{{showkeyboard}}"></view>
+        <view animation="{{maskAnimation}}" class="mask-pane" wx:if="{{showkeyboard}}">
+            <view bindtap="closeKeyboard" class="mask-pane__close">
+                <image src="/images/del.png"></image>
+            </view>
+            <view class="keyboard-win">
+                <view class="head">卷皮余额支付</view>
+                <view class="money">¥{{jpwallet_amount}}</view>
+                <view class="input-c">
+                    <view class="input-grid">
+                        <text class="dotted" wx:if="{{wallet.wallet_pwd.length>=1}}"></text>
+                    </view>
+                    <view class="input-grid">
+                        <text class="dotted" wx:if="{{wallet.wallet_pwd.length>=2}}"></text>
+                    </view>
+                    <view class="input-grid">
+                        <text class="dotted" wx:if="{{wallet.wallet_pwd.length>=3}}"></text>
+                    </view>
+                    <view class="input-grid">
+                        <text class="dotted" wx:if="{{wallet.wallet_pwd.length>=4}}"></text>
+                    </view>
+                    <view class="input-grid">
+                        <text class="dotted" wx:if="{{wallet.wallet_pwd.length>=5}}"></text>
+                    </view>
+                    <view class="input-grid">
+                        <text class="dotted" wx:if="{{wallet.wallet_pwd.length>=6}}"></text>
+                    </view>
+                </view>
+                <view class="tip">
+          请输入卷皮支付密码
+        </view>
+                <view class="title">
+                    <image src="/images/safe.png"></image>
+                    <text>卷皮安全键盘</text>
+                </view>
+                <view class="keyboard-c">
+                    <view bindtap="keyboardItemTap" class="keyboard-item" data-value="1">1</view>
+                    <view bindtap="keyboardItemTap" class="keyboard-item" data-value="2">2</view>
+                    <view bindtap="keyboardItemTap" class="keyboard-item" data-value="3">3</view>
+                    <view bindtap="keyboardItemTap" class="keyboard-item" data-value="4">4</view>
+                    <view bindtap="keyboardItemTap" class="keyboard-item" data-value="5">5</view>
+                    <view bindtap="keyboardItemTap" class="keyboard-item" data-value="6">6</view>
+                    <view bindtap="keyboardItemTap" class="keyboard-item" data-value="7">7</view>
+                    <view bindtap="keyboardItemTap" class="keyboard-item" data-value="8">8</view>
+                    <view bindtap="keyboardItemTap" class="keyboard-item" data-value="9">9</view>
+                    <view bindtap="keyboardItemTap" class="keyboard-item empty" data-value="empty"></view>
+                    <view bindtap="keyboardItemTap" class="keyboard-item" data-value="0">0</view>
+                    <view bindtap="keyboardItemTap" class="keyboard-item empty" data-value="del">
+                        <image src="/images/keyboard-del.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="closePurseWindControl" class="mask" wx:if="{{showpurseWindControl}}"></view>
+        <view animation="{{maskAnimation}}" class="mask-pane-80" wx:if="{{showpurseWindControl}}">
+            <form bindsubmit="submitVerificationCode" reportSubmit="true">
+                <view class="purse_win">
+                    <view class="title">安全验证</view>
+                </view>
+                <view class="purse_win_msg">为了您的资金安全，使用余额支付请验证手机验证码验证码发送到{{jpPhoneNumber}}</view>
+                <view class="purse-code">
+                    <input class="purse-code-input" maxlength="6" name="purseCode" onInput="onCodeInput" placeholder="请输入验证码" type="number"></input>
+                    <view bindtap="getVerificationCode" class="purse-code-getcode">
+                        <view class="purse-code-get">{{getVeriCodeTips}}</view>
+                    </view>
+                </view>
+                <view class="opreat-l">
+                    <view bindtap="cancelVerificationCode" class="opreat-l-btn" style="border-right: 1rpx solid #ebebeb;">
+                        <view class="text">取消</view>
+                    </view>
+                    <view bindtap="confirmVerificationCode" class="opreat-l-btn">
+                        <button class="button" formType="submit">确定</button>
+                    </view>
+                </view>
+            </form>
+        </view>
+        <view bindtap="closeUseCoupon" class="mask" wx:if="{{showUseCoupon}}"></view>
+        <view animation="{{maskAnimation}}" class="mask-pane" wx:if="{{showUseCoupon}}">
+            <view bindtap="closeUseCoupon" class="mask-pane__close">
+                <image src="/images/del.png"></image>
+            </view>
+            <view class="coupon__win">
+                <view class="head__title">选择优惠券</view>
+                <scroll-view scrollY class="coupon__list">
+                    <block wx:if="{{brandList.length>0}}">
+                        <view class="coupon__type">- 品牌专享券 -</view>
+                        <view wx:for="{{brandList}}" wx:for-item="brandItem">
+                            <view class="coupon__title">{{brandItem.brandName}}</view>
+                            <view bindtap="couponItemTap" class="couponB {{item.status==5?'couponB--disabled':''}}" data-bid="{{brandItem.gcId}}" data-couponcode="{{item.coupon_code}}" data-issel="{{item.is_sel}}" data-status="{{item.status}}" wx:for="{{brandItem.list}}" wx:key="index">
+                                <view class="couponB__left">
+                                    <view class="couponB__left-up">
+                                        <text class="couponB__num-tag">¥</text>
+                                        <text class="couponB__num">{{item.money}}</text>
+                                    </view>
+                                    <text class="couponB__left-down">{{item.coupon_use_condition}}</text>
+                                </view>
+                                <image class="couponB__line" mode="scaleToFill" src="../../../images/coupon_line_red.png" wx:if="{{item.status!==5}}"></image>
+                                <image class="couponB__line" mode="scaleToFill" src="../../../images/coupon_line_gray.png" wx:if="{{item.status==5}}"></image>
+                                <view class="couponB__middle">
+                                    <view class="couponB__middle-up">
+                                        <text class="couponB__title">{{brandItem.brandName}}</text>
+                                    </view>
+                                    <view class="couponB__middle-center"></view>
+                                    <view class="couponB__middle-down">
+                    {{item.start_time}} 至 {{item.end_time}}
+                  </view>
+                                </view>
+                                <view class="couponB__right">
+                                    <image class="coupon__sel" src="/images/radio{{item.is_sel?'_sel':''}}.png"></image>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{couponList.length>0}}">
+                        <view class="coupon__type">- 平台优惠券 -</view>
+                        <view bindtap="couponItemTap" class="couponB {{item.status==5?'couponB--disabled':''}}" data-couponcode="{{item.coupon_code}}" data-issel="{{item.is_sel}}" data-status="{{item.status}}" wx:for="{{couponList}}" wx:key="index">
+                            <view class="couponB__left">
+                                <view class="couponB__left-up">
+                                    <text class="couponB__num-tag">¥</text>
+                                    <text class="couponB__num">{{item.money}}</text>
+                                </view>
+                                <text class="couponB__left-down">{{item.coupon_use_condition}}</text>
+                            </view>
+                            <image class="couponB__line" mode="scaleToFill" src="../../../images/coupon_line_red.png" wx:if="{{item.status!==5}}"></image>
+                            <image class="couponB__line" mode="scaleToFill" src="../../../images/coupon_line_gray.png" wx:if="{{item.status==5}}"></image>
+                            <view class="couponB__middle">
+                                <view class="couponB__middle-up">
+                                    <text class="couponB__title">{{item.ap_belone_name}}</text>
+                                </view>
+                                <view class="couponB__middle-center"></view>
+                                <view class="couponB__middle-down">
+                  {{item.start_time}} 至 {{item.end_time}}
+                </view>
+                            </view>
+                            <view class="couponB__right">
+                                <image class="coupon__sel" src="/images/radio{{item.is_sel?'_sel':''}}.png"></image>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{invalidList.length>0}}">
+                        <view class="coupon__type">- 以下优惠劵不可用 -</view>
+                        <view bindtap="couponItemTap" class="couponB {{item.status==5?'couponB--disabled':''}}" data-couponcode="{{item.coupon_code}}" data-hasinvalid="invalid" data-status="{{item.status}}" wx:for="{{invalidList}}" wx:key="index">
+                            <view class="couponB__left">
+                                <view class="couponB__left-up">
+                                    <text class="couponB__num-tag">¥</text>
+                                    <text class="couponB__num">{{item.money}}</text>
+                                </view>
+                                <text class="couponB__left-down">{{item.coupon_use_condition}}</text>
+                            </view>
+                            <image class="couponB__line" mode="scaleToFill" src="../../../images/coupon_line_red.png" wx:if="{{item.status!=5}}"></image>
+                            <image class="couponB__line" mode="scaleToFill" src="../../../images/coupon_line_gray.png" wx:if="{{item.status==5}}"></image>
+                            <view class="couponB__middle">
+                                <view class="couponB__middle-up">
+                                    <text class="couponB__title">{{item.ap_belone_name}}</text>
+                                </view>
+                                <view class="couponB__middle-center"></view>
+                                <view class="couponB__middle-down">
+                  {{item.start_time}} 至 {{item.end_time}}
+                </view>
+                            </view>
+                            <view class="couponB__status_right">
+                                <view wx class="couponB__status" if="{{item.status==5}}">
+                                    <image class="couponB__status-img" mode="scaleToFill" src="../../../images/coupon-nmr.png"></image>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </scroll-view>
+                <view class="coupon__btn__box">
+                    <view class="coupon__count">已选择：{{selCoupon.length}}张</view>
+                    <view bindtap="couponBtnTap" class="coupon__btn">确认使用</view>
+                </view>
+            </view>
+        </view>
+        <view class="fixedbar__placeholder separator"></view>
+        <view class="submit__box">
+            <view bindtap="submitTipTap" class="checkout__info">
+                <view class="checkout__count">应付金额：
+          <text class="pay__amount" style="{{money.total_fan_money>0?'font-size:14px;color:#333;':''}}">¥{{money.pay_amount}}</text>
+                </view>
+                <view style="font-size:12px;color:#ff464e;text-align:right;" wx:if="{{money.totalFanMoney>0&&isVip}}">{{money.pay_fan_text}}</view>
+                <input name="total_amount" style="display:none" value="{{money.pay_amount}}"></input>
+            </view>
+            <button class="checkout__btn" formType="submit">
+        去付款
+      </button>
+            <view class="submit__box__tip" style="{{submitTipShow?'display:flex;':'display:none;'}}">
+                <view class="tip__txt">余额支付：¥{{jpwallet_amount}} | 还需支付：¥{{jpneedpay}}</view>
+                <image bindtap="submitTipTap" class="tip__del" src="/images/del.png"></image>
+            </view>
+        </view>
+    </form>
+</view>

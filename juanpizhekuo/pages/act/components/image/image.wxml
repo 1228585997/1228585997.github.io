@@ -1,0 +1,16 @@
+<template name="image">
+    <view class="image-box" wx:if="{{imageIndex[id]==0}}">
+        <image lazyLoad="true" mode="widthFix" src="{{img.src}}"></image>
+        <block wx:for="{{img.anchors}}" wx:key="index">
+            <navigator redirect bindtap="statisticsTap" data-activity="normal_activity" data-activityparam="{{item.activityparam}}" hoverClass="none" style="display:inline-block;position:absolute;width:{{item.width}}rpx;height:{{item.height}}rpx;top:{{item.top}}rpx;left:{{item.left}}rpx;" url="{{item.href}}" wx:if="{{item.type>0}}"></navigator>
+            <view bindtap="ruleTap" data-activity="normal_activity" data-activityparam="{{item.activityparam}}" data-id="{{item.id}}" style="display:inline-block;position:absolute;width:{{item.width}}rpx;height:{{item.height}}rpx;top:{{item.top}}rpx;left:{{item.left}}rpx;" wx:else></view>
+        </block>
+    </view>
+    <view class="image-box" wx:if="{{imageIndex[id]==index+1}}" wx:for="{{list}}" wx:key="index">
+        <image lazyLoad="true" mode="widthFix" src="{{item.img.src}}"></image>
+        <block wx:for="{{item.img.anchors}}" wx:key="index">
+            <navigator redirect bindtap="statisticsTap" data-activity="normal_activity" data-activityparam="{{item.activityparam}}" hoverClass="none" style="display:inline-block;position:absolute;width:{{item.width}}rpx;height:{{item.height}}rpx;top:{{item.top}}rpx;left:{{item.left}}rpx;" url="{{item.href}}" wx:if="{{item.type>0}}"></navigator>
+            <view bindtap="ruleTap" data-activity="normal_activity" data-activityparam="{{item.activityparam}}" data-id="{{item.id}}" style="display:inline-block;position:absolute;width:{{item.width}}rpx;height:{{item.height}}rpx;top:{{item.top}}rpx;left:{{item.left}}rpx;" wx:else></view>
+        </block>
+    </view>
+</template>

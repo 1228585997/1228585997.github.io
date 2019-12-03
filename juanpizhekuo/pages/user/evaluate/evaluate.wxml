@@ -1,0 +1,18 @@
+<import src="./components/rate.wxml"></import>
+<view class="evaluate">
+    <view class="Handle">
+        <view>处理速度:</view>
+        <template is="rate" data="{{startNum:startNum,rateKey:Speed,rateNum:processingSpeed}}"></template>
+    </view>
+    <view class="Handle">
+        <view>处理态度:</view>
+        <template is="rate" data="{{startNum:startNum,rateKey:Attitude,rateNum:HandlingAttitude}}"></template>
+    </view>
+    <view class="textarea-box item-pad12">
+        <textarea bindinput="changeText" maxlength="200" placeholder="售后处理速度挺快的，服务态度很棒！"></textarea>
+        <text class="textarea-len">{{textLen}}/200</text>
+    </view>
+    <view bindtap="SubmitRate" class="SubmitRate">
+  提交评价
+  </view>
+</view>

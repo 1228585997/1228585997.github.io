@@ -1,0 +1,29 @@
+@import "../../components/tuangoods/tuangoods.wxss";
+
+@import "../pinhaohuo/goods/index.wxss";
+
+@import "../../components/backtop/backtop.wxss";
+
+page,.container {
+    height: 100%;
+    background-color: #efeff4;
+}
+
+image {
+    width: 100%;
+    height: 100%;
+}
+
+.banner {
+    width: 100%;
+    height: 290rpx;
+    margin-bottom: 10px;
+}
+
+.jiu-title {
+    padding-top: 7px;
+    padding-bottom: 17px;
+    line-height: 1;
+    text-align: center;
+    color: #666;
+}

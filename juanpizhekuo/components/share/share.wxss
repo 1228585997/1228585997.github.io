@@ -1,0 +1,281 @@
+@import "../login-modal/index.wxss";
+
+.wx-applet-share-components {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+
+.wx-applet-share-components .share-ceng-components {
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.wx-applet-share-components .share-platform-components {
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 36rpx;
+    text-align: center;
+    z-index: 100;
+}
+
+.share-platform-components .share-txt-components {
+    color: #333;
+    font-size: 36rpx;
+    line-height: 36rpx;
+    font-weight: bold;
+    margin-bottom: 36rpx;
+}
+
+.share-platform-components .txt-red-components {
+    color: #ff464e;
+}
+
+.share-platform-components .platform-info-components {
+    text-align: center;
+    margin-bottom: 32rpx;
+}
+
+.share-platform-components .items-components {
+    display: inline-block;
+    position: relative;
+    margin-right: 120rpx;
+    border: none;
+    background-color: #FFF;
+    line-height: normal;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.share-platform-components .items-components::after {
+    border: none;
+}
+
+.share-platform-components .items-components:last-child {
+    margin-right: 0;
+}
+
+.share-platform-components .icons-wx-components,.share-platform-components .icons-code-components {
+    display: inline-block;
+    width: 96rpx;
+    height: 96rpx;
+}
+
+.share-platform-components .icons-new-components {
+    display: block;
+    width: 62rpx;
+    height: 24rpx;
+    position: absolute;
+    top: 0;
+    right: 3rpx;
+}
+
+.share-platform-components .platform-desc-components {
+    color: #333;
+    font-size: 24rpx;
+    margin-top: 12rpx;
+}
+
+.share-esc-btn-components {
+    background: #fff;
+    border-top: 1px solid #ebebeb;
+    border-radius: 0;
+    color: #333;
+    width: 100%;
+    font-size: 32rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    text-align: center;
+}
+
+.share-esc-btn-components::after {
+    border: none;
+}
+
+.wx-applet-share-components .share-result-components {
+    position: fixed;
+    top: 40rpx;
+    left: 50%;
+    margin-left: -300rpx;
+    width: 600rpx;
+    padding-top: 36rpx;
+    text-align: center;
+    z-index: 100;
+}
+
+.share-result-components .share-goods-components {
+    border-radius: 8rpx;
+    background: #fff;
+    position: relative;
+    width: 500rpx;
+    height: 760rpx;
+    margin-bottom: 48rpx;
+    margin-left: 58rpx;
+}
+
+.share-goods-components .shareImg-components {
+    width: 500rpx;
+    height: 760rpx;
+}
+
+.share-result-components .share-vip-components {
+    border-radius: 8rpx;
+    background: #fff;
+    position: relative;
+    width: 600rpx;
+    height: 796rpx;
+    margin-bottom: 48rpx;
+}
+
+.share-vip-components .shareImg-components {
+    width: 600rpx;
+    height: 796rpx;
+}
+
+.share-result-components .share-shareMoney-components {
+    border-radius: 8rpx;
+    background: #fff;
+    position: relative;
+    width: 600rpx;
+    height: 514rpx;
+    margin-bottom: 48rpx;
+    margin-top: 150rpx;
+}
+
+.share-shareMoney-components .shareImg-components {
+    width: 600rpx;
+    height: 514rpx;
+}
+
+.share-result-components .share-shareMoney-components618 {
+    border-radius: 8rpx;
+    background: #fff;
+    position: relative;
+    width: 600rpx;
+    height: 750rpx;
+    margin-bottom: 48rpx;
+    margin-top: 50rpx;
+}
+
+.share-shareMoney-components618 .shareImg-components {
+    width: 600rpx;
+    height: 750rpx;
+}
+
+.share-result-components .share-shareBox-components {
+    border-radius: 8rpx;
+    background: #fff;
+    position: relative;
+    width: 600rpx;
+    height: 480rpx;
+    margin-bottom: 100rpx;
+    margin-top: 150rpx;
+}
+
+.share-shareBox-components .shareImg-components {
+    width: 600rpx;
+    height: 480rpx;
+}
+
+.share-result-components .jp-logo-components {
+    display: block;
+    position: absolute;
+    top: 28rpx;
+    left: 50%;
+    margin-left: -118rpx;
+    width: 226rpx;
+    height: 60rpx;
+}
+
+.share-result-components .icons-close-components {
+    display: block;
+    position: absolute;
+    top: -24rpx;
+    right: -24rpx;
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.share-result-components .save-pic-btn-components {
+    border-radius: 40rpx;
+    background: #ff464e;
+    color: #fff;
+    font-size: 30rpx;
+    font-weight: bold;
+    display: inline-block;
+    width: 376rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    margin-bottom: 20rpx;
+}
+
+.share-result-components .yellow-components {
+    background: #FFBB00;
+}
+
+.share-result-components .icons-save-components {
+    display: inline-block;
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: -7rpx;
+    margin-right: 16rpx;
+}
+
+.share-result-components .share-result-components-txt-components {
+    color: #fff;
+    font-size: 28rpx;
+    text-align: center;
+}
+
+.canvasGoods {
+    height: 912px;
+    width: 600px;
+    margin-left: 2000px;
+}
+
+.canvasVip {
+    height: 796px;
+    width: 600px;
+    margin-left: 2000px;
+}
+
+.canvasAvatar {
+    height: 160px;
+    width: 160px;
+    margin-left: 2000px;
+}
+
+.canvasCode {
+    height: 169px;
+    width: 169px;
+    margin-left: 2000px;
+}
+
+.canvaShareBox {
+    height: 600px;
+    width: 750px;
+    margin-left: 2000px;
+}
+
+.canvaShareMoney618 {
+    height: 750px;
+    width: 600px;
+    margin-left: 2000px;
+}
+
+.canvaShareMoney {
+    height: 514px;
+    width: 600px;
+    margin-left: 2000px;
+}

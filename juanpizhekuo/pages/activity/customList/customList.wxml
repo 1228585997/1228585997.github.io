@@ -1,0 +1,46 @@
+<view>
+    <view class="ListOuter">
+        <view class="ListTopImg">
+            <image src="https://web.juanpi.com/images/activity/custom/customListTop.png"></image>
+        </view>
+        <view class="ListCenter" style="height: {{goodsArr.length>20?'height: 1194rpx;':'auto'}}">
+            <view class="ListCenterInner">
+                <view class="ListCenterTitle">
+                    <text class="span">中奖用户名称</text>
+                    <text class="em">手机号</text>
+                </view>
+                <scroll-view scrollY bindscroll="scroll" bindscrolltolower="lower" bindscrolltoupper="upper" class="ListCenterUl" scrollIntoView="{{toView}}" scrollTop="{{scrollTop}}">
+                    <view class="ListCenterLi" wx:for="{{goodsArr}}">
+                        <text class="span">{{item.name}}</text>
+                        <text class="em">{{item.tel}}</text>
+                    </view>
+                    <view class="ListCenterHint" wx:if="{{goodsArr.length==0}}">获奖者正在路上...</view>
+                </scroll-view>
+            </view>
+        </view>
+        <view class="ListHint">
+            <text class="h3">活动规则：</text>
+            <text>一、参加条件</text>
+            <text>1. 活动时间：2017年12月30日10时00分00秒至2017年12月31日24时00分00秒。</text>
+            <text>2. 用户在卷皮（含APP、微信端、小程序、PC端、M端等渠道）购物满100元即可参与免单抽奖活动。</text>
+            <text>二、获奖规则</text>
+            <text>1. 活动期间，每天10点至24点期间每2小时随机抽50名获奖用户，
+                每天500个中奖名额，活动共产生999个名额；</text>
+            <text>2. 卷皮将实时公布中奖信息，请注意查看。</text>
+            <text>三、奖品发放</text>
+            <text>1. 中奖金额以用户中奖订单实际支付金额为准，免单金额最高可达1万
+                元，超过1万元按1万计算；</text>
+            <text>2. 	奖品将在用户中奖订单确认收货且无售后后，发放至用户的个人中心
+                -余额卷币-购物基金内，可用于卷皮购物消费。</text>
+            <text>四、特别说明</text>
+            <text>1. 	若用户中奖订单存在售后申请，则会取消中奖资格；</text>
+            <text>2. 	活动期间，凡以不正当手段（包括但不限于作弊、虚假交易、扰乱
+            系统、恶意刷单、实施网络攻击等）参与本次活动的用户，卷皮有权
+            终止用户活动资格；</text>
+            <text>3. 在法律允许范围内，卷皮对活动期间的规则保留最终解释权。</text>
+        </view>
+        <view class="imageFoot">
+            <image src="https://web.juanpi.com/images/activity/custom/customFoot.png"></image>
+        </view>
+    </view>
+</view>
