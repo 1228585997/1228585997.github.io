@@ -1,3 +1,0 @@
-<scroll-view class="container" scrollTop="{{scrollTop}}">
-    <image mode="widthFix" src="{{item}}" wx:for="{{images}}" wx:for-index="idx"></image>
-</scroll-view>

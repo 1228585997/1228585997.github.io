@@ -1,6 +1,0 @@
-<step-experience-modal bindconfirmed="onClickConfirm" steps="{{rewardSteps}}" success="{{rewardSuccess}}" wx:if="{{rewardType==1&&showModal}}"></step-experience-modal>
-<hb-experience-modal bindconfirmed="onClickConfirm" bindreceived="onClickReceived" success="{{rewardSuccess}}" wx:if="{{rewardType==2&&showModal}}"></hb-experience-modal>
-<hongbao-modal bindclosed="onClickClose" bindlooked="onClickLook" money="{{money}}" wx:if="{{showHbModal}}"></hongbao-modal>
-<view class="task-list__container">
-    <image bindtap="onTapItem" class="task-list__item" data-index="{{index}}" src="{{item.wt_logo}}" wx:for="{{list}}" wx:key="{{index}}"></image>
-</view>

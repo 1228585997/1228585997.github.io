@@ -1,8 +1,0 @@
-<view class="failed-empty">
-    <view>
-        <view class="status-img">
-            <image class="failed-empty__image" src="https://jp.juancdn.com/jpwebapp_v4/dist/stylesheets/common/components/failed/images/network.png"></image>
-        </view>
-        <view class="failed-text">网络不顺畅</view>
-    </view>
-</view>

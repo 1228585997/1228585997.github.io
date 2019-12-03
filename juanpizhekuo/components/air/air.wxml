@@ -1,6 +1,0 @@
-<view class="air">
-    <image src="{{air.img}}"></image>
-    <view class="air_title">{{air.title}}</view>
-    <view class="air_info">{{air.info}}</view>
-    <view bindtap="airTapEvent" class="air_button">{{air.buttonText}}</view>
-</view>

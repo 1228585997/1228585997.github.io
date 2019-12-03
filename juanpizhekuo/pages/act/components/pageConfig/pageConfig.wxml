@@ -1,6 +1,0 @@
-<template name="pageConfig">
-    <view class="bottom-logo" style="background-color: {{bottombg?bottombg:'rgba(#000, 0.05)'}};" wx:if="{{type==1}}">
-        <image src="/images/bottom_logo.png"></image>
-    </view>
-    <view class="page-nomore" style="color:{{bottomColor?bottomColor:'#6e6e6e'}};" wx:elif="{{type==2}}">没有更多了~</view>
-</template>

@@ -1,9 +1,0 @@
-{
-    "navigationBarTitleText": "助力抢红包",
-    "enablePullDownRefresh": true,
-    "backgroundTextStyle": "dark",
-    "usingComponents": {
-        "msg-bubble": "/publicComponents/MsgBubble/index",
-        "red-envelope": "./components/RedEnvelope/index"
-    }
-}

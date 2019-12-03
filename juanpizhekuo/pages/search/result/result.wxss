@@ -1,5 +1,0 @@
-@import "../../../components/goods/sort-tabs/sort-tabs.wxss";
-
-@import "../../../components/goods/goods.wxss";
-
-@import "../../../components/goods-list/index.wxss";

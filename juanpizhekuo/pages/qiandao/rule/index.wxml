@@ -1,8 +1,0 @@
-<view class="container">
-    <view class="article">
-        <block wx:for="{{rules}}" wx:key="index">
-            <text class="quest">{{item.quetion}}</text>
-            <text class="answer" wx:if="{{!!item.answer}}">{{item.answer}}</text>
-        </block>
-    </view>
-</view>

@@ -1,9 +1,0 @@
-<import src="./components/progress.wxml"></import>
-<import src="./components/after-sales-form.wxml"></import>
-<view class="container">
-    <form bindsubmit="bindFormSubmit">
-        <template is="after-sales-form" data="{{isNoteRequired:isNoteRequired,isProofRequired:isProofRequired,imgList:imgList}}"></template>
-        <button class="btn" formType="submit">提交申请</button>
-    </form>
-    <include src="/components/toast/toast.wxml"></include>
-</view>

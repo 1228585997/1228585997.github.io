@@ -1,4 +1,0 @@
-<import src="../TabsGoods/index.wxml"></import>
-<scroll-view scrollY bindscroll="dealScroll" bindscrolltolower="getMoreGoods" class="container" hidden="{{!ready}}" id="container" scrollTop="{{scrollTop}}">
-    <template is="TabsGoods" data="{{tabFix:tabFix,Cates:Cates,subCates:subCates,curIndex:curIndex,curSubIndex:curSubIndex,goodsTabs:goodsTabs,showFilterWin:showFilterWin,isajaxing:isajaxing}}"></template>
-</scroll-view>

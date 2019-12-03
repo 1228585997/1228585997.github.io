@@ -1,8 +1,0 @@
-{
-    "navigationBarTitleText": "开宝箱领钱",
-    "enablePullDownRefresh": true,
-    "usingComponents": {
-        "danmu-list": "/pages/activity/box/components/danmu/index",
-        "rule-dialog": "/pages/activity/box/components/rule/index"
-    }
-}

@@ -1,6 +1,0 @@
-<view class="popup-chain__root" wx:if="{{shown}}">
-    <view class="popup-chain__box">
-        <image bindtap="onTapImage" class="popup-chain__image" mode="widthFix" src="{{imageUrl}}"></image>
-        <image bindtap="onTapClose" class="popup-chain__close" mode="scaleToFill" src="/images/close_icon.png"></image>
-    </view>
-</view>

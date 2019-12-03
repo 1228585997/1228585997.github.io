@@ -1,7 +1,0 @@
-<import src="/components/countdown/countdown.wxml"></import>
-<import src="../TabsGoods/index.wxml"></import>
-<import src="../TabsGoods/filter.wxml"></import>
-<scroll-view scrollY bindscroll="dealScroll" bindscrolltolower="getMoreGoods" class="container" hidden="{{!ready}}" id="container" scrollTop="{{scrollTop}}">
-    <template is="TabsGoods" data="{{tabFix:tabFix,Cates:Cates,curIndex:curIndex,goodsTabs:goodsTabs}}"></template>
-</scroll-view>
-<template is="filter" data="{{showFilterWin:showFilterWin,size_info:size_info,maskAnimation:maskAnimation}}"></template>
